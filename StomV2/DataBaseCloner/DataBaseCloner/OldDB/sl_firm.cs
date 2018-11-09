@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataBaseCloner.OldDB
 {
-    class sl_firm
+    public class sl_firm
     {
         public virtual int id { get; set; }
 
@@ -40,13 +40,18 @@ namespace DataBaseCloner.OldDB
 
         public virtual int zagal { get; set; }
 
+        public virtual ISet<Foto> fotos { get; set; }
+
+        public virtual ISet<priom> prioms { get; set; }
+
+        public virtual ISet<gotivka> gotivkas { get; set; }
+
+
         public sl_firm()
         {
         }
 
-        public sl_firm(int id, string name, string kod, string rr1, string bank1,
-            string mfo1, string kd1, string kv1, string rr2, string bank2, string mfo2,
-            string kd2, string kv2, string ch1, string ch2, int zagal)
+        public sl_firm(int id, string name, string kod, string rr1, string bank1, string mfo1, string kd1, string kv1, string rr2, string bank2, string mfo2, string kd2, string kv2, string ch1, string ch2, int zagal, ISet<Foto> fotos, ISet<priom> prioms, ISet<gotivka> gotivkas)
         {
             this.id = id;
             this.name = name;
@@ -64,6 +69,9 @@ namespace DataBaseCloner.OldDB
             this.ch1 = ch1;
             this.ch2 = ch2;
             this.zagal = zagal;
+            this.fotos = fotos;
+            this.prioms = prioms;
+            this.gotivkas = gotivkas;
         }
     }
 }

@@ -32,6 +32,12 @@ namespace DataBaseCloner.NewDB
 
         public virtual bool IsPublic { get; set; }
 
+        public virtual List<Photo> Photos { get; set; }
+
+        public virtual List<PhoneNumber> PhoneNumbers { get; set; }
+
+        public virtual List<Visit> Visits { get; set; }
+
         public Patient()
         {
         }

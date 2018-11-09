@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataBaseCloner.OldDB
 {
-    class priom
+    public class priom
     {
         public virtual int id_pr { get; set; }
 
@@ -28,14 +28,15 @@ namespace DataBaseCloner.OldDB
 
         public virtual int cat { get; set; }
 
+        public virtual ISet<oper> opers { get; set; }
+
         public priom()
         {
         }
 
-        public priom(int id_pr, int firma, int fio, DateTime data, int likar, 
-            string diag, string likuv, float sale, float suma, int cat)
+        public priom(int idPr, int firma, int fio, DateTime data, int likar, string diag, string likuv, float sale, float suma, int cat, ISet<oper> opers)
         {
-            this.id_pr = id_pr;
+            id_pr = idPr;
             this.firma = firma;
             this.fio = fio;
             this.data = data;
@@ -45,6 +46,7 @@ namespace DataBaseCloner.OldDB
             this.sale = sale;
             this.suma = suma;
             this.cat = cat;
+            this.opers = opers;
         }
     }
 }

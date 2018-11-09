@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataBaseCloner.OldDB
 {
-    class sl_op_roz
+    public class sl_op_roz
     {
         public virtual int id_roz { get; set; }
 
@@ -14,15 +14,19 @@ namespace DataBaseCloner.OldDB
 
         public virtual bool druk { get; set; }
 
+        public virtual ISet<sl_op_op> sl_op_ops { get; set; }
+
+
         public sl_op_roz()
         {
         }
 
-        public sl_op_roz(int id_roz, string n_roz, bool druk)
+        public sl_op_roz(int idRoz, string nRoz, bool druk, ISet<sl_op_op> slOpOps)
         {
-            this.id_roz = id_roz;
-            this.n_roz = n_roz;
+            id_roz = idRoz;
+            n_roz = nRoz;
             this.druk = druk;
+            sl_op_ops = slOpOps;
         }
     }
 }

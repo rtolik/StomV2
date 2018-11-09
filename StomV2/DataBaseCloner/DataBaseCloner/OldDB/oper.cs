@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataBaseCloner.OldDB
 {
-    class oper
+    public class oper
     {
         public virtual int id_det { get; set; }
 

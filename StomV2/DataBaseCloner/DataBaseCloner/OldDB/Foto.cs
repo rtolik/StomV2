@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataBaseCloner.OldDB
 {
-    class Foto
+    public class Foto
     {
         public virtual int id_foto { get; set; }
 
@@ -25,9 +25,9 @@ namespace DataBaseCloner.OldDB
         {
         }
 
-        public Foto(int id_foto, int fio, int firma, DateTime data, string prim, Image foto)
+        public Foto(int idFoto, int fio, int firma, DateTime data, string prim, Image foto)
         {
-            this.id_foto = id_foto;
+            id_foto = idFoto;
             this.fio = fio;
             this.firma = firma;
             Data = data;

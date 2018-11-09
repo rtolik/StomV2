@@ -6,20 +6,27 @@ using System.Threading.Tasks;
 
 namespace DataBaseCloner.OldDB
 {
-    class sl_likar
+    public class sl_likar
     {
         public virtual int id_likar { get; set; }
 
         public virtual string n_likar { get; set; }
 
+        public virtual ISet<pl_pr> pl_prs { get; set; }
+
+        public virtual ISet<priom> prioms { get; set; }
+
+
         public sl_likar()
         {
         }
 
-        public sl_likar(int id_likar, string n_likar)
+        public sl_likar(int idLikar, string nLikar, ISet<pl_pr> plPrs, ISet<priom> prioms)
         {
-            this.id_likar = id_likar;
-            this.n_likar = n_likar;
+            id_likar = idLikar;
+            n_likar = nLikar;
+            pl_prs = plPrs;
+            this.prioms = prioms;
         }
     }
 }

@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS Doctor (
     firmId INT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (firmId)
-        REFERENCES Firm(id)
+        REFERENCES Firm (id)
 );
 
 CREATE TABLE IF NOT EXISTS Bank (
@@ -37,13 +37,7 @@ CREATE TABLE IF NOT EXISTS Bank (
     firmId INT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (firmId)
-        REFERENCES Firm(id)
-);
-
-CREATE TABLE IF NOT EXISTS PhoneNumber (
-    id INT NOT NULL AUTO_INCREMENT UNIQUE,
-    phone VARCHAR(13) NOT NULL,
-    PRIMARY KEY (id)
+        REFERENCES Firm (id)
 );
 
 CREATE TABLE IF NOT EXISTS Patient (
@@ -55,18 +49,25 @@ CREATE TABLE IF NOT EXISTS Patient (
     phoneNumberId INT,
     firmId INT NOT NULL,
     adress VARCHAR(100),
-    discount INT NOT NULL DEFAULT 0,
+    sale FLOAT(5 , 2 ) NOT NULL DEFAULT 0,
     remark VARCHAR(200),
     contraindications VARCHAR(200),
-    icon VARCHAR(1000),
+    iconPath VARCHAR(1000),
     isPublic BOOL NOT NULL DEFAULT FALSE,
     PRIMARY KEY (id),
     FOREIGN KEY (patientCatId)
-        REFERENCES PatientCat(id),
-    FOREIGN KEY (phoneNumberId)
-        REFERENCES PhoneNumber(id),
+        REFERENCES PatientCat (id),
     FOREIGN KEY (firmId)
-        REFERENCES Firm(id)
+        REFERENCES Firm (id)
+);
+
+CREATE TABLE IF NOT EXISTS PhoneNumber (
+    id INT NOT NULL AUTO_INCREMENT UNIQUE,
+    phone VARCHAR(13) NOT NULL,
+    patientId INT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (patientId)
+        REFERENCES Patient (id)
 );
 
 CREATE TABLE IF NOT EXISTS Photo (
@@ -76,7 +77,7 @@ CREATE TABLE IF NOT EXISTS Photo (
     remark VARCHAR(200),
     PRIMARY KEY (id),
     FOREIGN KEY (patientId)
-        REFERENCES Patient(id)
+        REFERENCES Patient (id)
 );
 
 CREATE TABLE IF NOT EXISTS Cash (
@@ -88,9 +89,9 @@ CREATE TABLE IF NOT EXISTS Cash (
     remark VARCHAR(200),
     PRIMARY KEY (id),
     FOREIGN KEY (patientId)
-        REFERENCES Patient(id),
+        REFERENCES Patient (id),
     FOREIGN KEY (firmId)
-        REFERENCES Firm(id)
+        REFERENCES Firm (id)
 );
 
 CREATE TABLE IF NOT EXISTS Paragraph (
@@ -107,13 +108,13 @@ CREATE TABLE IF NOT EXISTS Manipulation (
     paragraphId INT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (paragraphId)
-        REFERENCES Paragraph(id)
+        REFERENCES Paragraph (id)
 );
 
 CREATE TABLE IF NOT EXISTS Matherial (
     id INT NOT NULL AUTO_INCREMENT UNIQUE,
     name VARCHAR(50) NOT NULL,
-    type CHAR(10) NOT NULL,
+    type CHAR(11) NOT NULL,
     date DATE NOT NULL,
     number INT NOT NULL,
     pricePerOne FLOAT(10 , 2 ),
@@ -121,7 +122,7 @@ CREATE TABLE IF NOT EXISTS Matherial (
     manipulationId INT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (manipulationId)
-        REFERENCES Manipulation(id)
+        REFERENCES Manipulation (id)
 );
 
 CREATE TABLE IF NOT EXISTS VisitCategory (
@@ -143,13 +144,13 @@ CREATE TABLE IF NOT EXISTS Visit (
     summ FLOAT(10 , 2 ) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (visitCategoryId)
-        REFERENCES visitCategory(id),
+        REFERENCES visitCategory (id),
     FOREIGN KEY (firmId)
-        REFERENCES Firm(id),
+        REFERENCES Firm (id),
     FOREIGN KEY (patientId)
-        REFERENCES Patient(id),
+        REFERENCES Patient (id),
     FOREIGN KEY (doctorId)
-        REFERENCES Doctor(id)
+        REFERENCES Doctor (id)
 );
 
 CREATE TABLE IF NOT EXISTS Operation (
@@ -159,10 +160,10 @@ CREATE TABLE IF NOT EXISTS Operation (
     number INT UNSIGNED DEFAULT 1,
     sale FLOAT(5 , 2 ) DEFAULT 0,
     summ FLOAT(10 , 2 ) NOT NULL,
-    isMade boolean default false,
+    isMade BOOLEAN DEFAULT FALSE,
     PRIMARY KEY (id),
     FOREIGN KEY (visitId)
-        REFERENCES Visit(id),
+        REFERENCES Visit (id),
     FOREIGN KEY (manipulationId)
-        REFERENCES Manipulation(id)
+        REFERENCES Manipulation (id)
 );
