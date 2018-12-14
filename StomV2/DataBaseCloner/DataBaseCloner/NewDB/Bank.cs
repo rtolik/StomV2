@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataBaseCloner.NewDB
 {
-    class Bank
+    public class Bank
     {
         public virtual int Id { get; set; }
 
@@ -20,16 +20,14 @@ namespace DataBaseCloner.NewDB
 
         public virtual string EveningCash { get; set; }
 
-        public virtual string Person { get; set; }
-
-        public virtual string FirmId { get; set; }
+        public virtual Firm Firm { get; set; }
 
         public Bank()
         {
         }
 
         public Bank(int id, string splitAccount, string name, string mfo, string dayCash,
-            string eveningCash, string person, string firmId)
+            string eveningCash, int firmId)
         {
             Id = id;
             SplitAccount = splitAccount;
@@ -37,8 +35,7 @@ namespace DataBaseCloner.NewDB
             Mfo = mfo;
             DayCash = dayCash;
             EveningCash = eveningCash;
-            Person = person;
-            FirmId = firmId;
+            Firm.Id = firmId;
         }
     }
 }

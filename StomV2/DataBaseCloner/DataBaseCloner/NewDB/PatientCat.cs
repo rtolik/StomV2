@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace DataBaseCloner.NewDB
 {
-    class PatientCat
+    public class PatientCat
     {
         public virtual int Id { get; set; }
 
         public virtual string Name { get; set; }
 
         public virtual float Sale { get; set; }
+
+        public virtual ISet<Patient> Patients { get; set; }
 
         public PatientCat()
         {

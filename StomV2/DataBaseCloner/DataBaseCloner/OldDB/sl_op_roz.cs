@@ -21,12 +21,11 @@ namespace DataBaseCloner.OldDB
         {
         }
 
-        public sl_op_roz(int idRoz, string nRoz, bool druk, ISet<sl_op_op> slOpOps)
+        public sl_op_roz(int idRoz, string nRoz, bool druk)
         {
             id_roz = idRoz;
             n_roz = nRoz;
             this.druk = druk;
-            sl_op_ops = slOpOps;
         }
     }
 }

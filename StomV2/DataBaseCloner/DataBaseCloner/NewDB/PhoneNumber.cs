@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace DataBaseCloner.NewDB
 {
-    class PhoneNumber
+    public class PhoneNumber
     {
         public virtual int Id { get; set; }
 
         public virtual string Phone { get; set; }
 
-        public virtual int PatientId { get; set; }
+        public virtual Patient Patient { get; set; }
 
         public PhoneNumber()
         {
@@ -22,7 +22,7 @@ namespace DataBaseCloner.NewDB
         {
             Id = id;
             Phone = phone;
-            PatientId = patientId;
+            Patient.Id = patientId;
         }
     }
 }

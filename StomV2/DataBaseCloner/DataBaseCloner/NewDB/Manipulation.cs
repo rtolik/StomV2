@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataBaseCloner.NewDB
 {
-    class Manipulation
+    public class Manipulation
     {
         public virtual int Id { get; set; }
 
@@ -14,7 +14,11 @@ namespace DataBaseCloner.NewDB
 
         public virtual float Price { get; set; }
 
-        public virtual int ParagraphId { get; set; }
+        public virtual ISet<Operation> Operations { get; set; }
+
+        public virtual ISet<Matherial> Matherials { get; set; }
+
+        public virtual Paragraph Paragraph { get; set; }
 
         public Manipulation()
         {
@@ -25,7 +29,7 @@ namespace DataBaseCloner.NewDB
             Id = id;
             Name = name;
             Price = price;
-            ParagraphId = paragraphId;
+            Paragraph.Id = paragraphId;
         }
     }
 }

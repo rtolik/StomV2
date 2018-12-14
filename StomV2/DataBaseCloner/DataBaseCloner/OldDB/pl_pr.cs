@@ -35,7 +35,7 @@ namespace DataBaseCloner.OldDB
         {
         }
 
-        public pl_pr(int idPr, int firma, int fio, DateTime data, int likar, string diag, string likuv, float sale, float suma, int cat, ISet<pl_oper> plOpers)
+        public pl_pr(int idPr, int firma, int fio, DateTime data, int likar, string diag, string likuv, float sale, float suma, int cat)
         {
             id_pr = idPr;
             this.firma = firma;
@@ -47,7 +47,6 @@ namespace DataBaseCloner.OldDB
             this.sale = sale;
             this.suma = suma;
             this.cat = cat;
-            pl_opers = plOpers;
         }
     }
 }

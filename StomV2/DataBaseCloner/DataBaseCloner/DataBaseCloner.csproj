@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Init\NewDB\NewInitializer.cs" />
     <Compile Include="NewDB\Enum\MatherialType.cs" />
     <Compile Include="NewDB\Manipulation.cs" />
     <Compile Include="NewDB\Bank.cs" />
@@ -101,5 +102,39 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="hibernate.cfg.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewDB\Mapers\Firm.hbm.xml" />
+    <EmbeddedResource Include="NewDB\Mapers\Cash.hbm.xml" />
+    <EmbeddedResource Include="NewDB\Mapers\Doctor.hbm.xml" />
+    <EmbeddedResource Include="NewDB\Mapers\Manipulation.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewDB\Mapers\Matherial.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewDB\Mapers\Operation.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewDB\Mapers\Paragraph.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewDB\Mapers\Patient.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewDB\Mapers\PatientCat.hbm.xml" />
+    <EmbeddedResource Include="NewDB\Mapers\PhoneNumber.hbm.xml" />
+    <EmbeddedResource Include="NewDB\Mapers\Photo.hbm.xml" />
+    <EmbeddedResource Include="NewDB\Mapers\Visit.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewDB\Mapers\VisitCategory.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewDB\Mapers\Bank.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

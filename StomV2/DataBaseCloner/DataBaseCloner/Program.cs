@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using DataBaseCloner.NewDB;
 using NHibernate.Cfg;
 
 namespace DataBaseCloner
@@ -11,16 +14,24 @@ namespace DataBaseCloner
     {
         static void Main(string[] args)
         {
-            Configuration cfg = new Configuration();
+            var sefact = new Configuration()
+                .Configure(@"D:\proj\Stom_2_0\StomV2\DataBaseCloner\DataBaseCloner\hibernate.cfg.xml")
+                .BuildSessionFactory();
+            
 
-            string connection = "Data Source =MAYHEM\\SQLEXPRESS; Integrated Security = True; database=Stomatologia";
-            cfg.DataBaseIntegration(x =>
+            using (var session = sefact.OpenSession())
             {
-                x.ConnectionString = connection;
-                x.LogSqlInConsole = true;
-                x.Driver<NHibernate.Driver.Sql2008ClientDriver>();
-                x.Dialect<NHibernate.Dialect.MsSql2008Dialect>();
-            });
+                using (var tx = session.BeginTransaction())
+                {
+                    foreach (Firm elFirm in Init.NewDB.NewInitializer.InitFirms())
+                    {
+                        session.Save(elFirm);
+                    }
+                    tx.Commit();;
+                }
+            }
+
+            Console.WriteLine("Succes!!!");
         }
     }
 }

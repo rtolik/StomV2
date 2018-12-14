@@ -1,22 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataBaseCloner.NewDB
 {
-    class Visit
+    public class Visit
     {
         public virtual int Id { get; set; }
-
-        public virtual int FirmId { get; set; }
-
-        public virtual int PatientId { get; set; }
-
-        public virtual int DoctorId { get; set; }
-
-        public virtual DateTime Date { get; set; }
 
         public virtual string Diagnosis { get; set; }
 
@@ -24,27 +13,40 @@ namespace DataBaseCloner.NewDB
 
         public virtual float Sale { get; set; }
 
-        public virtual int VisitCategoryId { get; set; }
+        public virtual DateTime Date { get; set; }
 
         public virtual float Summ { get; set; }
+
+        public virtual ISet<Operation> Operations { get; set; }
+
+        public virtual Firm Firm { get; set; }
+
+        public virtual Patient Patient { get; set; }
+
+        public virtual Doctor Doctor { get; set; }
+
+        public virtual VisitCategory VisitCategory { get; set; }
+
 
         public Visit()
         {
         }
 
-        public Visit(int id, int firmId, int patientId, int doctorId, DateTime date, 
-            string diagnosis, string terapy, float sale, int visitCategoryId, float summ)
+        public Visit(int id, string diagnosis, string terapy, float sale,
+            int visitCategoryId, float summ, int firmId,
+            int patientId, int doctorId, DateTime date)
         {
             Id = id;
-            FirmId = firmId;
-            PatientId = patientId;
-            DoctorId = doctorId;
-            Date = date;
             Diagnosis = diagnosis;
             Terapy = terapy;
             Sale = sale;
-            VisitCategoryId = visitCategoryId;
+            VisitCategory.Id = visitCategoryId;
             Summ = summ;
+            Firm.Id = firmId;
+            Patient.Id = patientId;
+            Doctor.Id = doctorId;
+            Date = date;
         }
+
     }
 }

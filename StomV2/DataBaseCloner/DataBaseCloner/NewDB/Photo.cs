@@ -1,30 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataBaseCloner.NewDB
 {
-    class Photo
+    public class Photo
     {
         public virtual int Id { get; set; }
 
-        public virtual int PhotoPath { get; set; }
-
-        public virtual int PatientId { get; set; }
+        public virtual string PhotoPath { get; set; }
 
         public virtual string Remark { get; set; }
 
-        public Photo()
-        {
-        }
+        public virtual DateTime Date { get; set; }
 
-        public Photo(int id, int photoPath, int patientId, string remark)
+        public virtual Patient Patient { get; set; }
+
+        public Photo() {}
+
+        public Photo(int id, string photoPath, int patientId, string remark)
         {
             Id = id;
             PhotoPath = photoPath;
-            PatientId = patientId;
+            Patient.Id = patientId;
             Remark = remark;
         }
     }

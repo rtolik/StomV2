@@ -14,11 +14,10 @@ namespace DataBaseCloner.OldDB
         {
         }
 
-        public sl_cat(int idCat, string nCat, ISet<fio> fios)
+        public sl_cat(int idCat, string nCat)
         {
             id_cat = idCat;
             n_cat = nCat;
-            this.fios = fios;
         }
     }
 }

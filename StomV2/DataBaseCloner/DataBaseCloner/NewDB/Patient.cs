@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataBaseCloner.NewDB
 {
-    class Patient
+    public class Patient
     {
         public virtual int Id { get; set; }
 
@@ -15,10 +15,6 @@ namespace DataBaseCloner.NewDB
         public virtual DateTime DateOfRegistration { get; set; }
 
         public virtual string FullName { get; set; }
-
-        public virtual int PatientCardId { get; set; }
-
-        public virtual int FirmId { get; set; }
 
         public virtual string Adress { get; set; }
 
@@ -32,26 +28,33 @@ namespace DataBaseCloner.NewDB
 
         public virtual bool IsPublic { get; set; }
 
-        public virtual List<Photo> Photos { get; set; }
+        public virtual ISet<Photo> Photos { get; set; }
 
-        public virtual List<PhoneNumber> PhoneNumbers { get; set; }
+        public virtual ISet<PhoneNumber> PhoneNumbers { get; set; }
 
-        public virtual List<Visit> Visits { get; set; }
+        public virtual ISet<Visit> Visits { get; set; }
+
+        public virtual ISet<Cash> Cashes { get; set; }
+
+        public virtual Firm Firm { get; set; }
+
+        public virtual PatientCat PatientCat { get; set; }
+
 
         public Patient()
         {
         }
 
         public Patient(int id, string medicalCard, DateTime dateOfRegistration, 
-            string fullName, int patientCardId, int firmId, string adress, float sale,
+            string fullName, int patientCatId, int firmId, string adress, float sale,
             string remark, string contraindications, string iconPath, bool isPublic)
         {
             Id = id;
             MedicalCard = medicalCard;
             DateOfRegistration = dateOfRegistration;
             FullName = fullName;
-            PatientCardId = patientCardId;
-            FirmId = firmId;
+            PatientCat.Id = patientCatId;
+            Firm.Id = firmId;
             Adress = adress;
             Sale = sale;
             Remark = remark;

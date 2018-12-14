@@ -6,13 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataBaseCloner.NewDB
 {
-    class Operation
+    public class Operation
     {
         public virtual int Id { get; set; }
-
-        public virtual int VisitId { get; set; }
-
-        public virtual int ManipulationId { get; set; }
 
         public virtual int Number { get; set; }
 
@@ -22,6 +18,10 @@ namespace DataBaseCloner.NewDB
 
         public virtual bool IsMade { get; set; }
 
+        public virtual Manipulation Manipulation { get; set; }
+
+        public virtual Visit Visit { get; set; }
+
         public Operation()
         {
         }
@@ -30,8 +30,8 @@ namespace DataBaseCloner.NewDB
             float sale, float summ, bool isMade)
         {
             Id = id;
-            VisitId = visitId;
-            ManipulationId = manipulationId;
+            Visit.Id = visitId;
+            Manipulation.Id = manipulationId;
             Number = number;
             Sale = sale;
             Summ = summ;

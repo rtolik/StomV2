@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace DataBaseCloner.NewDB
 {
-    class VisitCategory
+    public class VisitCategory
     {
         public virtual int Id { get; set; }
 
         public virtual string Name { get; set; }
+
+        public virtual ISet<Visit> Visits { get; set; }
 
         public VisitCategory()
         {

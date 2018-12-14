@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace DataBaseCloner.NewDB
 {
-    class Paragraph
+    public class Paragraph
     {
         public virtual int Id { get; set; }
 
         public virtual string Name { get; set; }
 
         public virtual bool Printable { get; set; }
+
+        public virtual ISet<Manipulation> Manipulations { get; set; }
 
         public Paragraph()
         {

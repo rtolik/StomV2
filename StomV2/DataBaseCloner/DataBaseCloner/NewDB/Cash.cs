@@ -6,29 +6,30 @@ using System.Threading.Tasks;
 
 namespace DataBaseCloner.NewDB
 {
-    class Cash
+    public class Cash
     {
         public virtual int Id { get; set; }
-
-        public virtual int PatientId { get; set; }
-
-        public virtual int FirmId { get; set; }
 
         public virtual DateTime Date { get; set; }
 
         public virtual float Value { get; set; }
 
-        public virtual int Remark { get; set; }
+        public virtual string Remark { get; set; }
+
+        public virtual Patient Patient { get; set; }
+
+        public virtual Firm Firm { get; set; }
+
 
         public Cash()
         {
         }
 
-        public Cash(int id, int patientId, int firmId, DateTime date, float value, int remark)
+        public Cash(int id, int patientId, int firmId, DateTime date, float value, string remark)
         {
             Id = id;
-            PatientId = patientId;
-            FirmId = firmId;
+            Patient.Id = patientId;
+            Firm.Id = firmId;
             Date = date;
             Value = value;
             Remark = remark;

@@ -7,7 +7,7 @@ using DataBaseCloner.NewDB.Enum;
 
 namespace DataBaseCloner.NewDB
 {
-    class Matherial
+    public class Matherial
     {
         public virtual int Id { get; set; }
 
@@ -23,14 +23,14 @@ namespace DataBaseCloner.NewDB
 
         public virtual float Summ { get; set; }
 
-        public virtual int ManipulationId { get; set; }
+        public virtual Manipulation Manipulation { get; set; }
 
         public Matherial()
         {
         }
 
         public Matherial(int id, string name, MatherialType type, DateTime date, int number,
-            float pricePerOne, float summ, int manipulationId)
+            float pricePerOne, int manipulationId)
         {
             Id = id;
             Name = name;
@@ -38,8 +38,8 @@ namespace DataBaseCloner.NewDB
             Date = date;
             Number = number;
             PricePerOne = pricePerOne;
-            Summ = summ;
-            ManipulationId = manipulationId;
+            Summ = number * pricePerOne; 
+            Manipulation.Id = manipulationId;
         }
     }
 }

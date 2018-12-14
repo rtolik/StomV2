@@ -21,12 +21,10 @@ namespace DataBaseCloner.OldDB
         {
         }
 
-        public sl_likar(int idLikar, string nLikar, ISet<pl_pr> plPrs, ISet<priom> prioms)
+        public sl_likar(int idLikar, string nLikar)
         {
             id_likar = idLikar;
             n_likar = nLikar;
-            pl_prs = plPrs;
-            this.prioms = prioms;
         }
     }
 }

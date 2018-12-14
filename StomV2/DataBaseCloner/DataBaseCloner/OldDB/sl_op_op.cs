@@ -27,15 +27,12 @@ namespace DataBaseCloner.OldDB
         {
         }
 
-        public sl_op_op(int idOp, int idRozd, string nOp, float cena, ISet<material> materials, ISet<pl_oper> plOpers, ISet<oper> opers)
+        public sl_op_op(int idOp, int idRozd, string nOp, float cena)
         {
             id_op = idOp;
             id_rozd = idRozd;
             n_op = nOp;
             this.cena = cena;
-            this.materials = materials;
-            pl_opers = plOpers;
-            this.opers = opers;
         }
     }
 }

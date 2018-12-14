@@ -26,20 +26,6 @@ CREATE TABLE IF NOT EXISTS Doctor (
         REFERENCES Firm (id)
 );
 
-CREATE TABLE IF NOT EXISTS Bank (
-    id INT NOT NULL AUTO_INCREMENT UNIQUE,
-    splitAccount VARCHAR(20) NOT NULL,
-    name VARCHAR(50) NOT NULL,
-    mfo VARCHAR(50) NOT NULL,
-    dayCash VARCHAR(20) NOT NULL,
-    eveningCash VARCHAR(20),
-    person VARCHAR(100) NOT NULL,
-    firmId INT NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (firmId)
-        REFERENCES Firm (id)
-);
-
 CREATE TABLE IF NOT EXISTS Patient (
     id INT NOT NULL AUTO_INCREMENT UNIQUE,
     medicalCard VARCHAR(100) NOT NULL,
@@ -61,6 +47,19 @@ CREATE TABLE IF NOT EXISTS Patient (
         REFERENCES Firm (id)
 );
 
+CREATE TABLE IF NOT EXISTS Bank (
+    id INT NOT NULL AUTO_INCREMENT UNIQUE,
+    splitAccount VARCHAR(20) NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    mfo VARCHAR(50) NOT NULL,
+    dayCash VARCHAR(20) NOT NULL,
+    eveningCash VARCHAR(20),
+    firmId INT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (firmId)
+        REFERENCES Firm (id)
+);
+
 CREATE TABLE IF NOT EXISTS PhoneNumber (
     id INT NOT NULL AUTO_INCREMENT UNIQUE,
     phone VARCHAR(13) NOT NULL,
@@ -75,6 +74,7 @@ CREATE TABLE IF NOT EXISTS Photo (
     photoPath VARCHAR(1000) NOT NULL,
     patientId INT NOT NULL,
     remark VARCHAR(200),
+    date DATE NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (patientId)
         REFERENCES Patient (id)

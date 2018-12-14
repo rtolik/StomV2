@@ -52,7 +52,7 @@ namespace DataBaseCloner.OldDB
         {
         }
 
-        public fio(int id, int nomer, DateTime datar, string fioName, string tel1, string tel2, string adres, int sales, string prim, string proti, Image foto, float n1, float n2, float n3, int zagal, ISet<pl_pr> plPrs, ISet<priom> prioms, ISet<Foto> fotos, ISet<gotivka> gotivkas)
+        public fio(int id, int nomer, DateTime datar, string fioName, string tel1, string tel2, string adres, int sales, string prim, string proti, Image foto, float n1, float n2, float n3, int zagal)
         {
             this.id = id;
             this.nomer = nomer;
@@ -69,10 +69,6 @@ namespace DataBaseCloner.OldDB
             this.n2 = n2;
             this.n3 = n3;
             this.zagal = zagal;
-            pl_prs = plPrs;
-            this.prioms = prioms;
-            this.fotos = fotos;
-            this.gotivkas = gotivkas;
         }
     }
 }

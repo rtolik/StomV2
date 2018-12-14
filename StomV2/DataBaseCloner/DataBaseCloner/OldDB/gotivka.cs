@@ -28,7 +28,7 @@ namespace DataBaseCloner.OldDB
         {
         }
 
-        public gotivka(int idGot, int fio, int firma, DateTime data, float suma, string prim, ISet<fio> fios, ISet<sl_firm> firms)
+        public gotivka(int idGot, int fio, int firma, DateTime data, float suma, string prim)
         {
             id_got = idGot;
             this.fio = fio;
@@ -36,8 +36,6 @@ namespace DataBaseCloner.OldDB
             this.data = data;
             this.suma = suma;
             this.prim = prim;
-            this.fios = fios;
-            this.firms = firms;
         }
     }
 }

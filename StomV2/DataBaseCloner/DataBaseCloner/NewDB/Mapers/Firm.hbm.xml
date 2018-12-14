@@ -1,0 +1,38 @@
+﻿<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
+                   assembly = "DataBaseCloner" namespace = "DataBaseCloner.NewDB">
+  <class name="Firm" table ="firm">
+    <id name="Id">
+      <generator class = "native"/>
+    </id>
+    <property name ="Name"/>
+    <property name ="Code"/>
+    <property name ="IsPatientPublic"/>
+
+    <set name = "Patients" lazy ="true" inverse="true" table = "`patient`">
+      <key column = "firmId"/>
+      <one-to-many class = "Patient"/>
+    </set>
+
+    <set name = "Visits" table = "`visit`">
+      <key column = "firmId"/>
+      <one-to-many class = "Visit"/>
+    </set>
+    
+    <set name = "Cashes" table = "`cash`">
+      <key column = "firmId"/>
+      <one-to-many class = "Cash"/>
+    </set>
+
+    <set name = "Banks" table = "`bank`">
+      <key column = "firmId"/>
+      <one-to-many class = "Bank"/>
+    </set>
+
+    <set name = "Doctors" table = "`doctor`">
+      <key column = "firmId"/>
+      <one-to-many class = "Doctor"/>
+    </set>
+
+  </class>
+
+</hibernate-mapping>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2" 
+                   assembly = "DataBaseCloner" namespace = "DataBaseCloner.NewDB">
+  <class name="Patient">
+    <id name="Id">
+      <generator class = "native"/>
+    </id>  
+  <property name ="MedicalCard"/>
+  <property name ="DateOfRegistration" type = "UtcDateTime"/>
+  <property name ="FullName"/>
+  <property name ="Adress"/>
+  <property name ="Sale"/>
+  <property name ="Remark"/>
+  <property name ="Contraindications"/>
+  <property name ="IconPath"/>
+  <property name ="IsPublic"/>
+
+    <set name = "Photos" table = "`photo`"> 
+      <key column = "patientId"/> 
+      <one-to-many class = "Photo"/> 
+    </set> 
+    
+    <set name = "PhoneNumbers" table = "`phonenumber`"> 
+      <key column = "patientId"/> 
+      <one-to-many class = "PhoneNumber"/> 
+    </set> 
+
+    <set name = "Visits" table = "`visit`"> 
+      <key column = "patientId"/> 
+      <one-to-many class = "Visit"/> 
+    </set> 
+    
+    <set name = "Cashes" table = "`cash`"> 
+      <key column = "patientId"/> 
+      <one-to-many class = "Cash"/> 
+    </set> 
+
+    <many-to-one name = "Firm" column = "firmId"/> 
+    
+    <many-to-one name = "PatientCat" column = "patientCatId"/>
+
+  </class>
+  
+</hibernate-mapping>
