@@ -21,7 +21,7 @@ namespace DataBaseCloner.OldDB
         public virtual float cena { get; set; }
 
         public virtual float suma { get; set; }
-
+        
         public oper()
         {
         }

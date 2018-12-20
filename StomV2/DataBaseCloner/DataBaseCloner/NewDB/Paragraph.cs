@@ -20,9 +20,8 @@ namespace DataBaseCloner.NewDB
         {
         }
 
-        public Paragraph(int id, string name, bool printable)
+        public Paragraph(string name, bool printable)
         {
-            Id = id;
             Name = name;
             Printable = printable;
         }

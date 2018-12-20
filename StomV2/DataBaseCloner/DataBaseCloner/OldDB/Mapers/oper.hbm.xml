@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
+                   assembly = "DataBaseCloner" namespace = "DataBaseCloner.OldDB">
+  <class name = "oper">
+    <id name = "id_det">
+      <generator class = "native"/>
+    </id>
+
+    <property name = "priom"/>
+    <property name = "sl_operId" column = "oper" type = "int"/>
+    <property name = "kol"/>
+    <property name = "sale"/>
+    <property name = "cena"/>
+    <property name = "suma"/>
+  </class>
+
+</hibernate-mapping>

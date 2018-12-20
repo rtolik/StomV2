@@ -31,12 +31,19 @@ namespace DataBaseCloner.NewDB
         {
         }
 
-        public Firm(int id, string name, string code, bool isPatientPublic)
+        public Firm(string name, string code, bool isPatientPublic)
         {
-            this.Id = id;
             this.Name = name;
             this.Code = code;
             this.IsPatientPublic = isPatientPublic;
+        }
+
+        public Firm(sl_firm firm)
+        {
+            this.Id = firm.id;
+            this.Name = firm.name;
+            this.Code = firm.kod;
+            this.IsPatientPublic = firm.zagal;
         }
     }
 }

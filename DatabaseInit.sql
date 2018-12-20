@@ -1,8 +1,8 @@
-create database if not exists stomatology;
+create database if not exists stomatology char set utf8;
 
 use stomatology;
 
-CREATE TABLE IF NOT EXISTS PatientCat (
+CREATE TABLE IF NOT EXISTS PatientCat(
     id INT NOT NULL AUTO_INCREMENT UNIQUE,
     name VARCHAR(50) NOT NULL,
     sale FLOAT(5 , 2 ) NOT NULL DEFAULT 0,
@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS Firm (
     code VARCHAR(20) NOT NULL,
     isPatientPublic BOOL NOT NULL DEFAULT FALSE,
     PRIMARY KEY (id)
-);
+)char set utf8;
 
 CREATE TABLE IF NOT EXISTS Doctor (
     id INT NOT NULL AUTO_INCREMENT UNIQUE,
@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS Doctor (
     firmId INT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (firmId)
-        REFERENCES Firm (id)
+        REFERENCES firm (id)
 );
 
 CREATE TABLE IF NOT EXISTS Patient (
@@ -42,9 +42,9 @@ CREATE TABLE IF NOT EXISTS Patient (
     isPublic BOOL NOT NULL DEFAULT FALSE,
     PRIMARY KEY (id),
     FOREIGN KEY (patientCatId)
-        REFERENCES PatientCat (id),
+        REFERENCES patientcat (id),
     FOREIGN KEY (firmId)
-        REFERENCES Firm (id)
+        REFERENCES firm (id)
 );
 
 CREATE TABLE IF NOT EXISTS Bank (
@@ -57,8 +57,8 @@ CREATE TABLE IF NOT EXISTS Bank (
     firmId INT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (firmId)
-        REFERENCES Firm (id)
-);
+        REFERENCES stomatology.firm(id)
+)character set utf8;
 
 CREATE TABLE IF NOT EXISTS PhoneNumber (
     id INT NOT NULL AUTO_INCREMENT UNIQUE,
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS PhoneNumber (
     patientId INT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (patientId)
-        REFERENCES Patient (id)
+        REFERENCES patient (id)
 );
 
 CREATE TABLE IF NOT EXISTS Photo (
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS Photo (
     date DATE NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (patientId)
-        REFERENCES Patient (id)
+        REFERENCES patient (id)
 );
 
 CREATE TABLE IF NOT EXISTS Cash (
@@ -89,9 +89,9 @@ CREATE TABLE IF NOT EXISTS Cash (
     remark VARCHAR(200),
     PRIMARY KEY (id),
     FOREIGN KEY (patientId)
-        REFERENCES Patient (id),
+        REFERENCES patient (id),
     FOREIGN KEY (firmId)
-        REFERENCES Firm (id)
+        REFERENCES firm (id)
 );
 
 CREATE TABLE IF NOT EXISTS Paragraph (
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS Manipulation (
     paragraphId INT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (paragraphId)
-        REFERENCES Paragraph (id)
+        REFERENCES paragraph (id)
 );
 
 CREATE TABLE IF NOT EXISTS Matherial (
@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS Matherial (
     manipulationId INT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (manipulationId)
-        REFERENCES Manipulation (id)
+        REFERENCES manipulation (id)
 );
 
 CREATE TABLE IF NOT EXISTS VisitCategory (
@@ -146,11 +146,11 @@ CREATE TABLE IF NOT EXISTS Visit (
     FOREIGN KEY (visitCategoryId)
         REFERENCES visitCategory (id),
     FOREIGN KEY (firmId)
-        REFERENCES Firm (id),
+        REFERENCES firm (id),
     FOREIGN KEY (patientId)
-        REFERENCES Patient (id),
+        REFERENCES patient (id),
     FOREIGN KEY (doctorId)
-        REFERENCES Doctor (id)
+        REFERENCES doctor (id)
 );
 
 CREATE TABLE IF NOT EXISTS Operation (
@@ -165,5 +165,5 @@ CREATE TABLE IF NOT EXISTS Operation (
     FOREIGN KEY (visitId)
         REFERENCES Visit (id),
     FOREIGN KEY (manipulationId)
-        REFERENCES Manipulation (id)
+        REFERENCES manipulation (id)
 );

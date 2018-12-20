@@ -29,10 +29,9 @@ namespace DataBaseCloner.NewDB
         {
         }
 
-        public Matherial(int id, string name, MatherialType type, DateTime date, int number,
+        public Matherial(string name, MatherialType type, DateTime date, int number,
             float pricePerOne, int manipulationId)
         {
-            Id = id;
             Name = name;
             Type = type;
             Date = date;

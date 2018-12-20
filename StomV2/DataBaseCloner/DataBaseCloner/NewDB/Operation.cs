@@ -26,10 +26,9 @@ namespace DataBaseCloner.NewDB
         {
         }
 
-        public Operation(int id, int visitId, int manipulationId, int number,
+        public Operation(int visitId, int manipulationId, int number,
             float sale, float summ, bool isMade)
         {
-            Id = id;
             Visit.Id = visitId;
             Manipulation.Id = manipulationId;
             Number = number;

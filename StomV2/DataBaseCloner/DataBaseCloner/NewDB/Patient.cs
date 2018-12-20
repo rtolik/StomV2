@@ -38,22 +38,21 @@ namespace DataBaseCloner.NewDB
 
         public virtual Firm Firm { get; set; }
 
-        public virtual PatientCat PatientCat { get; set; }
+        public virtual PatientCategory PatientCategory { get; set; }
 
 
         public Patient()
         {
         }
 
-        public Patient(int id, string medicalCard, DateTime dateOfRegistration, 
+        public Patient(string medicalCard, DateTime dateOfRegistration, 
             string fullName, int patientCatId, int firmId, string adress, float sale,
             string remark, string contraindications, string iconPath, bool isPublic)
         {
-            Id = id;
             MedicalCard = medicalCard;
             DateOfRegistration = dateOfRegistration;
             FullName = fullName;
-            PatientCat.Id = patientCatId;
+            PatientCategory.Id = patientCatId;
             Firm.Id = firmId;
             Adress = adress;
             Sale = sale;

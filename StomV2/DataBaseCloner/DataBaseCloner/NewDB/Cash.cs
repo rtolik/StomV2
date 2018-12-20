@@ -25,9 +25,8 @@ namespace DataBaseCloner.NewDB
         {
         }
 
-        public Cash(int id, int patientId, int firmId, DateTime date, float value, string remark)
+        public Cash(int patientId, int firmId, DateTime date, float value, string remark)
         {
-            Id = id;
             Patient.Id = patientId;
             Firm.Id = firmId;
             Date = date;

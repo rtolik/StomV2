@@ -20,9 +20,8 @@ namespace DataBaseCloner.NewDB
         {
         }
 
-        public Doctor(int id, string fullName, int firmId)
+        public Doctor(string fullName, int firmId)
         {
-            this.Id = id;
             this.FullName = fullName;
             this.Firm.Id = firmId;
         }

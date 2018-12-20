@@ -8,27 +8,27 @@
     <property name ="Code"/>
     <property name ="IsPatientPublic"/>
 
-    <set name = "Patients" lazy ="true" inverse="true" table = "`patient`">
+    <set name = "Patients" lazy ="true" inverse="true" table = "`patient`" cascade ="none">
       <key column = "firmId"/>
       <one-to-many class = "Patient"/>
     </set>
 
-    <set name = "Visits" table = "`visit`">
+    <set name = "Visits" table = "`visit`" cascade ="none">
       <key column = "firmId"/>
       <one-to-many class = "Visit"/>
     </set>
     
-    <set name = "Cashes" table = "`cash`">
+    <set name = "Cashes" table = "`cash`" cascade ="none">
       <key column = "firmId"/>
       <one-to-many class = "Cash"/>
     </set>
 
-    <set name = "Banks" table = "`bank`">
+    <set name = "Banks" table = "`bank`" cascade ="none">
       <key column = "firmId"/>
       <one-to-many class = "Bank"/>
     </set>
 
-    <set name = "Doctors" table = "`doctor`">
+    <set name = "Doctors" table = "`doctor`" cascade ="none">
       <key column = "firmId"/>
       <one-to-many class = "Doctor"/>
     </set>

@@ -16,9 +16,8 @@ namespace DataBaseCloner.NewDB
 
         public Photo() {}
 
-        public Photo(int id, string photoPath, int patientId, string remark)
+        public Photo(string photoPath, int patientId, string remark)
         {
-            Id = id;
             PhotoPath = photoPath;
             Patient.Id = patientId;
             Remark = remark;

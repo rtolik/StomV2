@@ -37,7 +37,7 @@
 
     <many-to-one name = "Firm" column = "firmId"/> 
     
-    <many-to-one name = "PatientCat" column = "patientCatId"/>
+    <many-to-one name = "PatientCategory" column = "patientCatId"/>
 
   </class>
   

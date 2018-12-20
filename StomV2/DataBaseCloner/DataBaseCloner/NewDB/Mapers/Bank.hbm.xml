@@ -6,12 +6,13 @@
       <generator class = "native"/>
     </id>
     <property name ="SplitAccount"/>
+    <property name ="Person"/>
     <property name ="Name"/>
     <property name ="Mfo"/>
     <property name ="DayCash"/>
     <property name ="EveningCash"/>
 
-    <many-to-one name = "Firm" column = "firmId"/>
+    <many-to-one name = "Firm" column = "firmId" cascade ="none"/>
 
   </class>
 

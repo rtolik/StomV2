@@ -18,9 +18,8 @@ namespace DataBaseCloner.NewDB
         {
         }
 
-        public PhoneNumber(int id, string phone, int patientId)
+        public PhoneNumber( string phone, int patientId)
         {
-            Id = id;
             Phone = phone;
             Patient.Id = patientId;
         }

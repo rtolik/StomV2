@@ -24,9 +24,8 @@ namespace DataBaseCloner.NewDB
         {
         }
 
-        public Manipulation(int id, string name, float price, int paragraphId)
+        public Manipulation(string name, float price, int paragraphId)
         {
-            Id = id;
             Name = name;
             Price = price;
             Paragraph.Id = paragraphId;

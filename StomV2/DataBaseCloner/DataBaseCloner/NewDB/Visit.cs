@@ -32,11 +32,10 @@ namespace DataBaseCloner.NewDB
         {
         }
 
-        public Visit(int id, string diagnosis, string terapy, float sale,
+        public Visit(string diagnosis, string terapy, float sale,
             int visitCategoryId, float summ, int firmId,
             int patientId, int doctorId, DateTime date)
         {
-            Id = id;
             Diagnosis = diagnosis;
             Terapy = terapy;
             Sale = sale;

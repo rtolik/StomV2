@@ -8,10 +8,11 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>DataBaseCloner</RootNamespace>
     <AssemblyName>DataBaseCloner</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -77,7 +78,7 @@
     <Compile Include="NewDB\Operation.cs" />
     <Compile Include="NewDB\Paragraph.cs" />
     <Compile Include="NewDB\Patient.cs" />
-    <Compile Include="NewDB\PatientCat.cs" />
+    <Compile Include="NewDB\PatientCategory.cs" />
     <Compile Include="NewDB\PhoneNumber.cs" />
     <Compile Include="NewDB\Photo.cs" />
     <Compile Include="NewDB\Visit.cs" />
@@ -135,6 +136,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewDB\Mapers\Bank.hbm.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="MSSQL_nhibernate.cfg.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="OldDB\Mapers\oper.hbm.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

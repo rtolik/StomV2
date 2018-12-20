@@ -18,9 +18,8 @@ namespace DataBaseCloner.NewDB
         {
         }
 
-        public VisitCategory(int id, string name)
+        public VisitCategory(string name)
         {
-            Id = id;
             Name = name;
         }
     }
