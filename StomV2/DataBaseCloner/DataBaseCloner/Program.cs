@@ -12,138 +12,150 @@ namespace DataBaseCloner
     {
         private static void Main()
         {
-            ISessionFactory mysqDb = ConfigureMySql();
-
-            ISessionFactory mssqldb = ConfigureMssql();
-
-            List<PatientCategory> patientCategories = new List<PatientCategory>();
-            List<Patient> patients = new List<Patient>();
-            List<PhoneNumber> phoneNumbers = new List<PhoneNumber>();
-            List<Photo> photos = new List<Photo>();
-            List<Matherial> matherials = new List<Matherial>();
-            List<Paragraph> paragraphs = new List<Paragraph>();
-            List<Manipulation> manipulations = new List<Manipulation>();
-            List<Firm> firms = new List<Firm>();
-            List<Bank> banks = new List<Bank>();
-            List<Cash> cashes = new List<Cash>();
-            List<Doctor> doctors = new List<Doctor>();
-            List<Visit> visits = new List<Visit>();
-            List<Operation> operations = new List<Operation>();
-            List<VisitCategory> visitCategories = new List<VisitCategory>
-            { new VisitCategory("Стоиатологія (загальна)"),
-                new VisitCategory("Ортопедична стоматологія"),
-                new VisitCategory("Ортодонтична стоматологія"),
-                new VisitCategory("Хірургічна стоматологія"),
-                new VisitCategory("План Лікування")
-
-            };
-
-            DateTime start = DateTime.Now;
-
-            using (ISession session = mssqldb.OpenSession())
+            try
             {
-                using (ITransaction tx = session.BeginTransaction())
+                ISessionFactory mysqDb = ConfigureMySql();
+
+                ISessionFactory mssqldb = ConfigureMssql();
+
+                List<PatientCategory> patientCategories = new List<PatientCategory>();
+                List<Patient> patients = new List<Patient>();
+                List<PhoneNumber> phoneNumbers = new List<PhoneNumber>();
+                List<Photo> photos = new List<Photo>();
+                List<Matherial> matherials = new List<Matherial>();
+                List<Paragraph> paragraphs = new List<Paragraph>();
+                List<Manipulation> manipulations = new List<Manipulation>();
+                List<Firm> firms = new List<Firm>();
+                List<Bank> banks = new List<Bank>();
+                List<Cash> cashes = new List<Cash>();
+                List<Doctor> doctors = new List<Doctor>();
+                List<Visit> visits = new List<Visit>();
+                List<Operation> operations = new List<Operation>();
+                List<VisitCategory> visitCategories = new List<VisitCategory>
                 {
-                    Console.WriteLine("Succesfully configured");
+                    new VisitCategory(1, "Стоиатологія (загальна)"),
+                    new VisitCategory(2, "Ортопедична стоматологія"),
+                    new VisitCategory(3, "Ортодонтична стоматологія"),
+                    new VisitCategory(4, "Хірургічна стоматологія"),
+                    new VisitCategory(5, "План Лікування")
 
-                    DBQuery repository = new DBQuery(session);
+                };
 
-                    List<sl_firm> slFirms = repository.FindAll<sl_firm>();
-                    List<sl_cat> cats = repository.FindAll<sl_cat>();
-                    List<fio> fios = repository.FindAll<fio>();
-                    List<Foto> fotos = repository.FindAll<Foto>();
-                    List<gotivka> gotivkas = repository.FindAll<gotivka>();
-                    List<sl_op_roz> rozList = repository.FindAll<sl_op_roz>();
-                    List<material> materials = repository.FindAll<material>();
-                    List<sl_op_op> ops = repository.FindAll<sl_op_op>();
-                    List<sl_likar> likars = repository.FindAll<sl_likar>();
-                    List<priom> prioms = repository.FindAll<priom>();
-                    List<pl_pr> plPrs = repository.FindAll<pl_pr>();
-                    List<oper> opers = repository.FindAll<oper>();
-                    List<pl_oper> pl_opers = repository.FindAll<pl_oper>();
+                DateTime start = DateTime.Now;
 
-                    Dictionary<priom, Visit> PriomVisitDictionary = new Dictionary<priom, Visit>();
-                    Dictionary<pl_pr, Visit> PlpriomVisitDictionary = new Dictionary<pl_pr, Visit>();
+                using (ISession session = mssqldb.OpenSession())
+                {
+                    using (ITransaction tx = session.BeginTransaction())
+                    {
+                        Console.WriteLine("Succesfully configured");
 
-                    InitFirms(firms, slFirms, banks);
-                    InitPatientCategories(cats, patientCategories);
-                    InitPatients(fios, patients, patientCategories, firms, phoneNumbers,prioms);
-                    InitPatientPhotos(fotos, photos, patients);
-                    InitCashes(gotivkas, cashes, patients, firms);
-                    InitParagraphs(rozList, paragraphs);
-                    InitMatherials(materials, repository, matherials, paragraphs);
-                    InitManipulations(ops, manipulations, paragraphs);
-                    InitDoctors(likars, doctors, firms);
-                    InitVisitsFromPrioms(prioms, visits, visitCategories, firms, doctors, patients,
-                        PriomVisitDictionary);
-                    InitVisitsFromPlprioms(plPrs, visits, visitCategories, firms, doctors, patients,
-                        PlpriomVisitDictionary);
-                    InitOperstionsFromOpers(opers, operations, manipulations, PriomVisitDictionary);
-                    InitOperationsFromPlopers(pl_opers, operations, manipulations, PlpriomVisitDictionary);
+                        DBQuery repository = new DBQuery(session);
 
-                    tx.Commit();
+                        List<sl_firm> slFirms = repository.FindAll<sl_firm>();
+                        List<sl_cat> cats = repository.FindAll<sl_cat>();
+                        List<fio> fios = repository.FindAll<fio>();
+                        List<Foto> fotos = repository.FindAll<Foto>();
+                        List<gotivka> gotivkas = repository.FindAll<gotivka>();
+                        List<sl_op_roz> rozList = repository.FindAll<sl_op_roz>();
+                        List<material> materials = repository.FindAll<material>();
+                        List<sl_op_op> ops = repository.FindAll<sl_op_op>();
+                        List<sl_likar> likars = repository.FindAll<sl_likar>();
+                        List<priom> prioms = repository.FindAll<priom>();
+                        List<pl_pr> plPrs = repository.FindAll<pl_pr>();
+                        List<oper> opers = repository.FindAll<oper>();
+                        List<pl_oper> pl_opers = repository.FindAll<pl_oper>();
+
+                        Dictionary<priom, Visit> PriomVisitDictionary = new Dictionary<priom, Visit>();
+                        Dictionary<pl_pr, Visit> PlpriomVisitDictionary = new Dictionary<pl_pr, Visit>();
+
+                        InitFirms(firms, slFirms, banks);
+                        InitPatientCategories(cats, patientCategories);
+                        InitPatients(fios, patients, patientCategories, firms, phoneNumbers, prioms);
+                        InitPatientPhotos(fotos, photos, patients);
+                        InitCashes(gotivkas, cashes, patients, firms);
+                        InitParagraphs(rozList, paragraphs);
+                        InitMatherials(materials, repository, matherials, paragraphs);
+                        InitManipulations(ops, manipulations, paragraphs);
+                        InitDoctors(likars, doctors, firms);
+                        InitVisitsFromPrioms(prioms, visits, visitCategories, firms, doctors, patients,
+                            PriomVisitDictionary);
+                        InitVisitsFromPlprioms(plPrs, visits, visitCategories, firms, doctors, patients,
+                            PlpriomVisitDictionary);
+                        InitOperstionsFromOpers(opers, operations, manipulations, PriomVisitDictionary);
+                        InitOperationsFromPlopers(pl_opers, operations, manipulations, PlpriomVisitDictionary);
+
+                        tx.Commit();
+                    }
+
+                    Console.WriteLine("Succes read!!!\nWith Time: {0}", DateTime.Now - start);
+                    Console.ReadLine();
                 }
 
-                Console.WriteLine("Succes read!!!\nWith Time: {0}", DateTime.Now - start);
-                Console.ReadLine();
+                firms.Add(new Firm("Загальна Фірма", "122", true));
+
+
+                start = DateTime.Now;
+               
+                using (ISession mysqlSession = mysqDb.OpenSession())
+                {
+                    using (ITransaction transaction = mysqlSession.BeginTransaction())
+                    {
+                        Console.WriteLine("Configured MySQL");
+                        DBQuery repo = new DBQuery(mysqlSession);
+
+                        Console.WriteLine("Visit Categories: " + visitCategories.Count);
+                        repo.Save(visitCategories);
+
+                        Console.WriteLine("Firms: " + firms.Count);
+                        repo.Save(firms);
+
+                        Console.WriteLine("Banks: " + banks.Count);
+                        repo.Save(banks);
+
+                        Console.WriteLine("Patient Categories: " + patientCategories.Count);
+                        repo.Save(patientCategories);
+
+                        Console.WriteLine("Patients : " + patients.Count);
+                        repo.Save(patients);
+
+                        Console.WriteLine("PhoneNumbers : " + patients.Count);
+                        repo.Save(phoneNumbers);
+
+                        Console.WriteLine("Patient Photos: " + phoneNumbers.Count);
+                        repo.Save(photos);
+
+                        Console.WriteLine("Cashes: " + cashes.Count);
+                        repo.Save(cashes);
+
+                        Console.WriteLine("Paragraphs: " + paragraphs.Count);
+                        repo.Save(paragraphs);
+
+                        Console.WriteLine("Matherials: " + matherials.Count);
+                        repo.Save(matherials);
+
+                        Console.WriteLine("Manipulations: " + manipulations.Count);
+                        repo.Save(manipulations);
+
+                        Console.WriteLine("Doctors: " + doctors.Count);
+                        repo.Save(doctors);
+
+                        Console.WriteLine("Visits: " + visits.Count);
+                        repo.Save(visits);
+
+                        Console.WriteLine("Operations: " + operations.Count);
+                        repo.Save(operations);
+
+                        transaction.Commit();
+                    }
+
+                    Console.WriteLine("Succesfully wrote!!!\nWith Time: {0}", DateTime.Now - start);
+                    Console.ReadLine();
+                }
             }
-
-            firms.Add(new Firm("Загальна Фірма","122",true));
-
-            start = DateTime.Now;
-            using (ISession mysqlSession = mysqDb.OpenSession())
+            catch (Exception e)
             {
-                using (ITransaction transaction = mysqlSession.BeginTransaction())
-                {
-                    Console.WriteLine("Configured MySQL");
-                    DBQuery repo = new DBQuery(mysqlSession);
-
-                    Console.WriteLine("Visit Categories: " + visitCategories.Count);
-                    repo.Save(visitCategories);
-
-                    Console.WriteLine("Firms: "+firms.Count);
-                    repo.Save(firms);
-
-                    Console.WriteLine("Banks: " + banks.Count);
-                    repo.Save(banks);
-
-                    Console.WriteLine("Patient Categories: "+patientCategories.Count);
-                    repo.Save(patientCategories);
-
-                    Console.WriteLine("Patients : " + patients.Count);
-                    repo.Save(patients);
-
-                    Console.WriteLine("PhoneNumbers : " + patients.Count);
-                    repo.Save(phoneNumbers);
-
-                    Console.WriteLine("Patient Photos: " + phoneNumbers.Count);
-                    repo.Save(photos);
-
-                    Console.WriteLine("Cashes: " + cashes.Count);
-                    repo.Save(cashes);
-
-                    Console.WriteLine("Paragraphs: " + paragraphs.Count);
-                    repo.Save(paragraphs);
-
-                    Console.WriteLine("Matherials: " + matherials.Count);
-                    repo.Save(matherials);
-
-                    Console.WriteLine("Manipulations: " + manipulations.Count);
-                    repo.Save(manipulations);
-
-                    Console.WriteLine("Doctors: " + doctors.Count);
-                    repo.Save(doctors);
-
-                    Console.WriteLine("Visits: " + visits.Count);
-                    repo.Save(visits);
-
-                    Console.WriteLine("Operations: " + operations.Count);
-                    repo.Save(operations);
-                    
-                    transaction.Commit();
-                }
-                Console.WriteLine("Succesfully wrote!!!\nWith Time: {0}", DateTime.Now - start);
-                Console.ReadLine();
+                Console.WriteLine(e);
+                Console.ReadKey();
             }
         }
 
@@ -151,17 +163,17 @@ namespace DataBaseCloner
         public static ISessionFactory ConfigureMssql()
         {
             return new Configuration()
-                .Configure(@"D:\proj\Stom_2_0\StomV2\DataBaseCloner\DataBaseCloner\MSSQL_nhibernate.cfg.xml")
+                .Configure(@"MSSQL_nhibernate.cfg.xml")
                 .BuildSessionFactory();
         }
 
         public static ISessionFactory ConfigureMySql()
         {
             return new Configuration()
-                .Configure(@"D:\proj\Stom_2_0\StomV2\DataBaseCloner\DataBaseCloner\hibernate.cfg.xml")
+                .Configure(@"hibernate.cfg.xml")
                 .BuildSessionFactory();
         }
-
+        
         private static void InitOperationsFromPlopers(List<pl_oper> pl_opers, List<Operation> operations,
             List<Manipulation> manipulations,
             Dictionary<pl_pr, Visit> PlpriomVisitDictionary)
@@ -196,6 +208,7 @@ namespace DataBaseCloner
             List<VisitCategory> visitCategories, List<Firm> firms, List<Doctor> doctors,
             List<Patient> patients, Dictionary<pl_pr, Visit> PlpriomVisitDictionary)
         {
+            int start = visits.Count;
             foreach (pl_pr pl_pr in plPrs)
                 if (pl_pr.fio != null && pl_pr.firma != null && pl_pr.likar != null &&
                     firms.Find(firm => firm.Id == pl_pr.firma.id) != null &&
@@ -205,7 +218,7 @@ namespace DataBaseCloner
                     visits.Add(
                         new Visit(
                             pl_pr,
-                            visitCategories.Find(cat => cat.Id == pl_pr.cat),
+                            visitCategories.Find(cat => cat.Id == pl_pr.cat+1),
                             firms.Find(firm => firm.Id == pl_pr.firma.id),
                             doctors.Find(doctor => doctor.Id == pl_pr.likar.id_likar),
                             patients.Find(patient => patient.Id == pl_pr.fio.id)
@@ -213,6 +226,9 @@ namespace DataBaseCloner
                     );
                     PlpriomVisitDictionary.Add(pl_pr, visits.Last());
                 }
+
+            for (int i = start; i < visits.Count; i++)
+                visits[i].Id = i + 1;
         }
 
         private static void InitVisitsFromPrioms(List<priom> prioms, List<Visit> visits,
@@ -228,7 +244,7 @@ namespace DataBaseCloner
                     visits.Add(
                         new Visit(
                             pr,
-                            visitCategories.Find(cat => cat.Id == pr.cat),
+                            visitCategories.Find(cat => cat.Id == pr.cat+1),
                             firms.Find(firm => firm.Id == pr.firma.id),
                             doctors.Find(doctor => doctor.Id == pr.likar.id_likar),
                             patients.Find(patient => patient.Id == pr.fio.id)
@@ -236,6 +252,9 @@ namespace DataBaseCloner
                     );
                     PriomVisitDictionary.Add(pr, visits.Last());
                 }
+
+            for (int i = 0; i < visits.Count; i++)
+                visits[i].Id = i + 1;
         }
 
         private static void InitDoctors(List<sl_likar> likars, List<Doctor> doctors, List<Firm> firms)

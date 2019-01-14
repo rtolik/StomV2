@@ -14,22 +14,22 @@
     </set>
 
     <set name = "Visits" table = "`visit`" cascade ="none">
-      <key column = "sl_firmId"/>
+      <key column = "firmId"/>
       <one-to-many class = "Visit"/>
     </set>
     
     <set name = "Cashes" table = "`cash`" cascade ="none">
-      <key column = "sl_firmId"/>
+      <key column = "firmId"/>
       <one-to-many class = "Cash"/>
     </set>
 
     <set name = "Banks" table = "`bank`" cascade ="none">
-      <key column = "sl_firmId"/>
+      <key column = "firmId"/>
       <one-to-many class = "Bank"/>
     </set>
 
     <set name = "Doctors" table = "`doctor`" cascade ="none">
-      <key column = "sl_firmId"/>
+      <key column = "firmId"/>
       <one-to-many class = "Doctor"/>
     </set>
 

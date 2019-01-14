@@ -8,7 +8,7 @@
     <property name ="Name"/>
 
     <set name = "Visits" table = "`visit`">
-      <key column = "patientId"/>
+      <key column = "visitCategoryId"/>
       <one-to-many class = "Visit"/>
     </set>
     

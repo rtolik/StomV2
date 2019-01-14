@@ -8,7 +8,7 @@
     <property name ="Diagnosis"/>
     <property name ="Terapy"/>
     <property name ="Sale"/>
-    <property name ="Date" type = "UtcDateTime"/>
+    <property name ="Date"/>
     <property name ="Summ"/>
     <property name ="IsDone"/>
 
@@ -23,7 +23,7 @@
 
     <many-to-one name = "Doctor" column = "doctorId"/>
 
-    <many-to-one name = "VisitCategory" column = "visitCategoryId"/>
+    <many-to-one name = "VisitCategory" column = "visitCategoryId" cascade="none"/>
 
   </class>
 

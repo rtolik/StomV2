@@ -69,7 +69,6 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="DBQuery.cs" />
-    <Compile Include="Init\NewDB\NewInitializer.cs" />
     <Compile Include="NewDB\Enum\MatherialType.cs" />
     <Compile Include="NewDB\Interfaces\IEntityble.cs" />
     <Compile Include="NewDB\Manipulation.cs" />
