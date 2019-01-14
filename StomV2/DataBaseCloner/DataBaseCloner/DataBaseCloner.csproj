@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>DataBaseCloner</RootNamespace>
     <AssemblyName>DataBaseCloner</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -67,8 +67,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="DBQuery.cs" />
     <Compile Include="Init\NewDB\NewInitializer.cs" />
     <Compile Include="NewDB\Enum\MatherialType.cs" />
+    <Compile Include="NewDB\Interfaces\IEntityble.cs" />
     <Compile Include="NewDB\Manipulation.cs" />
     <Compile Include="NewDB\Bank.cs" />
     <Compile Include="NewDB\Cash.cs" />
@@ -137,10 +140,48 @@
     <EmbeddedResource Include="NewDB\Mapers\Bank.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MSSQL_nhibernate.cfg.xml" />
+    <EmbeddedResource Include="MSSQL_nhibernate.cfg.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="OldDB\Mapers\oper.hbm.xml" />
+    <EmbeddedResource Include="OldDB\Mapers\oper.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="OldDB\Mapers\sl_cat.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="OldDB\Mapers\fio.hbm.xml" />
+    <EmbeddedResource Include="OldDB\Mapers\pl_oper.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OldDB\Mapers\pl_pr.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OldDB\Mapers\sl_op_op.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="OldDB\Mapers\material.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="OldDB\Mapers\sl_op_roz.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="OldDB\Mapers\sl_likar.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="OldDB\Mapers\priom.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="OldDB\Mapers\Foto.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="OldDB\Mapers\gotivka.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="OldDB\Mapers\sl_firm.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

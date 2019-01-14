@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
+                   assembly = "DataBaseCloner" namespace = "DataBaseCloner.OldDB">
+  <class name = "sl_op_roz">
+
+    <id name = "id_roz">
+      <generator class = "native"/>
+    </id>
+
+    <property name = "n_roz"/>
+
+    <property name = "druk"/>
+
+    <set name = "sl_op_ops" table = "`sl_op_op`">
+      <key column = "id_rozd"/>
+      <one-to-many class = "sl_op_op"/>
+    </set>
+
+  </class>
+
+</hibernate-mapping>

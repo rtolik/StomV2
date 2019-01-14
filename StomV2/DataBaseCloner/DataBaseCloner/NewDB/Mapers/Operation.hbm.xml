@@ -2,7 +2,9 @@
 <hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
                    assembly = "DataBaseCloner" namespace = "DataBaseCloner.NewDB">
   <class name="Operation">
-    <id name="Id"></id>
+    <id name="Id">
+      <generator class="identity"/>
+    </id>
     <property name ="Number"/>
     <property name ="Sale"/>
     <property name ="Summ"/>

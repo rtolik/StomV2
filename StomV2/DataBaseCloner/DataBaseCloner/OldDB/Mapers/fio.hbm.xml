@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
+                   assembly = "DataBaseCloner" namespace = "DataBaseCloner.OldDB">
+  <class name = "fio">
+    <id name = "id">
+      <generator class = "native"/>
+    </id>
+
+    <property name = "nomer"/>
+    
+    <property name = "datar" type = "UtcDateTime"/>
+
+    <property name = "fio_name" column = "fio" type ="String"/>
+
+    <property name = "tel1"/>
+
+    <property name = "tel2"/>
+
+    <property name = "adres"/>
+
+    <property name = "sales"/>
+    
+    <property name = "prim"/>
+
+    <property name = "proti"/>
+
+    <property name = "foto" length="2147483647" not-null="false" />
+
+    <property name = "n1"/>
+
+    <property name = "n2"/>
+    
+    <property name = "n3"/>
+
+    <set name = "pl_prs" table = "`pl_pr`">
+      <key column = "fio"/>
+      <one-to-many class = "pl_pr"/>
+    </set>
+    
+    <set name = "prioms" table = "`priom`">
+      <key column = "fio"/>
+      <one-to-many class = "priom"/>
+    </set>
+
+    <set name = "fotos" table = "`Foto`">
+      <key column = "fio"/>
+      <one-to-many class = "Foto"/>
+    </set>
+
+    <set name = "gotivkas" table = "`gotivka`">
+      <key column = "fio"/>
+      <one-to-many class = "gotivka"/>
+    </set>
+
+    <many-to-one name = "cat" column = "cat"/>
+
+
+  </class>
+
+</hibernate-mapping>

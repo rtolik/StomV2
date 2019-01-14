@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
+                   assembly = "DataBaseCloner" namespace = "DataBaseCloner.OldDB">
+  <class name = "sl_firm">
+
+    <id name = "id">
+      <generator class = "native"/>
+    </id>
+
+    <property name = "name"/>
+
+    <property name = "kod"/>
+    
+    <property name = "rr1"/>
+    
+    <property name = "bank1"/>
+    
+    <property name = "mfo1"/>
+    
+    <property name = "kd1"/>
+    
+    <property name = "kv1"/>
+
+    <property name = "rr2"/>
+    
+    <property name = "bank2"/>
+    
+    <property name = "mfo2"/>
+    
+    <property name = "kd2"/>
+    
+    <property name = "kv2"/>
+
+    <property name = "ch1"/>
+
+    <property name = "ch2"/>
+
+    <property name = "zagal"/>
+
+    <set name = "fotos" table = "`Foto`">
+      <key column = "firma"/>
+      <one-to-many class = "Foto"/>
+    </set>
+
+    <set name = "prioms" table = "`priom`">
+      <key column = "firma"/>
+      <one-to-many class = "priom"/>
+    </set>
+
+    <set name = "gotivkas" table = "`gotivka`">
+      <key column = "firma"/>
+      <one-to-many class = "gotivka"/>
+    </set>
+
+  </class>
+
+</hibernate-mapping>

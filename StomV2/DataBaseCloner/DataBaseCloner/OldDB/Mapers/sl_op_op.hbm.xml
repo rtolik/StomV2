@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
+                   assembly = "DataBaseCloner" namespace = "DataBaseCloner.OldDB">
+  <class name = "sl_op_op">
+    
+    <id name = "id_op">
+      <generator class = "native"/>
+    </id>
+    <property name = "n_op"/>
+    <property name = "cena"/>
+
+    <set name = "materials" table = "`material`">
+      <key column = "mat"/>
+      <one-to-many class = "material"/>
+    </set>
+
+    <set name = "pl_opers" table = "`pl_oper`">
+      <key column = "oper"/>
+      <one-to-many class = "pl_oper"/>
+    </set>
+
+    <set name = "opers" table = "`oper`">
+      <key column = "oper"/>
+      <one-to-many class = "oper"/>
+    </set>
+
+    <many-to-one name = "id_rozd" column = "id_rozd"/>
+
+  </class>
+
+</hibernate-mapping>

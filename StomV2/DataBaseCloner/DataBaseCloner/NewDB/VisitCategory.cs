@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataBaseCloner.NewDB
 {
-    public class VisitCategory
+    public class VisitCategory : Interfaces.IEntityble
     {
-        public virtual int Id { get; set; }
+        public virtual int? Id { get; set; }
 
         public virtual string Name { get; set; }
 
@@ -16,10 +16,12 @@ namespace DataBaseCloner.NewDB
 
         public VisitCategory()
         {
+            Id = null;
         }
 
         public VisitCategory(string name)
         {
+            Id = null;
             Name = name;
         }
     }

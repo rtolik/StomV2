@@ -54,6 +54,7 @@ CREATE TABLE IF NOT EXISTS Bank (
     mfo VARCHAR(50) NOT NULL,
     dayCash VARCHAR(20) NOT NULL,
     eveningCash VARCHAR(20),
+    person varchar(100),
     firmId INT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (firmId)
@@ -62,7 +63,7 @@ CREATE TABLE IF NOT EXISTS Bank (
 
 CREATE TABLE IF NOT EXISTS PhoneNumber (
     id INT NOT NULL AUTO_INCREMENT UNIQUE,
-    phone VARCHAR(13) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
     patientId INT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (patientId)
@@ -119,10 +120,13 @@ CREATE TABLE IF NOT EXISTS Matherial (
     number INT NOT NULL,
     pricePerOne FLOAT(10 , 2 ),
     summ FLOAT(20 , 2 ),
-    manipulationId INT NOT NULL,
+    #manipulationId INT NOT NULL,
+    paragraphId INT NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (manipulationId)
-        REFERENCES manipulation (id)
+   # FOREIGN KEY (manipulationId)
+   #    REFERENCES manipulation (id),
+	foreign key(paragraphId)
+		references paragraph (id)
 );
 
 CREATE TABLE IF NOT EXISTS VisitCategory (
@@ -142,6 +146,7 @@ CREATE TABLE IF NOT EXISTS Visit (
     sale FLOAT(5 , 2 ) DEFAULT 0,
     visitCategoryId INT NOT NULL,
     summ FLOAT(10 , 2 ) NOT NULL,
+    isDone bool not null,
     PRIMARY KEY (id),
     FOREIGN KEY (visitCategoryId)
         REFERENCES visitCategory (id),

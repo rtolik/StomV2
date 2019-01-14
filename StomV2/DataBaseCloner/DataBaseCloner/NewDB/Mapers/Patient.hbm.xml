@@ -3,7 +3,7 @@
                    assembly = "DataBaseCloner" namespace = "DataBaseCloner.NewDB">
   <class name="Patient">
     <id name="Id">
-      <generator class = "native"/>
+      <generator class="identity"/>
     </id>  
   <property name ="MedicalCard"/>
   <property name ="DateOfRegistration" type = "UtcDateTime"/>

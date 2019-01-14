@@ -9,14 +9,8 @@ namespace DataBaseCloner.OldDB
     public class pl_pr
     {
         public virtual int id_pr { get; set; }
-
-        public virtual int firma { get; set; }
-
-        public virtual int fio { get; set; }
-
+        
         public virtual DateTime data { get; set; }
-
-        public virtual int likar { get; set; }
 
         public virtual string diag { get; set; }
 
@@ -28,6 +22,12 @@ namespace DataBaseCloner.OldDB
 
         public virtual int cat { get; set; }
 
+        public virtual sl_likar likar { get; set; }
+
+        public virtual fio fio { get; set; }
+
+        public virtual sl_firm firma { get; set; }
+        
         public virtual ISet<pl_oper> pl_opers { get; set; }
 
 
@@ -38,10 +38,10 @@ namespace DataBaseCloner.OldDB
         public pl_pr(int idPr, int firma, int fio, DateTime data, int likar, string diag, string likuv, float sale, float suma, int cat)
         {
             id_pr = idPr;
-            this.firma = firma;
-            this.fio = fio;
+            this.firma.id = firma;
+            this.fio.id = fio;
             this.data = data;
-            this.likar = likar;
+            this.likar.id_likar = likar;
             this.diag = diag;
             this.likuv = likuv;
             this.sale = sale;

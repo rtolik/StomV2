@@ -2,12 +2,15 @@
 <hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
                    assembly = "DataBaseCloner" namespace = "DataBaseCloner.NewDB">
   <class name="Visit">
-    <id name="Id"></id>
+    <id name="Id">
+      <generator class="identity"/>
+    </id>
     <property name ="Diagnosis"/>
     <property name ="Terapy"/>
     <property name ="Sale"/>
     <property name ="Date" type = "UtcDateTime"/>
     <property name ="Summ"/>
+    <property name ="IsDone"/>
 
     <set name = "Operations" table = "`operation`">
       <key column = "visitId"/>

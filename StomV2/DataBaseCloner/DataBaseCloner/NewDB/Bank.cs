@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataBaseCloner.OldDB;
+﻿using DataBaseCloner.OldDB;
 
 namespace DataBaseCloner.NewDB
 {
-    public class Bank
+    public class Bank : Interfaces.IEntityble
     {
-        public virtual int Id { get; set; }
+        public virtual int? Id { get; set; }
 
         public virtual string SplitAccount { get; set; }
 
         public virtual string Name { get; set; }
 
-        public virtual string  Mfo { get; set; }
+        public virtual string Mfo { get; set; }
 
         public virtual string DayCash { get; set; }
 
@@ -27,11 +22,13 @@ namespace DataBaseCloner.NewDB
 
         public Bank()
         {
+            Id = null;
         }
 
-        public Bank( string splitAccount, string name, string mfo, string dayCash,
+        public Bank(string splitAccount, string name, string mfo, string dayCash,
             string eveningCash, Firm firm)
         {
+            Id = null;
             SplitAccount = splitAccount;
             Name = name;
             Mfo = mfo;
@@ -40,28 +37,29 @@ namespace DataBaseCloner.NewDB
             Firm = firm;
         }
 
-        public Bank(sl_firm firm, bool firstTime)
+        public Bank(Firm firm, sl_firm sl_firm, bool firstTime)
         {
+            Id = null;
             if (firstTime)
             {
-                this.Name = firm.bank1;
-                this.DayCash = firm.kd1;
-                this.EveningCash = firm.kv1;
-                this.Mfo = firm.mfo1;
-                this.SplitAccount = firm.rr1;
-                this.Person = firm.ch1;
+                Name = sl_firm.bank1??"";
+                DayCash = sl_firm.kd1??"";
+                EveningCash = sl_firm.kv1??"";
+                Mfo = sl_firm.mfo1??"";
+                SplitAccount = sl_firm.rr1??"";
+                Person = sl_firm.ch1??"";
             }
             else
             {
-                this.Name = firm.bank2;
-                this.DayCash = firm.kd2;
-                this.EveningCash = firm.kv2;
-                this.Mfo = firm.mfo2;
-                this.SplitAccount = firm.rr2;
-                this.Person = firm.ch2;
+                Name = sl_firm.bank2??"";
+                DayCash = sl_firm.kd2??"";
+                EveningCash = sl_firm.kv2??"";
+                Mfo = sl_firm.mfo2??"";
+                SplitAccount = sl_firm.rr2??"";
+                Person = sl_firm.ch2??"";
             }
 
-            this.Firm.Id = firm.id;
+            Firm = firm;
         }
     }
 }

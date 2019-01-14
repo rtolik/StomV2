@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using DataBaseCloner.OldDB;
 
 namespace DataBaseCloner.NewDB
 {
-   public class Doctor
+    public class Doctor : Interfaces.IEntityble
     {
-        public virtual int Id { get; set; }
-        
+        public virtual int? Id { get; set; }
+
         public virtual string FullName { get; set; }
 
         public virtual Firm Firm { get; set; }
@@ -18,12 +15,21 @@ namespace DataBaseCloner.NewDB
 
         public Doctor()
         {
+            Id = null;
         }
 
         public Doctor(string fullName, int firmId)
         {
-            this.FullName = fullName;
-            this.Firm.Id = firmId;
+            Id = null;
+            FullName = fullName;
+            Firm.Id = firmId;
+        }
+
+        public Doctor(sl_likar likar, Firm firm)
+        {
+            Id = likar.id_likar;
+            FullName = likar.n_likar;
+            Firm = firm;
         }
     }
 }

@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using DataBaseCloner.OldDB;
 
 namespace DataBaseCloner.NewDB
 {
-    public class Firm
+    public class Firm : Interfaces.IEntityble
     {
-        public virtual int Id { get; set; }
+        public virtual int? Id { get; set; }
 
         public virtual string Name { get; set; }
 
@@ -29,21 +25,31 @@ namespace DataBaseCloner.NewDB
 
         public Firm()
         {
+            Id = null;
         }
 
         public Firm(string name, string code, bool isPatientPublic)
         {
-            this.Name = name;
-            this.Code = code;
-            this.IsPatientPublic = isPatientPublic;
+            Id = null;
+            Name = name;
+            Code = code;
+            IsPatientPublic = isPatientPublic;
+        }
+
+        public Firm(int id,string name, string code, bool isPatientPublic)
+        {
+            Id = id;
+            Name = name;
+            Code = code;
+            IsPatientPublic = isPatientPublic;
         }
 
         public Firm(sl_firm firm)
         {
-            this.Id = firm.id;
-            this.Name = firm.name;
-            this.Code = firm.kod;
-            this.IsPatientPublic = firm.zagal;
+            Id = firm.id;
+            Name = firm.name;
+            Code = firm.kod;
+            IsPatientPublic = firm.zagal;
         }
     }
 }

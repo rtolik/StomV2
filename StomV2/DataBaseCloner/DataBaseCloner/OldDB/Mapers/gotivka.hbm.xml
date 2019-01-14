@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
                    assembly = "DataBaseCloner" namespace = "DataBaseCloner.OldDB">
-  <class name = "oper">
-    <id name = "id_det">
+  <class name = "gotivka">
+
+    <id name = "id_got">
       <generator class = "native"/>
     </id>
 
-    <property name = "kol"/>
-    
-    <property name = "sale"/>
-    
-    <property name = "cena"/>
-    
+    <property name ="data" type = "UtcDateTime"/>
+
     <property name = "suma"/>
+    
+    <property name = "prim"/>
 
-    <many-to-one name = "sl_operId" column = "oper"/>
+    <many-to-one name = "fio" column = "fio"/>
+    
+    <many-to-one name = "firm" column = "firma"/>
 
-    <many-to-one name = "priom" column = "priom"/>
   </class>
 
 </hibernate-mapping>

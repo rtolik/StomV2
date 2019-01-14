@@ -11,25 +11,25 @@ namespace DataBaseCloner.OldDB
     {
         public virtual int id_foto { get; set; }
 
-        public virtual int fio { get; set; }
-
-        public virtual int firma { get; set; }
-
-        public virtual DateTime Data { get; set; }
+        public virtual DateTime? Data { get; set; }
 
         public virtual string prim { get; set; }
 
-        public virtual Image foto { get; set; }
+        public virtual byte [] foto { get; set; }
+
+        public virtual fio fio { get; set; }
+
+        public virtual sl_firm firma { get; set; }
 
         public Foto()
         {
         }
 
-        public Foto(int idFoto, int fio, int firma, DateTime data, string prim, Image foto)
+        public Foto(int idFoto, int fio, int firma, DateTime data, string prim, byte[] foto)
         {
             id_foto = idFoto;
-            this.fio = fio;
-            this.firma = firma;
+            this.fio.id = fio;
+            this.firma.id = firma;
             Data = data;
             this.prim = prim;
             this.foto = foto;

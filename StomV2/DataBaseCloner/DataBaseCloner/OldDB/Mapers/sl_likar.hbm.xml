@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
+                   assembly = "DataBaseCloner" namespace = "DataBaseCloner.OldDB">
+  <class name = "sl_likar">
+
+    <id name = "id_likar">
+      <generator class = "native"/>
+    </id>
+
+    <property name = "n_likar"/>
+
+    <set name = "pl_prs" table = "`pl_pr`">
+      <key column = "likar"/>
+      <one-to-many class = "pl_pr"/>
+    </set>
+
+    <set name = "prioms" table = "`priom`">
+      <key column = "likar"/>
+      <one-to-many class = "priom"/>
+    </set>
+
+  </class>
+
+</hibernate-mapping>

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataBaseCloner.OldDB;
 
 namespace DataBaseCloner.NewDB
 {
-    public class PatientCategory
+    public class PatientCategory : Interfaces.IEntityble
     {
-        public virtual int Id { get; set; }
+        public virtual int? Id { get; set; }
 
         public virtual string Name { get; set; }
 
@@ -18,12 +19,21 @@ namespace DataBaseCloner.NewDB
 
         public PatientCategory()
         {
+            Id = null;
         }
 
         public PatientCategory(string name, float sale)
         {
+            Id = null;
             Name = name;
             Sale = sale;
+        }
+
+        public PatientCategory(sl_cat category)
+        {
+            Id = category.id_cat;
+            Name = category.n_cat;
+            Sale = 0;
         }
     }
 }

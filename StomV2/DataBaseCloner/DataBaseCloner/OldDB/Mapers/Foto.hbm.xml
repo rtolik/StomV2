@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
+                   assembly = "DataBaseCloner" namespace = "DataBaseCloner.OldDB">
+  <class name = "Foto">
+
+    <id name = "id_foto">
+      <generator class = "native"/>
+    </id>
+
+    <property name ="Data" type = "UtcDateTime" not-null="false" />
+
+    <property name = "prim"/>
+
+    <property length="2147483647" name = "foto" not-null="false"/>
+
+    <many-to-one name = "fio" column = "fio"/>
+    
+    <many-to-one name = "firma" column = "firma"/>
+
+
+  </class>
+
+</hibernate-mapping>

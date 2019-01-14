@@ -13,14 +13,14 @@ namespace DataBaseCloner.OldDB
         public virtual DateTime data { get; set; }
 
         public virtual string tip { get; set; }
-
-        public virtual int mat { get; set; }
-
+        
         public virtual int kol { get; set; }
 
         public virtual float cena { get; set; }
 
         public virtual float suma { get; set; }
+
+        public virtual sl_op_op mat { get; set; }
 
         public material()
         {
@@ -31,7 +31,7 @@ namespace DataBaseCloner.OldDB
             this.id = id;
             this.data = data;
             this.tip = tip;
-            this.mat = mat;
+            this.mat.id_op = mat;
             this.kol = kol;
             this.cena = cena;
             this.suma = suma;

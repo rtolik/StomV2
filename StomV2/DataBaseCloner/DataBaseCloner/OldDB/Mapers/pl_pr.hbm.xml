@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
+                   assembly = "DataBaseCloner" namespace = "DataBaseCloner.OldDB">
+  <class name = "pl_pr">
+    <id name = "id_pr">
+      <generator class = "native"/>
+    </id>
+
+    <property name = "data" type = "UtcDateTime"/>
+
+    <property name = "diag"/>
+
+    <property name = "likuv"/>
+    
+    <property name = "sale"/>
+    
+    <property name = "suma"/>
+    
+    <property name = "cat"/>
+
+    <set name = "pl_opers" table = "`pl_oper`">
+      <key column = "pl_priom"/>
+      <one-to-many class = "pl_oper"/>
+    </set>
+
+    <many-to-one name = "likar" column = "likar"/>
+    
+    <many-to-one name = "fio" column = "fio"/>
+
+    <many-to-one name = "firma" column = "firma"/>
+
+  </class>
+
+</hibernate-mapping>

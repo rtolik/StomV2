@@ -10,32 +10,20 @@ namespace DataBaseCloner.OldDB
     {
         public virtual int id_got { get; set; }
 
-        public virtual int fio { get; set; }
-
-        public virtual int firma { get; set; }
-
-        public virtual DateTime data { get; set; }
+        public virtual DateTime? data { get; set; }
 
         public virtual float suma { get; set; }
 
         public virtual string prim { get; set; }
 
-        public virtual ISet<fio> fios { get; set; }
+        public virtual fio fio { get; set; }
 
-        public virtual ISet<sl_firm> firms { get; set; }
+        public virtual sl_firm firm { get; set; }
 
         public gotivka()
         {
         }
 
-        public gotivka(int idGot, int fio, int firma, DateTime data, float suma, string prim)
-        {
-            id_got = idGot;
-            this.fio = fio;
-            this.firma = firma;
-            this.data = data;
-            this.suma = suma;
-            this.prim = prim;
-        }
+        
     }
 }

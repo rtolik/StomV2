@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using DataBaseCloner.OldDB;
 
 namespace DataBaseCloner.NewDB
 {
-    public class Visit
+    public class Visit : Interfaces.IEntityble
     {
-        public virtual int Id { get; set; }
+        public virtual int? Id { get; set; }
 
         public virtual string Diagnosis { get; set; }
 
@@ -16,6 +17,8 @@ namespace DataBaseCloner.NewDB
         public virtual DateTime Date { get; set; }
 
         public virtual float Summ { get; set; }
+
+        public virtual bool IsDone { get; set; }
 
         public virtual ISet<Operation> Operations { get; set; }
 
@@ -30,12 +33,14 @@ namespace DataBaseCloner.NewDB
 
         public Visit()
         {
+            Id = null;
         }
 
         public Visit(string diagnosis, string terapy, float sale,
             int visitCategoryId, float summ, int firmId,
             int patientId, int doctorId, DateTime date)
         {
+            Id = null;
             Diagnosis = diagnosis;
             Terapy = terapy;
             Sale = sale;
@@ -45,6 +50,35 @@ namespace DataBaseCloner.NewDB
             Patient.Id = patientId;
             Doctor.Id = doctorId;
             Date = date;
+        }
+
+        public Visit(priom priom, VisitCategory category, Firm firm, Doctor doctor, Patient patient)
+        {
+            Id = priom.id_pr;
+            Date = priom.data;
+            Diagnosis = priom.diag ?? "";
+            Terapy = priom.likuv ?? "";
+            Sale = priom.sale;
+            Summ = priom.suma;
+            IsDone = true;
+            Firm = firm;
+            Doctor = doctor;
+            Patient = patient;
+            VisitCategory = category;
+        }
+        public Visit(pl_pr priom, VisitCategory category, Firm firm, Doctor doctor, Patient patient)
+        {
+            Id = priom.id_pr;
+            Date = priom.data;
+            Diagnosis = priom.diag ?? "";
+            Terapy = priom.likuv ?? "";
+            Sale = priom.sale;
+            Summ = priom.suma;
+            IsDone = false;
+            Firm = firm;
+            Doctor = doctor;
+            Patient = patient;
+            VisitCategory = category;
         }
 
     }
