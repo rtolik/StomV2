@@ -14,9 +14,16 @@ namespace DataBaseCloner
         {
             try
             {
-                ISessionFactory mysqDb = ConfigureMySql();
+                Console.WriteLine("Start configuring Microsoft SQL");
 
                 ISessionFactory mssqldb = ConfigureMssql();
+
+                Console.WriteLine("Success!!!");
+                Console.WriteLine("Start configuring MySQL");
+
+                ISessionFactory mysqDb = ConfigureMySql();
+
+                Console.WriteLine("Success!!!");
 
                 List<PatientCategory> patientCategories = new List<PatientCategory>();
                 List<Patient> patients = new List<Patient>();
@@ -47,7 +54,7 @@ namespace DataBaseCloner
                 {
                     using (ITransaction tx = session.BeginTransaction())
                     {
-                        Console.WriteLine("Succesfully configured");
+                        Console.WriteLine("Start reading data from MsSQL");
 
                         DBQuery repository = new DBQuery(session);
 
@@ -63,10 +70,10 @@ namespace DataBaseCloner
                         List<priom> prioms = repository.FindAll<priom>();
                         List<pl_pr> plPrs = repository.FindAll<pl_pr>();
                         List<oper> opers = repository.FindAll<oper>();
-                        List<pl_oper> pl_opers = repository.FindAll<pl_oper>();
+                        List<pl_oper> plOpers = repository.FindAll<pl_oper>();
 
-                        Dictionary<priom, Visit> PriomVisitDictionary = new Dictionary<priom, Visit>();
-                        Dictionary<pl_pr, Visit> PlpriomVisitDictionary = new Dictionary<pl_pr, Visit>();
+                        Dictionary<priom, Visit> priomVisitDictionary = new Dictionary<priom, Visit>();
+                        Dictionary<pl_pr, Visit> plpriomVisitDictionary = new Dictionary<pl_pr, Visit>();
 
                         InitFirms(firms, slFirms, banks);
                         InitPatientCategories(cats, patientCategories);
@@ -78,11 +85,11 @@ namespace DataBaseCloner
                         InitManipulations(ops, manipulations, paragraphs);
                         InitDoctors(likars, doctors, firms);
                         InitVisitsFromPrioms(prioms, visits, visitCategories, firms, doctors, patients,
-                            PriomVisitDictionary);
+                            priomVisitDictionary);
                         InitVisitsFromPlprioms(plPrs, visits, visitCategories, firms, doctors, patients,
-                            PlpriomVisitDictionary);
-                        InitOperstionsFromOpers(opers, operations, manipulations, PriomVisitDictionary);
-                        InitOperationsFromPlopers(pl_opers, operations, manipulations, PlpriomVisitDictionary);
+                            plpriomVisitDictionary);
+                        InitOperstionsFromOpers(opers, operations, manipulations, priomVisitDictionary);
+                        InitOperationsFromPlopers(plOpers, operations, manipulations, plpriomVisitDictionary);
 
                         tx.Commit();
                     }
@@ -100,7 +107,7 @@ namespace DataBaseCloner
                 {
                     using (ITransaction transaction = mysqlSession.BeginTransaction())
                     {
-                        Console.WriteLine("Configured MySQL");
+                        Console.WriteLine("Start write data to MySQL");
                         DBQuery repo = new DBQuery(mysqlSession);
 
                         Console.WriteLine("Visit Categories: " + visitCategories.Count);
@@ -174,57 +181,57 @@ namespace DataBaseCloner
                 .BuildSessionFactory();
         }
         
-        private static void InitOperationsFromPlopers(List<pl_oper> pl_opers, List<Operation> operations,
+        private static void InitOperationsFromPlopers(List<pl_oper> plOpers, List<Operation> operations,
             List<Manipulation> manipulations,
-            Dictionary<pl_pr, Visit> PlpriomVisitDictionary)
+            Dictionary<pl_pr, Visit> plpriomVisitDictionary)
         {
-            foreach (pl_oper pl_oper in pl_opers)
-                if (pl_oper.oper != null && pl_oper.priom?.likar != null && PlpriomVisitDictionary.ContainsKey(pl_oper.priom))
+            foreach (pl_oper plOper in plOpers)
+                if (plOper.oper != null && plOper.priom?.likar != null && plpriomVisitDictionary.ContainsKey(plOper.priom))
                     operations.Add(
                         new Operation(
-                            pl_oper,
-                            manipulations.Find(manipulation => manipulation.Id == pl_oper.oper.id_op),
-                            PlpriomVisitDictionary[pl_oper.priom]
+                            plOper,
+                            manipulations.Find(manipulation => manipulation.Id == plOper.oper.id_op),
+                            plpriomVisitDictionary[plOper.priom]
                         )
                     );
         }
 
         private static void InitOperstionsFromOpers(List<oper> opers, List<Operation> operations,
             List<Manipulation> manipulations,
-            Dictionary<priom, Visit> PriomVisitDictionary)
+            Dictionary<priom, Visit> priomVisitDictionary)
         {
             foreach (oper oper in opers)
-                if (oper.sl_operId != null && oper.priom?.likar != null && PriomVisitDictionary.ContainsKey(oper.priom))
+                if (oper.sl_operId != null && oper.priom?.likar != null && priomVisitDictionary.ContainsKey(oper.priom))
                     operations.Add(
                         new Operation(
                             oper,
                             manipulations.Find(manipulation => manipulation.Id == oper.sl_operId.id_op),
-                            PriomVisitDictionary[oper.priom]
+                            priomVisitDictionary[oper.priom]
                         )
                     );
         }
 
         private static void InitVisitsFromPlprioms(List<pl_pr> plPrs, List<Visit> visits,
             List<VisitCategory> visitCategories, List<Firm> firms, List<Doctor> doctors,
-            List<Patient> patients, Dictionary<pl_pr, Visit> PlpriomVisitDictionary)
+            List<Patient> patients, Dictionary<pl_pr, Visit> plpriomVisitDictionary)
         {
             int start = visits.Count;
-            foreach (pl_pr pl_pr in plPrs)
-                if (pl_pr.fio != null && pl_pr.firma != null && pl_pr.likar != null &&
-                    firms.Find(firm => firm.Id == pl_pr.firma.id) != null &&
-                    doctors.Find(doctor => doctor.Id == pl_pr.likar.id_likar) != null &&
-                    patients.Find(patient => patient.Id == pl_pr.fio.id) != null)
+            foreach (pl_pr plPr in plPrs)
+                if (plPr.fio != null && plPr.firma != null && plPr.likar != null &&
+                    firms.Find(firm => firm.Id == plPr.firma.id) != null &&
+                    doctors.Find(doctor => doctor.Id == plPr.likar.id_likar) != null &&
+                    patients.Find(patient => patient.Id == plPr.fio.id) != null)
                 {
                     visits.Add(
                         new Visit(
-                            pl_pr,
-                            visitCategories.Find(cat => cat.Id == pl_pr.cat+1),
-                            firms.Find(firm => firm.Id == pl_pr.firma.id),
-                            doctors.Find(doctor => doctor.Id == pl_pr.likar.id_likar),
-                            patients.Find(patient => patient.Id == pl_pr.fio.id)
+                            plPr,
+                            visitCategories.Find(cat => cat.Id == plPr.cat+1),
+                            firms.Find(firm => firm.Id == plPr.firma.id),
+                            doctors.Find(doctor => doctor.Id == plPr.likar.id_likar),
+                            patients.Find(patient => patient.Id == plPr.fio.id)
                         )
                     );
-                    PlpriomVisitDictionary.Add(pl_pr, visits.Last());
+                    plpriomVisitDictionary.Add(plPr, visits.Last());
                 }
 
             for (int i = start; i < visits.Count; i++)
@@ -233,7 +240,7 @@ namespace DataBaseCloner
 
         private static void InitVisitsFromPrioms(List<priom> prioms, List<Visit> visits,
             List<VisitCategory> visitCategories, List<Firm> firms, List<Doctor> doctors,
-            List<Patient> patients, Dictionary<priom, Visit> PriomVisitDictionary)
+            List<Patient> patients, Dictionary<priom, Visit> priomVisitDictionary)
         {
             foreach (priom pr in prioms)
                 if (pr.fio != null && pr.firma != null && pr.likar != null &&
@@ -250,7 +257,7 @@ namespace DataBaseCloner
                             patients.Find(patient => patient.Id == pr.fio.id)
                         )
                     );
-                    PriomVisitDictionary.Add(pr, visits.Last());
+                    priomVisitDictionary.Add(pr, visits.Last());
                 }
 
             for (int i = 0; i < visits.Count; i++)
