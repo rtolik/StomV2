@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2" 
+                   assembly = "Stomatology" namespace = "Stomatology.Models">
+  <class name="Patient">
+    <id name="Id">
+      <generator class="identity"/>
+    </id>  
+    <property name ="MedicalCard"/>
+    <property name ="DateOfRegistration" type = "UtcDateTime"/>
+    <property name ="FullName"/>
+    <property name ="Adress"/>
+    <property name ="Sale"/>
+    <property name ="Remark"/>
+    <property name ="Contraindications"/>
+    <property name ="IconPath"/>
+    <property name ="IsPublic"/>
+    <property name ="IsArchive"/>
+
+    <bag name = "Photos" table = "`photo`" cascade ="save-update"> 
+      <key column = "patientId"/> 
+      <one-to-many class = "Photo"/> 
+    </bag> 
+    
+    <bag name = "PhoneNumbers" table = "`phonenumber`" cascade ="save-update"> 
+      <key column = "patientId"/> 
+      <one-to-many class = "PhoneNumber"/> 
+    </bag> 
+
+    <bag name = "Visits" table = "`visit`" cascade ="save-update"> 
+      <key column = "patientId"/> 
+      <one-to-many class = "Visit"/> 
+    </bag> 
+    
+    <bag name = "Cashes" table = "`cash`" cascade ="none"> 
+      <key column = "patientId"/> 
+      <one-to-many class = "Cash"/> 
+    </bag> 
+
+    <many-to-one name = "Firm" column = "firmId"/> 
+    
+    <many-to-one name = "PatientCategory" column = "patientCatId" cascade ="save-update"/>
+
+  </class>
+  
+</hibernate-mapping>

@@ -14,8 +14,6 @@
   <property name ="Contraindications"/>
   <property name ="IconPath"/>
   <property name ="IsPublic"/>
-  <property name ="IsArchive"/>
-
 
     <set name = "Photos" table = "`photo`"> 
       <key column = "patientId"/> 

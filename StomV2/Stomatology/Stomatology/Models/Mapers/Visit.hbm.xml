@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
+                   assembly = "Stomatology" namespace = "Stomatology.Models">
+  <class name="Visit">
+    <id name="Id">
+      <generator class="identity"/>
+    </id>
+    <property name ="Diagnosis"/>
+    <property name ="Terapy"/>
+    <property name ="Sale"/>
+    <property name ="Date"/>
+    <property name ="Summ"/>
+    <property name ="IsDone"/>
+
+    <set name = "Operations" table = "`operation`">
+      <key column = "visitId"/>
+      <one-to-many class = "Operation"/>
+    </set>
+
+    <many-to-one name = "Firm" column = "firmId"/>
+
+    <many-to-one name = "Patient" column = "patientId"/>
+
+    <many-to-one name = "Doctor" column = "doctorId"/>
+
+    <many-to-one name = "VisitCategory" column = "visitCategoryId" cascade="none"/>
+
+  </class>
+
+</hibernate-mapping>

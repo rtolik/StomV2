@@ -32,7 +32,6 @@ CREATE TABLE IF NOT EXISTS Patient (
     dateOfRegistration DATE NOT NULL,
     fullName VARCHAR(100) NOT NULL,
     patientCatId INT NOT NULL,
-    phoneNumberId INT,
     firmId INT NOT NULL,
     adress VARCHAR(100),
     sale FLOAT(5 , 2 ) NOT NULL DEFAULT 0,
@@ -40,6 +39,7 @@ CREATE TABLE IF NOT EXISTS Patient (
     contraindications VARCHAR(200),
     iconPath VARCHAR(1000),
     isPublic BOOL NOT NULL DEFAULT FALSE,
+    isArchive  BOOL NOT NULL DEFAULT FALSE, 
     PRIMARY KEY (id),
     FOREIGN KEY (patientCatId)
         REFERENCES patientcat (id),

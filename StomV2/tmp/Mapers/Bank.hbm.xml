@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
+                   assembly = "DataBaseCloner" namespace = "DataBaseCloner.NewDB">
+  <class name="Bank">
+    <id name="Id">
+      <generator class="identity"/>
+    </id>
+    <property name ="SplitAccount"/>
+    <property name ="Person"/>
+    <property name ="Name"/>
+    <property name ="Mfo"/>
+    <property name ="DayCash"/>
+    <property name ="EveningCash"/>
+
+    <many-to-one name = "Firm" column = "firmId" cascade ="none"/>
+
+  </class>
+
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
+                   assembly = "DataBaseCloner" namespace = "DataBaseCloner.NewDB">
+  <class name="Operation">
+    <id name="Id">
+      <generator class="identity"/>
+    </id>
+    <property name ="Number"/>
+    <property name ="Sale"/>
+    <property name ="Summ"/>
+    <property name ="IsMade"/>
+
+    <many-to-one name = "Manipulation" column = "manipulationId"/>
+
+    <many-to-one name = "Visit" column = "visitId"/>
+
+  </class>
+
+</hibernate-mapping>

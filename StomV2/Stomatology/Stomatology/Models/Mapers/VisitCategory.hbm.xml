@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
+                   assembly = "Stomatology" namespace = "Stomatology.Models">
+  <class name="VisitCategory">
+    <id name="Id">
+      <generator class="identity"/>
+    </id>
+    <property name ="Name"/>
+
+    <set name = "Visits" table = "`visit`">
+      <key column = "visitCategoryId"/>
+      <one-to-many class = "Visit"/>
+    </set>
+    
+  </class>
+
+</hibernate-mapping>

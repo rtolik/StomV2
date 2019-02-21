@@ -95,6 +95,7 @@ namespace DataBaseCloner
                     }
 
                     Console.WriteLine("Succes read!!!\nWith Time: {0}", DateTime.Now - start);
+                    Console.WriteLine("Press any key to continue.");
                     Console.ReadLine();
                 }
 
@@ -344,8 +345,10 @@ namespace DataBaseCloner
                             prioms.Exists(pr => pr.fio.id == fio.id) ? firms.Find(firm => firm.Id == prioms.First(pr => pr.fio.id == fio.id).firma.id) : firms.Last()
                         )
                     );
-                    phoneNumbers.Add(new PhoneNumber(patients.Last(), fio, true));
-                    phoneNumbers.Add(new PhoneNumber(patients.Last(), fio, false));
+                    if(!string.IsNullOrEmpty(fio.tel1))
+                        phoneNumbers.Add(new PhoneNumber(patients.Last(), fio, true));
+                    if (!string.IsNullOrEmpty(fio.tel2))
+                        phoneNumbers.Add(new PhoneNumber(patients.Last(), fio, false));
                 }
             }
         }

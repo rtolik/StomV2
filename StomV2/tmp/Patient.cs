@@ -31,8 +31,6 @@ namespace DataBaseCloner.NewDB
 
         public virtual bool IsPublic { get; set; }
 
-        public virtual bool IsArchive { get; set; }
-
         public virtual ISet<Photo> Photos { get; set; }
 
         public virtual ISet<PhoneNumber> PhoneNumbers { get; set; }
@@ -80,12 +78,6 @@ namespace DataBaseCloner.NewDB
             Remark = fio.prim;
             Contraindications = fio.proti; 
             IsPublic = fio.zagal??true;
-            if (fio.fio_name.ToLower().Contains("знищити") || fio.fio_name.ToLower().Contains("архів") ||
-                fio.fio_name.ToLower().Contains("з н и щ и т и"))
-                IsArchive = true;
-            else
-                IsArchive = false;
-
             if (fio.foto != null)
             {
                 Image img = new Bitmap(new MemoryStream(fio.foto));
