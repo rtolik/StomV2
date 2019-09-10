@@ -6,7 +6,7 @@
       <generator class="identity"/>
     </id>  
     <property name ="MedicalCard"/>
-    <property name ="DateOfRegistration" type = "UtcDateTime"/>
+    <property name ="DateOfRegistration"/>
     <property name ="FullName"/>
     <property name ="Adress"/>
     <property name ="Sale"/>
@@ -21,7 +21,7 @@
       <one-to-many class = "Photo"/> 
     </bag> 
     
-    <bag name = "PhoneNumbers" table = "`phonenumber`" cascade ="save-update"> 
+    <bag name = "PhoneNumbers" table = "`phonenumber`" inverse ="true" cascade ="save-update"> 
       <key column = "patientId"/> 
       <one-to-many class = "PhoneNumber"/> 
     </bag> 

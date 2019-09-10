@@ -13,11 +13,11 @@
             Id = null;
         }
 
-        public PhoneNumber( string phone, int patientId)
+        public PhoneNumber( string phone, Patient patient)
         {
             Id = null;
             Phone = phone;
-            Patient.Id = patientId;
+            Patient = patient;
         }
     }
 }

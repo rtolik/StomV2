@@ -10,23 +10,23 @@ namespace Stomatology.Models
 
         public virtual float Price { get; set; }
 
+        public virtual Paragraph Paragraph { get; set; }
+
         public virtual ISet<Operation> Operations { get; set; }
 
         public virtual ISet<Matherial> Matherials { get; set; }
-
-        public virtual Paragraph Paragraph { get; set; }
 
         public Manipulation()
         {
             Id = null;
         }
 
-        public Manipulation(string name, float price, int paragraphId)
+        public Manipulation(string name, float price, Paragraph paragraph)
         {
             Id = null;
             Name = name;
             Price = price;
-            Paragraph.Id = paragraphId;
+            Paragraph = paragraph;
         }
     }
 }

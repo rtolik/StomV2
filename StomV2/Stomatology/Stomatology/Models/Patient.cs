@@ -6,6 +6,8 @@ namespace Stomatology.Models
 {
     public class Patient : IEntityble
     {
+        public virtual int? Id { get; set; }
+
         public virtual string MedicalCard { get; set; }
 
         public virtual DateTime DateOfRegistration { get; set; }
@@ -42,6 +44,8 @@ namespace Stomatology.Models
         public Patient()
         {
             Id = null;
+            IconPath = Constants.NullIconPhotoPath;
+            DateOfRegistration = DateTime.Now;
         }
 
         public Patient(string medicalCard, DateTime dateOfRegistration, string fullName, string adress, float sale,
@@ -68,6 +72,9 @@ namespace Stomatology.Models
             PatientCategory = patientCategory;
         }
 
-        public virtual int? Id { get; set; }
+        public override string ToString()
+        {
+            return FullName;
+        }
     }
 }

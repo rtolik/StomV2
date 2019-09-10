@@ -62,6 +62,7 @@
             this.CardSearchTextBox = new MetroFramework.Controls.MetroTextBox();
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.metroButton5 = new MetroFramework.Controls.MetroButton();
             this.metroButton4 = new MetroFramework.Controls.MetroButton();
             this.CashButton = new MetroFramework.Controls.MetroButton();
@@ -73,18 +74,31 @@
             this.Grid = new MetroFramework.Controls.MetroGrid();
             this.MedicalCard = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PatientCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateOfRegistrationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contraindicationsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
             this.PhotoPage = new MetroFramework.Controls.MetroTabPage();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.metroGrid2 = new MetroFramework.Controls.MetroGrid();
+            this.PhotoSelectBtn = new MetroFramework.Controls.MetroButton();
+            this.DiscardPhotoBtn = new MetroFramework.Controls.MetroButton();
+            this.ApplyPhotoBtn = new MetroFramework.Controls.MetroButton();
+            this.ImageDescriptionTextBox = new System.Windows.Forms.RichTextBox();
+            this.ImageBox = new System.Windows.Forms.PictureBox();
+            this.PhotoGrid = new MetroFramework.Controls.MetroGrid();
+            this.remarkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhotoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
             this.EditButton = new MetroFramework.Controls.MetroButton();
             this.AddButton = new MetroFramework.Controls.MetroButton();
-            this.DateTill = new MetroFramework.Controls.MetroDateTime();
+            this.DateTo = new MetroFramework.Controls.MetroDateTime();
             this.DateFrom = new MetroFramework.Controls.MetroDateTime();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
-            this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.IconBtn = new MetroFramework.Controls.MetroButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.PhonesRichTextBox = new System.Windows.Forms.RichTextBox();
             this.ContraindicationsRichTextBox = new System.Windows.Forms.RichTextBox();
@@ -93,6 +107,7 @@
             this.RegistrationDate = new MetroFramework.Controls.MetroDateTime();
             this.EditBtn = new MetroFramework.Controls.MetroButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.ArchivePatientCheckBox = new MetroFramework.Controls.MetroCheckBox();
             this.FullNameTextBox = new MetroFramework.Controls.MetroTextBox();
             this.RemarkTextBox = new MetroFramework.Controls.MetroTextBox();
             this.AdressTextBox = new MetroFramework.Controls.MetroTextBox();
@@ -100,8 +115,8 @@
             this.CategoryComboBox = new MetroFramework.Controls.MetroComboBox();
             this.CardTextBox = new MetroFramework.Controls.MetroTextBox();
             this.IconImageBox = new System.Windows.Forms.PictureBox();
-            this.VisitsPage = new MetroFramework.Controls.MetroTabPage();
             this.CashPage = new MetroFramework.Controls.MetroTabPage();
+            this.VisitsPage = new MetroFramework.Controls.MetroTabPage();
             this.AccountsPage = new System.Windows.Forms.TabPage();
             this.ComplitedWorkActPage = new System.Windows.Forms.TabPage();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -111,12 +126,9 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.adressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PatientCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.saleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateOfRegistrationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contraindicationsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.OpenIconDialog = new System.Windows.Forms.OpenFileDialog();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             panel2 = new System.Windows.Forms.Panel();
             groupBox2 = new System.Windows.Forms.GroupBox();
@@ -139,16 +151,17 @@
             this.TabControl.SuspendLayout();
             this.FindPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             this.PhotoPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImageBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PhotoGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PhotoBindingSource)).BeginInit();
             this.panel3.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IconImageBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientCategoryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -156,9 +169,10 @@
             // 
             panel2.Controls.Add(groupBox2);
             panel2.Controls.Add(groupBox1);
-            panel2.Location = new System.Drawing.Point(0, 6);
+            panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            panel2.Location = new System.Drawing.Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new System.Drawing.Size(743, 120);
+            panel2.Size = new System.Drawing.Size(748, 120);
             panel2.TabIndex = 2;
             // 
             // groupBox2
@@ -171,7 +185,7 @@
             groupBox2.Controls.Add(this.CardNumberSort);
             groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
             groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            groupBox2.Location = new System.Drawing.Point(240, 0);
+            groupBox2.Location = new System.Drawing.Point(245, 0);
             groupBox2.Margin = new System.Windows.Forms.Padding(0);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new System.Drawing.Size(503, 120);
@@ -409,6 +423,9 @@
             // 
             // metroLabel8
             // 
+            metroLabel8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             metroLabel8.Location = new System.Drawing.Point(487, 10);
             metroLabel8.Name = "metroLabel8";
             metroLabel8.Size = new System.Drawing.Size(250, 21);
@@ -419,6 +436,9 @@
             // 
             // metroLabel9
             // 
+            metroLabel9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             metroLabel9.Location = new System.Drawing.Point(6, 10);
             metroLabel9.Name = "metroLabel9";
             metroLabel9.Size = new System.Drawing.Size(475, 21);
@@ -444,16 +464,30 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGray;
+            this.panel1.Controls.Add(this.metroButton2);
             this.panel1.Controls.Add(this.metroButton5);
             this.panel1.Controls.Add(this.metroButton4);
             this.panel1.Controls.Add(this.CashButton);
             this.panel1.Controls.Add(this.VisitsButton);
             this.panel1.Controls.Add(this.PhotoButton);
             this.panel1.Controls.Add(this.FindButton);
-            this.panel1.Location = new System.Drawing.Point(23, 63);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(20, 60);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(204, 514);
+            this.panel1.Size = new System.Drawing.Size(204, 520);
             this.panel1.TabIndex = 1;
+            // 
+            // metroButton2
+            // 
+            this.metroButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.metroButton2.Location = new System.Drawing.Point(2, 300);
+            this.metroButton2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(200, 50);
+            this.metroButton2.TabIndex = 8;
+            this.metroButton2.Text = "New Patient";
+            this.metroButton2.UseSelectable = true;
+            this.metroButton2.Click += new System.EventHandler(this.CreateNewPatient);
             // 
             // metroButton5
             // 
@@ -529,15 +563,16 @@
             this.TabControl.Controls.Add(this.FindPage);
             this.TabControl.Controls.Add(this.PhotoPage);
             this.TabControl.Controls.Add(this.metroTabPage1);
-            this.TabControl.Controls.Add(this.VisitsPage);
             this.TabControl.Controls.Add(this.CashPage);
+            this.TabControl.Controls.Add(this.VisitsPage);
             this.TabControl.Controls.Add(this.AccountsPage);
             this.TabControl.Controls.Add(this.ComplitedWorkActPage);
+            this.TabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TabControl.ItemSize = new System.Drawing.Size(70, 40);
-            this.TabControl.Location = new System.Drawing.Point(233, 63);
+            this.TabControl.Location = new System.Drawing.Point(224, 60);
             this.TabControl.Name = "TabControl";
-            this.TabControl.SelectedIndex = 2;
-            this.TabControl.Size = new System.Drawing.Size(751, 514);
+            this.TabControl.SelectedIndex = 1;
+            this.TabControl.Size = new System.Drawing.Size(756, 520);
             this.TabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.TabControl.TabIndex = 2;
             this.TabControl.UseSelectable = true;
@@ -552,7 +587,7 @@
             this.FindPage.HorizontalScrollbarSize = 10;
             this.FindPage.Location = new System.Drawing.Point(4, 44);
             this.FindPage.Name = "FindPage";
-            this.FindPage.Size = new System.Drawing.Size(743, 466);
+            this.FindPage.Size = new System.Drawing.Size(748, 472);
             this.FindPage.TabIndex = 0;
             this.FindPage.Text = "FindPage";
             this.FindPage.VerticalScrollbarBarColor = true;
@@ -562,6 +597,9 @@
             // Grid
             // 
             this.Grid.AllowUserToResizeRows = false;
+            this.Grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Grid.AutoGenerateColumns = false;
             this.Grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -593,7 +631,6 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.Grid.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Grid.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Grid.EnableHeadersVisualStyles = false;
             this.Grid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -611,7 +648,7 @@
             this.Grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.Grid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grid.Size = new System.Drawing.Size(743, 334);
+            this.Grid.Size = new System.Drawing.Size(748, 340);
             this.Grid.TabIndex = 4;
             this.Grid.UseStyleColors = true;
             this.Grid.DoubleClick += new System.EventHandler(this.Grid_DoubleClick);
@@ -631,6 +668,52 @@
             this.FullName.Name = "FullName";
             this.FullName.ReadOnly = true;
             this.FullName.Width = 150;
+            // 
+            // adressDataGridViewTextBoxColumn
+            // 
+            this.adressDataGridViewTextBoxColumn.DataPropertyName = "Adress";
+            this.adressDataGridViewTextBoxColumn.HeaderText = "Адреса";
+            this.adressDataGridViewTextBoxColumn.Name = "adressDataGridViewTextBoxColumn";
+            this.adressDataGridViewTextBoxColumn.ReadOnly = true;
+            this.adressDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // PatientCategory
+            // 
+            this.PatientCategory.DataPropertyName = "PatientCategory";
+            this.PatientCategory.HeaderText = "Категорія";
+            this.PatientCategory.Name = "PatientCategory";
+            this.PatientCategory.ReadOnly = true;
+            this.PatientCategory.Width = 90;
+            // 
+            // saleDataGridViewTextBoxColumn
+            // 
+            this.saleDataGridViewTextBoxColumn.DataPropertyName = "Sale";
+            this.saleDataGridViewTextBoxColumn.FillWeight = 20F;
+            this.saleDataGridViewTextBoxColumn.HeaderText = "Знижка";
+            this.saleDataGridViewTextBoxColumn.Name = "saleDataGridViewTextBoxColumn";
+            this.saleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.saleDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // dateOfRegistrationDataGridViewTextBoxColumn
+            // 
+            this.dateOfRegistrationDataGridViewTextBoxColumn.DataPropertyName = "DateOfRegistration";
+            this.dateOfRegistrationDataGridViewTextBoxColumn.FillWeight = 40F;
+            this.dateOfRegistrationDataGridViewTextBoxColumn.HeaderText = "Дата Реєстрації";
+            this.dateOfRegistrationDataGridViewTextBoxColumn.Name = "dateOfRegistrationDataGridViewTextBoxColumn";
+            this.dateOfRegistrationDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dateOfRegistrationDataGridViewTextBoxColumn.Width = 85;
+            // 
+            // contraindicationsDataGridViewTextBoxColumn
+            // 
+            this.contraindicationsDataGridViewTextBoxColumn.DataPropertyName = "Contraindications";
+            this.contraindicationsDataGridViewTextBoxColumn.HeaderText = "Протипоказання";
+            this.contraindicationsDataGridViewTextBoxColumn.Name = "contraindicationsDataGridViewTextBoxColumn";
+            this.contraindicationsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.contraindicationsDataGridViewTextBoxColumn.Width = 103;
+            // 
+            // patientBindingSource
+            // 
+            this.patientBindingSource.DataSource = typeof(Stomatology.Models.Patient);
             // 
             // metroGrid1
             // 
@@ -677,47 +760,94 @@
             // 
             // PhotoPage
             // 
-            this.PhotoPage.Controls.Add(this.richTextBox1);
-            this.PhotoPage.Controls.Add(this.pictureBox1);
-            this.PhotoPage.Controls.Add(this.metroGrid2);
+            this.PhotoPage.Controls.Add(this.PhotoSelectBtn);
+            this.PhotoPage.Controls.Add(this.DiscardPhotoBtn);
+            this.PhotoPage.Controls.Add(this.ApplyPhotoBtn);
+            this.PhotoPage.Controls.Add(this.ImageDescriptionTextBox);
+            this.PhotoPage.Controls.Add(this.ImageBox);
+            this.PhotoPage.Controls.Add(this.PhotoGrid);
             this.PhotoPage.Controls.Add(this.panel3);
             this.PhotoPage.HorizontalScrollbarBarColor = true;
             this.PhotoPage.HorizontalScrollbarHighlightOnWheel = false;
             this.PhotoPage.HorizontalScrollbarSize = 10;
             this.PhotoPage.Location = new System.Drawing.Point(4, 44);
             this.PhotoPage.Name = "PhotoPage";
-            this.PhotoPage.Size = new System.Drawing.Size(743, 466);
+            this.PhotoPage.Size = new System.Drawing.Size(748, 472);
             this.PhotoPage.TabIndex = 1;
             this.PhotoPage.Text = "PhotoPage";
             this.PhotoPage.VerticalScrollbarBarColor = true;
             this.PhotoPage.VerticalScrollbarHighlightOnWheel = false;
             this.PhotoPage.VerticalScrollbarSize = 10;
             // 
-            // richTextBox1
+            // PhotoSelectBtn
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(348, 292);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(395, 156);
-            this.richTextBox1.TabIndex = 5;
-            this.richTextBox1.Text = "";
+            this.PhotoSelectBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.PhotoSelectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PhotoSelectBtn.Location = new System.Drawing.Point(662, 239);
+            this.PhotoSelectBtn.Name = "PhotoSelectBtn";
+            this.PhotoSelectBtn.Size = new System.Drawing.Size(77, 44);
+            this.PhotoSelectBtn.TabIndex = 12;
+            this.PhotoSelectBtn.Text = "Photo";
+            this.PhotoSelectBtn.UseSelectable = true;
+            this.PhotoSelectBtn.UseStyleColors = true;
+            this.PhotoSelectBtn.Visible = false;
+            this.PhotoSelectBtn.Click += new System.EventHandler(this.SelectPhotoBtn_Click);
             // 
-            // pictureBox1
+            // DiscardPhotoBtn
             // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(348, 56);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(395, 230);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.DiscardPhotoBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.DiscardPhotoBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.DiscardPhotoBtn.Location = new System.Drawing.Point(575, 239);
+            this.DiscardPhotoBtn.Margin = new System.Windows.Forms.Padding(6);
+            this.DiscardPhotoBtn.Name = "DiscardPhotoBtn";
+            this.DiscardPhotoBtn.Size = new System.Drawing.Size(77, 44);
+            this.DiscardPhotoBtn.TabIndex = 11;
+            this.DiscardPhotoBtn.Text = "Discard";
+            this.DiscardPhotoBtn.UseSelectable = true;
+            this.DiscardPhotoBtn.UseStyleColors = true;
+            this.DiscardPhotoBtn.Visible = false;
+            this.DiscardPhotoBtn.Click += new System.EventHandler(this.DiscardPhotoBtn_Click);
             // 
-            // metroGrid2
+            // ApplyPhotoBtn
             // 
-            this.metroGrid2.AllowUserToResizeRows = false;
-            this.metroGrid2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.metroGrid2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.metroGrid2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.metroGrid2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.ApplyPhotoBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ApplyPhotoBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ApplyPhotoBtn.Location = new System.Drawing.Point(489, 239);
+            this.ApplyPhotoBtn.Name = "ApplyPhotoBtn";
+            this.ApplyPhotoBtn.Size = new System.Drawing.Size(77, 44);
+            this.ApplyPhotoBtn.TabIndex = 10;
+            this.ApplyPhotoBtn.Text = "Apply";
+            this.ApplyPhotoBtn.UseSelectable = true;
+            this.ApplyPhotoBtn.UseStyleColors = true;
+            this.ApplyPhotoBtn.Visible = false;
+            this.ApplyPhotoBtn.Click += new System.EventHandler(this.ApplyPhotoBtn_Click);
+            // 
+            // ImageDescriptionTextBox
+            // 
+            this.ImageDescriptionTextBox.Location = new System.Drawing.Point(348, 292);
+            this.ImageDescriptionTextBox.Name = "ImageDescriptionTextBox";
+            this.ImageDescriptionTextBox.Size = new System.Drawing.Size(395, 156);
+            this.ImageDescriptionTextBox.TabIndex = 5;
+            this.ImageDescriptionTextBox.Text = "";
+            // 
+            // ImageBox
+            // 
+            this.ImageBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ImageBox.ErrorImage = ((System.Drawing.Image)(resources.GetObject("ImageBox.ErrorImage")));
+            this.ImageBox.Location = new System.Drawing.Point(348, 56);
+            this.ImageBox.Name = "ImageBox";
+            this.ImageBox.Size = new System.Drawing.Size(395, 230);
+            this.ImageBox.TabIndex = 4;
+            this.ImageBox.TabStop = false;
+            // 
+            // PhotoGrid
+            // 
+            this.PhotoGrid.AllowUserToResizeRows = false;
+            this.PhotoGrid.AutoGenerateColumns = false;
+            this.PhotoGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.PhotoGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PhotoGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.PhotoGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -725,8 +855,13 @@
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.metroGrid2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PhotoGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.PhotoGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PhotoGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.remarkDataGridViewTextBoxColumn,
+            this.Patient,
+            this.dateDataGridViewTextBoxColumn});
+            this.PhotoGrid.DataSource = this.PhotoBindingSource;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -734,13 +869,14 @@
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.metroGrid2.DefaultCellStyle = dataGridViewCellStyle8;
-            this.metroGrid2.EnableHeadersVisualStyles = false;
-            this.metroGrid2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.metroGrid2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.metroGrid2.Location = new System.Drawing.Point(0, 56);
-            this.metroGrid2.Name = "metroGrid2";
-            this.metroGrid2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.PhotoGrid.DefaultCellStyle = dataGridViewCellStyle8;
+            this.PhotoGrid.EnableHeadersVisualStyles = false;
+            this.PhotoGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.PhotoGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.PhotoGrid.Location = new System.Drawing.Point(0, 56);
+            this.PhotoGrid.Name = "PhotoGrid";
+            this.PhotoGrid.ReadOnly = true;
+            this.PhotoGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -748,22 +884,48 @@
             dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid2.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.metroGrid2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.metroGrid2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.metroGrid2.Size = new System.Drawing.Size(342, 414);
-            this.metroGrid2.TabIndex = 3;
+            this.PhotoGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.PhotoGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.PhotoGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.PhotoGrid.Size = new System.Drawing.Size(342, 414);
+            this.PhotoGrid.TabIndex = 3;
+            this.PhotoGrid.CurrentCellChanged += new System.EventHandler(this.PhotoGrid_RowEnter);
+            // 
+            // remarkDataGridViewTextBoxColumn
+            // 
+            this.remarkDataGridViewTextBoxColumn.DataPropertyName = "Remark";
+            this.remarkDataGridViewTextBoxColumn.HeaderText = "Примітка";
+            this.remarkDataGridViewTextBoxColumn.Name = "remarkDataGridViewTextBoxColumn";
+            this.remarkDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Patient
+            // 
+            this.Patient.DataPropertyName = "Patient";
+            this.Patient.HeaderText = "Пацієнт";
+            this.Patient.Name = "Patient";
+            this.Patient.ReadOnly = true;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Дата";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // PhotoBindingSource
+            // 
+            this.PhotoBindingSource.DataSource = typeof(Stomatology.Models.Photo);
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.EditButton);
             this.panel3.Controls.Add(this.AddButton);
-            this.panel3.Controls.Add(this.DateTill);
+            this.panel3.Controls.Add(this.DateTo);
             this.panel3.Controls.Add(this.DateFrom);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(743, 56);
+            this.panel3.Size = new System.Drawing.Size(748, 56);
             this.panel3.TabIndex = 2;
             // 
             // EditButton
@@ -785,26 +947,27 @@
             this.AddButton.Size = new System.Drawing.Size(186, 44);
             this.AddButton.TabIndex = 2;
             this.AddButton.UseSelectable = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
-            // DateTill
+            // DateTo
             // 
-            this.DateTill.Location = new System.Drawing.Point(397, 15);
-            this.DateTill.MinimumSize = new System.Drawing.Size(4, 29);
-            this.DateTill.Name = "DateTill";
-            this.DateTill.Size = new System.Drawing.Size(147, 29);
-            this.DateTill.TabIndex = 1;
+            this.DateTo.Location = new System.Drawing.Point(397, 15);
+            this.DateTo.MinimumSize = new System.Drawing.Size(0, 29);
+            this.DateTo.Name = "DateTo";
+            this.DateTo.Size = new System.Drawing.Size(147, 29);
+            this.DateTo.TabIndex = 1;
             // 
             // DateFrom
             // 
             this.DateFrom.Location = new System.Drawing.Point(195, 15);
-            this.DateFrom.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateFrom.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateFrom.Name = "DateFrom";
             this.DateFrom.Size = new System.Drawing.Size(147, 29);
             this.DateFrom.TabIndex = 0;
             // 
             // metroTabPage1
             // 
-            this.metroTabPage1.Controls.Add(this.metroButton2);
+            this.metroTabPage1.Controls.Add(this.IconBtn);
             this.metroTabPage1.Controls.Add(this.panel4);
             this.metroTabPage1.Controls.Add(this.DiscardBtn);
             this.metroTabPage1.Controls.Add(this.ApplyBtn);
@@ -817,24 +980,26 @@
             this.metroTabPage1.HorizontalScrollbarSize = 10;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 44);
             this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(743, 466);
+            this.metroTabPage1.Size = new System.Drawing.Size(748, 472);
             this.metroTabPage1.TabIndex = 6;
             this.metroTabPage1.Text = "Personal Data";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
             // 
-            // metroButton2
+            // IconBtn
             // 
-            this.metroButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.metroButton2.Location = new System.Drawing.Point(663, 233);
-            this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(77, 44);
-            this.metroButton2.TabIndex = 9;
-            this.metroButton2.Text = "Photo";
-            this.metroButton2.UseSelectable = true;
-            this.metroButton2.UseStyleColors = true;
-            this.metroButton2.Visible = false;
+            this.IconBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.IconBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.IconBtn.Location = new System.Drawing.Point(663, 233);
+            this.IconBtn.Name = "IconBtn";
+            this.IconBtn.Size = new System.Drawing.Size(77, 44);
+            this.IconBtn.TabIndex = 9;
+            this.IconBtn.Text = "Photo";
+            this.IconBtn.UseSelectable = true;
+            this.IconBtn.UseStyleColors = true;
+            this.IconBtn.Visible = false;
+            this.IconBtn.Click += new System.EventHandler(this.IconBtn_Click);
             // 
             // panel4
             // 
@@ -843,13 +1008,18 @@
             this.panel4.Controls.Add(this.ContraindicationsRichTextBox);
             this.panel4.Controls.Add(metroLabel8);
             this.panel4.Controls.Add(metroLabel9);
-            this.panel4.Location = new System.Drawing.Point(3, 289);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(0, 286);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(740, 176);
+            this.panel4.Size = new System.Drawing.Size(748, 186);
             this.panel4.TabIndex = 8;
             // 
             // PhonesRichTextBox
             // 
+            this.PhonesRichTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PhonesRichTextBox.Enabled = false;
             this.PhonesRichTextBox.Location = new System.Drawing.Point(487, 34);
             this.PhonesRichTextBox.Name = "PhonesRichTextBox";
             this.PhonesRichTextBox.Size = new System.Drawing.Size(250, 128);
@@ -858,6 +1028,10 @@
             // 
             // ContraindicationsRichTextBox
             // 
+            this.ContraindicationsRichTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ContraindicationsRichTextBox.Enabled = false;
             this.ContraindicationsRichTextBox.Location = new System.Drawing.Point(6, 34);
             this.ContraindicationsRichTextBox.Name = "ContraindicationsRichTextBox";
             this.ContraindicationsRichTextBox.Size = new System.Drawing.Size(475, 128);
@@ -866,6 +1040,7 @@
             // 
             // DiscardBtn
             // 
+            this.DiscardBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.DiscardBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.DiscardBtn.Location = new System.Drawing.Point(576, 233);
             this.DiscardBtn.Margin = new System.Windows.Forms.Padding(6);
@@ -876,9 +1051,11 @@
             this.DiscardBtn.UseSelectable = true;
             this.DiscardBtn.UseStyleColors = true;
             this.DiscardBtn.Visible = false;
+            this.DiscardBtn.Click += new System.EventHandler(this.DiscardBtn_Click);
             // 
             // ApplyBtn
             // 
+            this.ApplyBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ApplyBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ApplyBtn.Location = new System.Drawing.Point(490, 233);
             this.ApplyBtn.Name = "ApplyBtn";
@@ -888,12 +1065,14 @@
             this.ApplyBtn.UseSelectable = true;
             this.ApplyBtn.UseStyleColors = true;
             this.ApplyBtn.Visible = false;
+            this.ApplyBtn.Click += new System.EventHandler(this.ApplyBtn_Click);
             // 
             // RegistrationDate
             // 
             this.RegistrationDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RegistrationDate.Enabled = false;
             this.RegistrationDate.Location = new System.Drawing.Point(195, 6);
-            this.RegistrationDate.MinimumSize = new System.Drawing.Size(0, 29);
+            this.RegistrationDate.MinimumSize = new System.Drawing.Size(4, 29);
             this.RegistrationDate.Name = "RegistrationDate";
             this.RegistrationDate.Size = new System.Drawing.Size(289, 29);
             this.RegistrationDate.TabIndex = 5;
@@ -907,10 +1086,14 @@
             this.EditBtn.Size = new System.Drawing.Size(186, 44);
             this.EditBtn.TabIndex = 4;
             this.EditBtn.UseSelectable = true;
+            this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox3.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox3.Controls.Add(this.ArchivePatientCheckBox);
             this.groupBox3.Controls.Add(this.FullNameTextBox);
             this.groupBox3.Controls.Add(metroLabel10);
             this.groupBox3.Controls.Add(this.RemarkTextBox);
@@ -931,6 +1114,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Анкетні дані";
             // 
+            // ArchivePatientCheckBox
+            // 
+            this.ArchivePatientCheckBox.Location = new System.Drawing.Point(347, 89);
+            this.ArchivePatientCheckBox.Name = "ArchivePatientCheckBox";
+            this.ArchivePatientCheckBox.Size = new System.Drawing.Size(104, 53);
+            this.ArchivePatientCheckBox.TabIndex = 13;
+            this.ArchivePatientCheckBox.Text = "Архівний\r\nПацієнт";
+            this.ArchivePatientCheckBox.UseSelectable = true;
+            this.ArchivePatientCheckBox.UseStyleColors = true;
+            // 
             // FullNameTextBox
             // 
             // 
@@ -945,6 +1138,7 @@
             this.FullNameTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.FullNameTextBox.CustomButton.UseSelectable = true;
             this.FullNameTextBox.CustomButton.Visible = false;
+            this.FullNameTextBox.Enabled = false;
             this.FullNameTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.FullNameTextBox.Lines = new string[0];
             this.FullNameTextBox.Location = new System.Drawing.Point(6, 115);
@@ -976,6 +1170,7 @@
             this.RemarkTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.RemarkTextBox.CustomButton.UseSelectable = true;
             this.RemarkTextBox.CustomButton.Visible = false;
+            this.RemarkTextBox.Enabled = false;
             this.RemarkTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.RemarkTextBox.Lines = new string[0];
             this.RemarkTextBox.Location = new System.Drawing.Point(6, 187);
@@ -1007,6 +1202,7 @@
             this.AdressTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.AdressTextBox.CustomButton.UseSelectable = true;
             this.AdressTextBox.CustomButton.Visible = false;
+            this.AdressTextBox.Enabled = false;
             this.AdressTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.AdressTextBox.Lines = new string[0];
             this.AdressTextBox.Location = new System.Drawing.Point(223, 187);
@@ -1038,6 +1234,7 @@
             this.SaleTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.SaleTextBox.CustomButton.UseSelectable = true;
             this.SaleTextBox.CustomButton.Visible = false;
+            this.SaleTextBox.Enabled = false;
             this.SaleTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.SaleTextBox.Lines = new string[0];
             this.SaleTextBox.Location = new System.Drawing.Point(352, 44);
@@ -1057,6 +1254,7 @@
             // 
             // CategoryComboBox
             // 
+            this.CategoryComboBox.Enabled = false;
             this.CategoryComboBox.FormattingEnabled = true;
             this.CategoryComboBox.ItemHeight = 23;
             this.CategoryComboBox.Location = new System.Drawing.Point(135, 44);
@@ -1079,6 +1277,7 @@
             this.CardTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.CardTextBox.CustomButton.UseSelectable = true;
             this.CardTextBox.CustomButton.Visible = false;
+            this.CardTextBox.Enabled = false;
             this.CardTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.CardTextBox.Lines = new string[0];
             this.CardTextBox.Location = new System.Drawing.Point(6, 44);
@@ -1098,27 +1297,16 @@
             // 
             // IconImageBox
             // 
+            this.IconImageBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.IconImageBox.BackColor = System.Drawing.Color.LightGray;
-            this.IconImageBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.IconImageBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.IconImageBox.Location = new System.Drawing.Point(490, 0);
             this.IconImageBox.Name = "IconImageBox";
             this.IconImageBox.Size = new System.Drawing.Size(250, 220);
             this.IconImageBox.TabIndex = 2;
             this.IconImageBox.TabStop = false;
-            // 
-            // VisitsPage
-            // 
-            this.VisitsPage.HorizontalScrollbarBarColor = true;
-            this.VisitsPage.HorizontalScrollbarHighlightOnWheel = false;
-            this.VisitsPage.HorizontalScrollbarSize = 10;
-            this.VisitsPage.Location = new System.Drawing.Point(4, 44);
-            this.VisitsPage.Name = "VisitsPage";
-            this.VisitsPage.Size = new System.Drawing.Size(743, 466);
-            this.VisitsPage.TabIndex = 2;
-            this.VisitsPage.Text = "VisitsPage";
-            this.VisitsPage.VerticalScrollbarBarColor = true;
-            this.VisitsPage.VerticalScrollbarHighlightOnWheel = false;
-            this.VisitsPage.VerticalScrollbarSize = 10;
             // 
             // CashPage
             // 
@@ -1127,19 +1315,33 @@
             this.CashPage.HorizontalScrollbarSize = 10;
             this.CashPage.Location = new System.Drawing.Point(4, 44);
             this.CashPage.Name = "CashPage";
-            this.CashPage.Size = new System.Drawing.Size(743, 466);
+            this.CashPage.Size = new System.Drawing.Size(748, 472);
             this.CashPage.TabIndex = 3;
             this.CashPage.Text = "CashPage";
             this.CashPage.VerticalScrollbarBarColor = true;
             this.CashPage.VerticalScrollbarHighlightOnWheel = false;
             this.CashPage.VerticalScrollbarSize = 10;
             // 
+            // VisitsPage
+            // 
+            this.VisitsPage.HorizontalScrollbarBarColor = true;
+            this.VisitsPage.HorizontalScrollbarHighlightOnWheel = false;
+            this.VisitsPage.HorizontalScrollbarSize = 10;
+            this.VisitsPage.Location = new System.Drawing.Point(4, 44);
+            this.VisitsPage.Name = "VisitsPage";
+            this.VisitsPage.Size = new System.Drawing.Size(748, 472);
+            this.VisitsPage.TabIndex = 2;
+            this.VisitsPage.Text = "VisitsPage";
+            this.VisitsPage.VerticalScrollbarBarColor = true;
+            this.VisitsPage.VerticalScrollbarHighlightOnWheel = false;
+            this.VisitsPage.VerticalScrollbarSize = 10;
+            // 
             // AccountsPage
             // 
             this.AccountsPage.CausesValidation = false;
             this.AccountsPage.Location = new System.Drawing.Point(4, 44);
             this.AccountsPage.Name = "AccountsPage";
-            this.AccountsPage.Size = new System.Drawing.Size(743, 466);
+            this.AccountsPage.Size = new System.Drawing.Size(748, 472);
             this.AccountsPage.TabIndex = 4;
             this.AccountsPage.Text = "AccountsPage";
             // 
@@ -1147,7 +1349,7 @@
             // 
             this.ComplitedWorkActPage.Location = new System.Drawing.Point(4, 44);
             this.ComplitedWorkActPage.Name = "ComplitedWorkActPage";
-            this.ComplitedWorkActPage.Size = new System.Drawing.Size(743, 466);
+            this.ComplitedWorkActPage.Size = new System.Drawing.Size(748, 472);
             this.ComplitedWorkActPage.TabIndex = 5;
             this.ComplitedWorkActPage.Text = "ComplitedWorkActPage";
             // 
@@ -1203,51 +1405,22 @@
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             this.dataGridViewTextBoxColumn7.Width = 90;
             // 
-            // adressDataGridViewTextBoxColumn
+            // OpenIconDialog
             // 
-            this.adressDataGridViewTextBoxColumn.DataPropertyName = "Adress";
-            this.adressDataGridViewTextBoxColumn.HeaderText = "Адреса";
-            this.adressDataGridViewTextBoxColumn.Name = "adressDataGridViewTextBoxColumn";
-            this.adressDataGridViewTextBoxColumn.ReadOnly = true;
-            this.adressDataGridViewTextBoxColumn.Width = 150;
+            this.OpenIconDialog.Filter = " |*.gif ;*.jpg; *.jpeg; *.bmp; *.wmf; *.png";
             // 
-            // PatientCategory
+            // dataGridViewTextBoxColumn8
             // 
-            this.PatientCategory.DataPropertyName = "PatientCategory";
-            this.PatientCategory.HeaderText = "Категорія";
-            this.PatientCategory.Name = "PatientCategory";
-            this.PatientCategory.ReadOnly = true;
-            this.PatientCategory.Width = 90;
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Patient";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Пацієнт";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
-            // saleDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn9
             // 
-            this.saleDataGridViewTextBoxColumn.DataPropertyName = "Sale";
-            this.saleDataGridViewTextBoxColumn.FillWeight = 20F;
-            this.saleDataGridViewTextBoxColumn.HeaderText = "Знижка";
-            this.saleDataGridViewTextBoxColumn.Name = "saleDataGridViewTextBoxColumn";
-            this.saleDataGridViewTextBoxColumn.ReadOnly = true;
-            this.saleDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // dateOfRegistrationDataGridViewTextBoxColumn
-            // 
-            this.dateOfRegistrationDataGridViewTextBoxColumn.DataPropertyName = "DateOfRegistration";
-            this.dateOfRegistrationDataGridViewTextBoxColumn.FillWeight = 40F;
-            this.dateOfRegistrationDataGridViewTextBoxColumn.HeaderText = "Дата Реєстрації";
-            this.dateOfRegistrationDataGridViewTextBoxColumn.Name = "dateOfRegistrationDataGridViewTextBoxColumn";
-            this.dateOfRegistrationDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateOfRegistrationDataGridViewTextBoxColumn.Width = 85;
-            // 
-            // contraindicationsDataGridViewTextBoxColumn
-            // 
-            this.contraindicationsDataGridViewTextBoxColumn.DataPropertyName = "Contraindications";
-            this.contraindicationsDataGridViewTextBoxColumn.HeaderText = "Протипоказання";
-            this.contraindicationsDataGridViewTextBoxColumn.Name = "contraindicationsDataGridViewTextBoxColumn";
-            this.contraindicationsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.contraindicationsDataGridViewTextBoxColumn.Width = 103;
-            // 
-            // patientBindingSource
-            // 
-            this.patientBindingSource.DataSource = typeof(Stomatology.Models.Patient);
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Patient";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Пацієнт";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             // 
             // patientCategoryBindingSource
             // 
@@ -1262,7 +1435,8 @@
             this.Controls.Add(this.panel1);
             this.Name = "CardFile";
             this.Style = MetroFramework.MetroColorStyle.Default;
-            this.Text = "CardFile";
+            this.Text = "Картотека";
+            this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center;
             panel2.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
@@ -1271,16 +1445,17 @@
             this.TabControl.ResumeLayout(false);
             this.FindPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Grid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
             this.PhotoPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImageBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PhotoGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PhotoBindingSource)).EndInit();
             this.panel3.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.IconImageBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientCategoryBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -1310,11 +1485,11 @@
         private MetroFramework.Controls.MetroRadioButton RegistrationDateSort;
         private MetroFramework.Controls.MetroRadioButton NameSort;
         private System.Windows.Forms.Panel panel3;
-        private MetroFramework.Controls.MetroDateTime DateTill;
+        private MetroFramework.Controls.MetroDateTime DateTo;
         private MetroFramework.Controls.MetroDateTime DateFrom;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private MetroFramework.Controls.MetroGrid metroGrid2;
+        private System.Windows.Forms.RichTextBox ImageDescriptionTextBox;
+        private System.Windows.Forms.PictureBox ImageBox;
+        private MetroFramework.Controls.MetroGrid PhotoGrid;
         private MetroFramework.Controls.MetroButton AddButton;
         private MetroFramework.Controls.MetroButton EditButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -1352,7 +1527,20 @@
         private MetroFramework.Controls.MetroTextBox RemarkTextBox;
         private MetroFramework.Controls.MetroTextBox AdressTextBox;
         private MetroFramework.Controls.MetroTextBox SaleTextBox;
-        private MetroFramework.Controls.MetroButton metroButton2;
+        private MetroFramework.Controls.MetroButton IconBtn;
         private MetroFramework.Controls.MetroTextBox FullNameTextBox;
+        private System.Windows.Forms.OpenFileDialog OpenIconDialog;
+        private MetroFramework.Controls.MetroCheckBox ArchivePatientCheckBox;
+        private MetroFramework.Controls.MetroButton metroButton2;
+        private System.Windows.Forms.BindingSource PhotoBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientDataGridViewTextBoxColumn;
+        private MetroFramework.Controls.MetroButton PhotoSelectBtn;
+        private MetroFramework.Controls.MetroButton DiscardPhotoBtn;
+        private MetroFramework.Controls.MetroButton ApplyPhotoBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn remarkDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Patient;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
     }
 }

@@ -21,12 +21,11 @@
             Id = null;
         }
 
-        public Operation(int visitId, int manipulationId, int number,
-            float sale, float summ, bool isMade)
+        public Operation(int number,float sale, float summ, bool isMade, Visit visit, Manipulation manipulation)
         {
             Id = null;
-            Visit.Id = visitId;
-            Manipulation.Id = manipulationId;
+            Visit = visit;
+            Manipulation = manipulation;
             Number = number;
             Sale = sale;
             Summ = summ;

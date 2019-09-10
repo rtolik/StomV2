@@ -21,11 +21,11 @@ namespace Stomatology.Models
             Id = null;
         }
 
-        public Photo(string photoPath, int patientId, string remark)
+        public Photo(string photoPath, string remark, Patient patient)
         {
             Id = null;
             PhotoPath = photoPath;
-            Patient.Id = patientId;
+            Patient = patient;
             Remark = remark;
         }
     }

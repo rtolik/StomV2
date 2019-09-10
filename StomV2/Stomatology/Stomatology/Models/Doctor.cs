@@ -17,11 +17,11 @@ namespace Stomatology.Models
             Id = null;
         }
 
-        public Doctor(string fullName, int firmId)
+        public Doctor(string fullName, Firm firm)
         {
             Id = null;
             FullName = fullName;
-            Firm.Id = firmId;
+            Firm = firm;
         }
 
     }

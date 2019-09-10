@@ -12,7 +12,7 @@
     <property name ="PricePerOne"/>
     <property name ="Summ"/>
 
-    <!--<many-to-one name = "Manipulation" column = "manipulationId"/>-->
+    <many-to-one name = "Manipulation" column = "manipulationId"/>
     <many-to-one name = "Paragraph" column = "paragraphId"/>
 
   </class>

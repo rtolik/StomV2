@@ -1,15 +1,16 @@
-﻿using System;
+﻿using NHibernate;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NHibernate;
 
 namespace Stomatology.Repository
 {
-    class PhotoRepository:BaseRepository
+    class FirmRepository : BaseRepository
     {
-        public PhotoRepository(ISession session) : base(session){}
+        public FirmRepository(ISession session) : base(session){}
+
 
     }
 }

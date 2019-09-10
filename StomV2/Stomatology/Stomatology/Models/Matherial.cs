@@ -19,7 +19,7 @@ namespace Stomatology.Models
 
         public virtual float Summ { get; set; }
 
-        //public virtual  Manipulation Manipulation { get; set; }
+        public virtual Manipulation Manipulation { get; set; }
 
         public virtual Paragraph Paragraph { get; set; }
 
@@ -29,7 +29,7 @@ namespace Stomatology.Models
         }
 
         public Matherial(string name, MatherialType type, DateTime date, int number,
-            float pricePerOne, int manipulationId)
+            float pricePerOne, Manipulation manipulation, Paragraph paragraph)
         {
             Id = null;
             Name = name;
@@ -37,8 +37,9 @@ namespace Stomatology.Models
             Date = date;
             Number = number;
             PricePerOne = pricePerOne;
-            Summ = number * pricePerOne; 
-            //Manipulation.Id = manipulationId;
+            Summ = number * pricePerOne;
+            Manipulation = manipulation;
+            Paragraph = paragraph;
         }
     }
 }

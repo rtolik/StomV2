@@ -36,18 +36,18 @@ namespace Stomatology.Models
         }
 
         public Visit(string diagnosis, string terapy, float sale,
-            int visitCategoryId, float summ, int firmId,
-            int patientId, int doctorId, DateTime date)
+            float summ, DateTime date, VisitCategory visitCategory, Firm firm,
+            Patient patient, Doctor doctor)
         {
             Id = null;
             Diagnosis = diagnosis;
             Terapy = terapy;
             Sale = sale;
-            VisitCategory.Id = visitCategoryId;
+            VisitCategory = visitCategory;
             Summ = summ;
-            Firm.Id = firmId;
-            Patient.Id = patientId;
-            Doctor.Id = doctorId;
+            Firm = firm;
+            Patient = patient;
+            Doctor = doctor;
             Date = date;
         }
     }

@@ -22,11 +22,11 @@ namespace Stomatology.Models
             Id = null;
         }
 
-        public Cash(int patientId, int firmId, DateTime date, float value, string remark)
+        public Cash(DateTime date, float value, string remark, Patient patient, Firm firm)
         {
             Id = null;
-            Patient.Id = patientId;
-            Firm.Id = firmId;
+            Patient = patient;
+            Firm = firm;
             Date = date;
             Value = value;
             Remark = remark;

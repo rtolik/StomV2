@@ -26,15 +26,34 @@ namespace Stomatology.Repository
             return Session.Get<T>(id);
         }
 
+        public void Save<T>(T obj) where T : class, Models.Interfaces.IEntityble
+        {
+            if (obj.Id != null)
+                Session.Save(obj, obj.Id);
+            else
+                Session.Save(obj);
+            
+        }
+
         public void Save<T>(List<T> objects) where T : class, Models.Interfaces.IEntityble
         {
             foreach (T obj in objects)
-            {
-                if (obj.Id != null)
-                    Session.Save(obj, obj.Id);
-                else
-                    Session.Save(obj);
-            }
+                Save(obj);
+        }
+
+        public void Update<T>(T obj) where T : class, Models.Interfaces.IEntityble
+        {
+            if (obj.Id != null)
+                Session.Update(obj, obj.Id);
+            else
+                Session.Update(obj);
+
+        }
+
+        public void Update<T>(List<T> objects) where T : class, Models.Interfaces.IEntityble
+        {
+            foreach (T obj in objects)
+                Update(obj);
         }
     }
 }
