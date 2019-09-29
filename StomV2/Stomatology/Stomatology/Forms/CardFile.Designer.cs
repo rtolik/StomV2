@@ -42,6 +42,7 @@
             MetroFramework.Controls.MetroLabel metroLabel8;
             MetroFramework.Controls.MetroLabel metroLabel9;
             MetroFramework.Controls.MetroLabel metroLabel10;
+            MetroFramework.Controls.MetroLabel metroLabel11;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CardFile));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -117,6 +118,12 @@
             this.IconImageBox = new System.Windows.Forms.PictureBox();
             this.CashPage = new MetroFramework.Controls.MetroTabPage();
             this.VisitsPage = new MetroFramework.Controls.MetroTabPage();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.VisitCategoriyComboBox = new MetroFramework.Controls.MetroComboBox();
+            this.EditVisitBtn = new MetroFramework.Controls.MetroButton();
+            this.AddVisitBtn = new MetroFramework.Controls.MetroButton();
+            this.VisitDateTo = new MetroFramework.Controls.MetroDateTime();
+            this.VisitDateFrom = new MetroFramework.Controls.MetroDateTime();
             this.AccountsPage = new System.Windows.Forms.TabPage();
             this.ComplitedWorkActPage = new System.Windows.Forms.TabPage();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -129,6 +136,14 @@
             this.OpenIconDialog = new System.Windows.Forms.OpenFileDialog();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             panel2 = new System.Windows.Forms.Panel();
             groupBox2 = new System.Windows.Forms.GroupBox();
@@ -143,6 +158,7 @@
             metroLabel8 = new MetroFramework.Controls.MetroLabel();
             metroLabel9 = new MetroFramework.Controls.MetroLabel();
             metroLabel10 = new MetroFramework.Controls.MetroLabel();
+            metroLabel11 = new MetroFramework.Controls.MetroLabel();
             panel2.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -162,6 +178,8 @@
             this.panel4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IconImageBox)).BeginInit();
+            this.VisitsPage.SuspendLayout();
+            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patientCategoryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -457,6 +475,16 @@
             metroLabel10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             metroLabel10.UseStyleColors = true;
             // 
+            // metroLabel11
+            // 
+            metroLabel11.Location = new System.Drawing.Point(195, 41);
+            metroLabel11.Name = "metroLabel11";
+            metroLabel11.Size = new System.Drawing.Size(147, 29);
+            metroLabel11.TabIndex = 5;
+            metroLabel11.Text = "Категорія прийому";
+            metroLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            metroLabel11.UseStyleColors = true;
+            // 
             // metroStyleManager1
             // 
             this.metroStyleManager1.Owner = null;
@@ -532,6 +560,7 @@
             this.VisitsButton.Size = new System.Drawing.Size(200, 50);
             this.VisitsButton.TabIndex = 5;
             this.VisitsButton.UseSelectable = true;
+            this.VisitsButton.Click += new System.EventHandler(this.VisitsButton_Click);
             // 
             // PhotoButton
             // 
@@ -571,7 +600,7 @@
             this.TabControl.ItemSize = new System.Drawing.Size(70, 40);
             this.TabControl.Location = new System.Drawing.Point(224, 60);
             this.TabControl.Name = "TabControl";
-            this.TabControl.SelectedIndex = 1;
+            this.TabControl.SelectedIndex = 4;
             this.TabControl.Size = new System.Drawing.Size(756, 520);
             this.TabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.TabControl.TabIndex = 2;
@@ -596,11 +625,13 @@
             // 
             // Grid
             // 
+            this.Grid.AllowUserToOrderColumns = true;
             this.Grid.AllowUserToResizeRows = false;
             this.Grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Grid.AutoGenerateColumns = false;
+            this.Grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -656,10 +687,10 @@
             // MedicalCard
             // 
             this.MedicalCard.DataPropertyName = "MedicalCard";
+            this.MedicalCard.FillWeight = 40F;
             this.MedicalCard.HeaderText = "№ Карти";
             this.MedicalCard.Name = "MedicalCard";
             this.MedicalCard.ReadOnly = true;
-            this.MedicalCard.Width = 50;
             // 
             // FullName
             // 
@@ -667,49 +698,46 @@
             this.FullName.HeaderText = "ПІБ";
             this.FullName.Name = "FullName";
             this.FullName.ReadOnly = true;
-            this.FullName.Width = 150;
             // 
             // adressDataGridViewTextBoxColumn
             // 
             this.adressDataGridViewTextBoxColumn.DataPropertyName = "Adress";
+            this.adressDataGridViewTextBoxColumn.FillWeight = 90F;
             this.adressDataGridViewTextBoxColumn.HeaderText = "Адреса";
             this.adressDataGridViewTextBoxColumn.Name = "adressDataGridViewTextBoxColumn";
             this.adressDataGridViewTextBoxColumn.ReadOnly = true;
-            this.adressDataGridViewTextBoxColumn.Width = 150;
             // 
             // PatientCategory
             // 
             this.PatientCategory.DataPropertyName = "PatientCategory";
+            this.PatientCategory.FillWeight = 60F;
             this.PatientCategory.HeaderText = "Категорія";
             this.PatientCategory.Name = "PatientCategory";
             this.PatientCategory.ReadOnly = true;
-            this.PatientCategory.Width = 90;
             // 
             // saleDataGridViewTextBoxColumn
             // 
             this.saleDataGridViewTextBoxColumn.DataPropertyName = "Sale";
-            this.saleDataGridViewTextBoxColumn.FillWeight = 20F;
+            this.saleDataGridViewTextBoxColumn.FillWeight = 40F;
             this.saleDataGridViewTextBoxColumn.HeaderText = "Знижка";
             this.saleDataGridViewTextBoxColumn.Name = "saleDataGridViewTextBoxColumn";
             this.saleDataGridViewTextBoxColumn.ReadOnly = true;
-            this.saleDataGridViewTextBoxColumn.Width = 50;
             // 
             // dateOfRegistrationDataGridViewTextBoxColumn
             // 
             this.dateOfRegistrationDataGridViewTextBoxColumn.DataPropertyName = "DateOfRegistration";
-            this.dateOfRegistrationDataGridViewTextBoxColumn.FillWeight = 40F;
+            this.dateOfRegistrationDataGridViewTextBoxColumn.FillWeight = 60F;
             this.dateOfRegistrationDataGridViewTextBoxColumn.HeaderText = "Дата Реєстрації";
             this.dateOfRegistrationDataGridViewTextBoxColumn.Name = "dateOfRegistrationDataGridViewTextBoxColumn";
             this.dateOfRegistrationDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateOfRegistrationDataGridViewTextBoxColumn.Width = 85;
             // 
             // contraindicationsDataGridViewTextBoxColumn
             // 
             this.contraindicationsDataGridViewTextBoxColumn.DataPropertyName = "Contraindications";
+            this.contraindicationsDataGridViewTextBoxColumn.FillWeight = 90F;
             this.contraindicationsDataGridViewTextBoxColumn.HeaderText = "Протипоказання";
             this.contraindicationsDataGridViewTextBoxColumn.Name = "contraindicationsDataGridViewTextBoxColumn";
             this.contraindicationsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.contraindicationsDataGridViewTextBoxColumn.Width = 103;
             // 
             // patientBindingSource
             // 
@@ -781,7 +809,7 @@
             // 
             // PhotoSelectBtn
             // 
-            this.PhotoSelectBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.PhotoSelectBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.PhotoSelectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PhotoSelectBtn.Location = new System.Drawing.Point(662, 239);
             this.PhotoSelectBtn.Name = "PhotoSelectBtn";
@@ -795,7 +823,7 @@
             // 
             // DiscardPhotoBtn
             // 
-            this.DiscardPhotoBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.DiscardPhotoBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.DiscardPhotoBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.DiscardPhotoBtn.Location = new System.Drawing.Point(575, 239);
             this.DiscardPhotoBtn.Margin = new System.Windows.Forms.Padding(6);
@@ -810,7 +838,7 @@
             // 
             // ApplyPhotoBtn
             // 
-            this.ApplyPhotoBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ApplyPhotoBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ApplyPhotoBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ApplyPhotoBtn.Location = new System.Drawing.Point(489, 239);
             this.ApplyPhotoBtn.Name = "ApplyPhotoBtn";
@@ -824,24 +852,30 @@
             // 
             // ImageDescriptionTextBox
             // 
+            this.ImageDescriptionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ImageDescriptionTextBox.Location = new System.Drawing.Point(348, 292);
             this.ImageDescriptionTextBox.Name = "ImageDescriptionTextBox";
-            this.ImageDescriptionTextBox.Size = new System.Drawing.Size(395, 156);
+            this.ImageDescriptionTextBox.Size = new System.Drawing.Size(401, 156);
             this.ImageDescriptionTextBox.TabIndex = 5;
             this.ImageDescriptionTextBox.Text = "";
             // 
             // ImageBox
             // 
+            this.ImageBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ImageBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ImageBox.ErrorImage = ((System.Drawing.Image)(resources.GetObject("ImageBox.ErrorImage")));
             this.ImageBox.Location = new System.Drawing.Point(348, 56);
             this.ImageBox.Name = "ImageBox";
-            this.ImageBox.Size = new System.Drawing.Size(395, 230);
+            this.ImageBox.Size = new System.Drawing.Size(400, 230);
             this.ImageBox.TabIndex = 4;
             this.ImageBox.TabStop = false;
             // 
             // PhotoGrid
             // 
+            this.PhotoGrid.AllowUserToOrderColumns = true;
             this.PhotoGrid.AllowUserToResizeRows = false;
             this.PhotoGrid.AutoGenerateColumns = false;
             this.PhotoGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -894,6 +928,7 @@
             // remarkDataGridViewTextBoxColumn
             // 
             this.remarkDataGridViewTextBoxColumn.DataPropertyName = "Remark";
+            this.remarkDataGridViewTextBoxColumn.FillWeight = 99.66777F;
             this.remarkDataGridViewTextBoxColumn.HeaderText = "Примітка";
             this.remarkDataGridViewTextBoxColumn.Name = "remarkDataGridViewTextBoxColumn";
             this.remarkDataGridViewTextBoxColumn.ReadOnly = true;
@@ -901,6 +936,7 @@
             // Patient
             // 
             this.Patient.DataPropertyName = "Patient";
+            this.Patient.FillWeight = 100.0414F;
             this.Patient.HeaderText = "Пацієнт";
             this.Patient.Name = "Patient";
             this.Patient.ReadOnly = true;
@@ -908,9 +944,11 @@
             // dateDataGridViewTextBoxColumn
             // 
             this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.FillWeight = 100.2909F;
             this.dateDataGridViewTextBoxColumn.HeaderText = "Дата";
             this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
             this.dateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dateDataGridViewTextBoxColumn.Width = 101;
             // 
             // PhotoBindingSource
             // 
@@ -930,6 +968,7 @@
             // 
             // EditButton
             // 
+            this.EditButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EditButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("EditButton.BackgroundImage")));
             this.EditButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.EditButton.Location = new System.Drawing.Point(550, 6);
@@ -937,6 +976,7 @@
             this.EditButton.Size = new System.Drawing.Size(186, 44);
             this.EditButton.TabIndex = 3;
             this.EditButton.UseSelectable = true;
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
             // AddButton
             // 
@@ -951,19 +991,22 @@
             // 
             // DateTo
             // 
+            this.DateTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DateTo.Location = new System.Drawing.Point(397, 15);
-            this.DateTo.MinimumSize = new System.Drawing.Size(0, 29);
+            this.DateTo.MinimumSize = new System.Drawing.Size(4, 29);
             this.DateTo.Name = "DateTo";
             this.DateTo.Size = new System.Drawing.Size(147, 29);
             this.DateTo.TabIndex = 1;
+            this.DateTo.CloseUp += new System.EventHandler(this.Default_DatePicker_CloseUp);
             // 
             // DateFrom
             // 
             this.DateFrom.Location = new System.Drawing.Point(195, 15);
-            this.DateFrom.MinimumSize = new System.Drawing.Size(0, 29);
+            this.DateFrom.MinimumSize = new System.Drawing.Size(4, 29);
             this.DateFrom.Name = "DateFrom";
             this.DateFrom.Size = new System.Drawing.Size(147, 29);
             this.DateFrom.TabIndex = 0;
+            this.DateFrom.CloseUp += new System.EventHandler(this.Default_DatePicker_CloseUp);
             // 
             // metroTabPage1
             // 
@@ -1324,6 +1367,7 @@
             // 
             // VisitsPage
             // 
+            this.VisitsPage.Controls.Add(this.panel5);
             this.VisitsPage.HorizontalScrollbarBarColor = true;
             this.VisitsPage.HorizontalScrollbarHighlightOnWheel = false;
             this.VisitsPage.HorizontalScrollbarSize = 10;
@@ -1335,6 +1379,68 @@
             this.VisitsPage.VerticalScrollbarBarColor = true;
             this.VisitsPage.VerticalScrollbarHighlightOnWheel = false;
             this.VisitsPage.VerticalScrollbarSize = 10;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(metroLabel11);
+            this.panel5.Controls.Add(this.VisitCategoriyComboBox);
+            this.panel5.Controls.Add(this.EditVisitBtn);
+            this.panel5.Controls.Add(this.AddVisitBtn);
+            this.panel5.Controls.Add(this.VisitDateTo);
+            this.panel5.Controls.Add(this.VisitDateFrom);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(748, 73);
+            this.panel5.TabIndex = 3;
+            // 
+            // VisitCategoriyComboBox
+            // 
+            this.VisitCategoriyComboBox.FormattingEnabled = true;
+            this.VisitCategoriyComboBox.ItemHeight = 23;
+            this.VisitCategoriyComboBox.Location = new System.Drawing.Point(348, 41);
+            this.VisitCategoriyComboBox.Name = "VisitCategoriyComboBox";
+            this.VisitCategoriyComboBox.Size = new System.Drawing.Size(180, 29);
+            this.VisitCategoriyComboBox.TabIndex = 4;
+            this.VisitCategoriyComboBox.UseSelectable = true;
+            // 
+            // EditVisitBtn
+            // 
+            this.EditVisitBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.EditVisitBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("EditVisitBtn.BackgroundImage")));
+            this.EditVisitBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.EditVisitBtn.Location = new System.Drawing.Point(550, 6);
+            this.EditVisitBtn.Name = "EditVisitBtn";
+            this.EditVisitBtn.Size = new System.Drawing.Size(186, 64);
+            this.EditVisitBtn.TabIndex = 3;
+            this.EditVisitBtn.UseSelectable = true;
+            // 
+            // AddVisitBtn
+            // 
+            this.AddVisitBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AddVisitBtn.BackgroundImage")));
+            this.AddVisitBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.AddVisitBtn.Location = new System.Drawing.Point(3, 6);
+            this.AddVisitBtn.Name = "AddVisitBtn";
+            this.AddVisitBtn.Size = new System.Drawing.Size(186, 64);
+            this.AddVisitBtn.TabIndex = 2;
+            this.AddVisitBtn.UseSelectable = true;
+            // 
+            // VisitDateTo
+            // 
+            this.VisitDateTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.VisitDateTo.Location = new System.Drawing.Point(381, 6);
+            this.VisitDateTo.MinimumSize = new System.Drawing.Size(0, 29);
+            this.VisitDateTo.Name = "VisitDateTo";
+            this.VisitDateTo.Size = new System.Drawing.Size(147, 29);
+            this.VisitDateTo.TabIndex = 1;
+            // 
+            // VisitDateFrom
+            // 
+            this.VisitDateFrom.Location = new System.Drawing.Point(195, 6);
+            this.VisitDateFrom.MinimumSize = new System.Drawing.Size(0, 29);
+            this.VisitDateFrom.Name = "VisitDateFrom";
+            this.VisitDateFrom.Size = new System.Drawing.Size(147, 29);
+            this.VisitDateFrom.TabIndex = 0;
             // 
             // AccountsPage
             // 
@@ -1422,6 +1528,77 @@
             this.dataGridViewTextBoxColumn9.HeaderText = "Пацієнт";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "PatientCategory";
+            this.dataGridViewTextBoxColumn10.FillWeight = 84.66122F;
+            this.dataGridViewTextBoxColumn10.HeaderText = "Категорія";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Width = 176;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "PatientCategory";
+            this.dataGridViewTextBoxColumn11.FillWeight = 50F;
+            this.dataGridViewTextBoxColumn11.HeaderText = "Категорія";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Width = 177;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "PatientCategory";
+            this.dataGridViewTextBoxColumn12.FillWeight = 60F;
+            this.dataGridViewTextBoxColumn12.HeaderText = "Категорія";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.Width = 188;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "PatientCategory";
+            this.dataGridViewTextBoxColumn13.FillWeight = 60F;
+            this.dataGridViewTextBoxColumn13.HeaderText = "Категорія";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Width = 234;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "PatientCategory";
+            this.dataGridViewTextBoxColumn14.FillWeight = 60F;
+            this.dataGridViewTextBoxColumn14.HeaderText = "Категорія";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.Width = 260;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "PatientCategory";
+            this.dataGridViewTextBoxColumn15.FillWeight = 60F;
+            this.dataGridViewTextBoxColumn15.HeaderText = "Категорія";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Width = 257;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "PatientCategory";
+            this.dataGridViewTextBoxColumn16.FillWeight = 60F;
+            this.dataGridViewTextBoxColumn16.HeaderText = "Категорія";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.dataGridViewTextBoxColumn16.Width = 212;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "PatientCategory";
+            this.dataGridViewTextBoxColumn17.FillWeight = 60F;
+            this.dataGridViewTextBoxColumn17.HeaderText = "Категорія";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            this.dataGridViewTextBoxColumn17.Width = 212;
+            // 
             // patientCategoryBindingSource
             // 
             this.patientCategoryBindingSource.DataSource = typeof(Stomatology.Models.PatientCategory);
@@ -1456,6 +1633,8 @@
             this.panel4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.IconImageBox)).EndInit();
+            this.VisitsPage.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.patientCategoryBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -1500,13 +1679,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MedicalCard;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn adressDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PatientCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn saleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateOfRegistrationDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contraindicationsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private MetroFramework.Controls.MetroButton metroButton1;
         private MetroFramework.Controls.MetroTextBox NameSearchTextBox;
@@ -1542,5 +1714,26 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Patient;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MedicalCard;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn adressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PatientCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn saleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateOfRegistrationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contraindicationsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.Panel panel5;
+        private MetroFramework.Controls.MetroComboBox VisitCategoriyComboBox;
+        private MetroFramework.Controls.MetroButton EditVisitBtn;
+        private MetroFramework.Controls.MetroButton AddVisitBtn;
+        private MetroFramework.Controls.MetroDateTime VisitDateTo;
+        private MetroFramework.Controls.MetroDateTime VisitDateFrom;
     }
 }

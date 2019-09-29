@@ -110,12 +110,16 @@
     <Compile Include="Repository\PatientRepository.cs" />
     <Compile Include="Repository\PhoneNumberRepository.cs" />
     <Compile Include="Repository\PhotoRepository.cs" />
+    <Compile Include="Repository\VisitCategoryRepository.cs" />
+    <Compile Include="Repository\VisitRepository.cs" />
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\FirmService.cs" />
     <Compile Include="Services\PatientCategoryService.cs" />
     <Compile Include="Services\PatientService.cs" />
     <Compile Include="Services\PhoneNumberService.cs" />
     <Compile Include="Services\PhotoService.cs" />
+    <Compile Include="Services\VisitCategoryService.cs" />
+    <Compile Include="Services\VisitService.cs" />
     <Compile Include="Utils\SettingsSerializer.cs" />
     <Compile Include="Utils\Settings.cs" />
     <EmbeddedResource Include="Forms\CardFile.resx">
@@ -140,6 +144,7 @@
     <None Include="Properties\DataSources\Stomatology.Models.Patient.datasource" />
     <None Include="Properties\DataSources\Stomatology.Models.PatientCategory.datasource" />
     <None Include="Properties\DataSources\Stomatology.Models.Photo.datasource" />
+    <None Include="Properties\DataSources\Stomatology.Models.VisitCategory.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

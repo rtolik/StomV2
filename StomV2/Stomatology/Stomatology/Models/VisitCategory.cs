@@ -20,5 +20,10 @@ namespace Stomatology.Models
             Id = id;
             Name = name;
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

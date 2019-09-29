@@ -20,9 +20,8 @@ namespace Stomatology.Forms
 {
     public partial class CardFile : MetroForm
     {
+        #region Variables
         private bool _imgChanged = false;
-
-        private string _iconExtension = "";
 
         private string _fileName = "";
 
@@ -38,16 +37,23 @@ namespace Stomatology.Forms
 
         private readonly List<PatientCategory> _categories;
 
+        private readonly List<VisitCategory> _visitCategories;
+
         private readonly PhoneNumberService _phoneNumberService;
 
         private readonly PatientService _patientService;
 
         private readonly PatientCategoryService _patientCategoryService;
 
+        private readonly VisitCategoryService _visitCategoryService;
+
         private readonly FirmService _firmService;
 
         private readonly PhotoService _photoService;
 
+        #endregion
+
+        #region Initialization
         public CardFile()
         {
             InitializeComponent();
@@ -66,7 +72,11 @@ namespace Stomatology.Forms
 
             _photoService = new PhotoService(mysqlDb);
 
+            _visitCategoryService = new VisitCategoryService(mysqlDb);
+
             _categories = _patientCategoryService.FindAll();
+
+            _visitCategories = _visitCategoryService.FindAll();
 
             InitComponents();
             
@@ -88,12 +98,19 @@ namespace Stomatology.Forms
        
         private void InitComponents()
         {
-            DateFrom.Value = DateTime.Today.Date.AddMonths(-1);
+            DateFrom.Value = DateTime.Today.Date.AddMonths(Constants.MinusMonths);
+            VisitDateFrom.Value = DateTime.Today.Date.AddMonths(Constants.MinusMonths);
 
-            CategoryComboBox.DataSource = _categories;
+            InitCategory(CategoryComboBox, _categories);
+            InitCategory(VisitCategoriyComboBox, _visitCategories);
+        }
 
-            CategoryComboBox.DisplayMember = "Name";
-            CategoryComboBox.ValueMember = "Name";
+        private void InitCategory<T>(MetroComboBox comboBox, List<T> categories)
+        {
+            comboBox.DataSource = categories;
+
+            comboBox.DisplayMember = "Name";
+            comboBox.ValueMember = "Name";
         }
 
         private void InitTheme()
@@ -114,6 +131,38 @@ namespace Stomatology.Forms
             metroStyleManager1.Theme = (MetroThemeStyle)_settings.Theme;
         }
 
+        private void InitSelectedPatient()
+        {
+            IconImageBox.SizeMode = Constants.defaultPictureSizeMode;
+            IconImageBox.Image = Image.FromFile(_selectedPatient.IconPath);
+            CardTextBox.Text = _selectedPatient.MedicalCard;
+            RegistrationDate.Value = _selectedPatient.DateOfRegistration;
+            CategoryComboBox.SelectedItem = _selectedPatient.PatientCategory;
+            SaleTextBox.Text = _selectedPatient.Sale.ToString();
+            AdressTextBox.Text = _selectedPatient.Adress;
+            FullNameTextBox.Text = _selectedPatient.FullName;
+            RemarkTextBox.Text = _selectedPatient.Remark;
+            ContraindicationsRichTextBox.Text = _selectedPatient.Contraindications;
+            _selectedPatient = _phoneNumberService.AddPhoneNumbersToOnePatient(_selectedPatient);
+            PhonesRichTextBox.Text = "";
+            ArchiveCheckBox.Checked = _selectedPatient.IsArchive;
+            foreach (PhoneNumber number in _selectedPatient.PhoneNumbers)
+                PhonesRichTextBox.Text += number.Phone + "\n";
+
+        }
+
+        private void InitSelectedPhoto()
+        {
+            ImageBox.Image = Image.FromFile(_photo.PhotoPath);
+            ImageBox.SizeMode = Constants.defaultPictureSizeMode;
+            ImageDescriptionTextBox.Text = _photo.Remark;
+        }
+
+
+        #endregion
+
+        #region LeftMenu
+
         private void FindBtn_Click(object sender, EventArgs e)
         {
             RefreshGridData();
@@ -128,37 +177,25 @@ namespace Stomatology.Forms
             EnablePhotoForm(true);
             if (Grid.CurrentRow != null)
                 _selectedPatient = (Patient)Grid.CurrentRow.DataBoundItem;
-            DateFrom.Value = DateFrom.Value.AddMonths(Constants.MinusMonths);
             FindPatientPhotos();
         }
 
-        private void EnablePhotoForm(bool enabled)
+        private void VisitsButton_Click(object sender, EventArgs e)
         {
-            AddButton.Enabled = enabled;
-            EditButton.Enabled = enabled;
-            DateFrom.Enabled = enabled;
-            DateTo.Enabled = enabled;
-            PhotoGrid.Enabled = enabled;
+            TabControl.SelectTab(4);
         }
 
-        private void FindPatientPhotos()
+        private void CreateNewPatient(object sender, EventArgs e)
         {
-            _photos = _photoService.FindAllByPatientIdAndDateRange(_selectedPatient.Id.Value, DateFrom.Value, DateTo.Value);
-            RefreshPhotoGridData();
+            EnablePersonalInfoTabElements(true);
+            _selectedPatient = new Patient();
+            InitSelectedPatient();
+            TabControl.SelectTab(2);
         }
 
-        private void RefreshPhotoGridData()
-        {
-            PhotoGrid.DataSource = _photos;
-            TabControl.SelectTab(1);
-        }
+        #endregion
 
-        private void ArchiveCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            _patients = _patientService.FindPatientsByArchiveAndFirm(ArchiveCheckBox.Checked, _settings.FirmId);
-            SortPatients();
-        }
-
+        #region FindPage
         private void SortPatients()
         {
             if (RegistrationDateSort.Checked)
@@ -184,33 +221,37 @@ namespace Stomatology.Forms
             switch (rb.Tag.ToString())
             {
                 case ("Registration"):
-                {
-                    _patients = _patients.OrderByDescending(_patients => _patients.DateOfRegistration).ToList();
-                }break;
+                    {
+                        _patients = _patients.OrderByDescending(_patients => _patients.DateOfRegistration).ToList();
+                    }
+                    break;
 
                 case ("Category"):
-                {
-                    _patients = _patients.OrderBy(patient => patient.PatientCategory.Id).ToList();
-                }break;
+                    {
+                        _patients = _patients.OrderBy(patient => patient.PatientCategory.Id).ToList();
+                    }
+                    break;
 
                 case ("Name"):
-                {
-                    _patients = _patients.OrderBy(patient => patient.FullName).ToList();
-                }break;
+                    {
+                        _patients = _patients.OrderBy(patient => patient.FullName).ToList();
+                    }
+                    break;
 
                 case ("CardNumber"):
-                {
-                    _patients = _patients.OrderByDescending(patient => int.Parse(patient.MedicalCard)).ToList();
-                }break;
+                    {
+                        _patients = _patients.OrderByDescending(patient => int.Parse(patient.MedicalCard)).ToList();
+                    }
+                    break;
             }
 
             RefreshGridData();
         }
 
-        private void TextBoxClean(object sender, EventArgs e)
+        private void ArchiveCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            MetroTextBox tb = (MetroTextBox) sender;
-            tb.Text = "";
+            _patients = _patientService.FindPatientsByArchiveAndFirm(ArchiveCheckBox.Checked, _settings.FirmId);
+            SortPatients();
         }
 
         private void MultipleFinder(object sender, EventArgs e)
@@ -223,30 +264,14 @@ namespace Stomatology.Forms
         private void Grid_DoubleClick(object sender, EventArgs e)
         {
             if (Grid.CurrentRow != null)
-                _selectedPatient = (Patient) Grid.CurrentRow.DataBoundItem;
+                _selectedPatient = (Patient)Grid.CurrentRow.DataBoundItem;
             InitSelectedPatient();
             TabControl.SelectTab(2);
         }
 
-        private void InitSelectedPatient()
-        {
-            IconImageBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            IconImageBox.Image = Image.FromFile(_selectedPatient.IconPath);
-            CardTextBox.Text = _selectedPatient.MedicalCard;
-            RegistrationDate.Value = _selectedPatient.DateOfRegistration;
-            CategoryComboBox.SelectedItem = _selectedPatient.PatientCategory;
-            SaleTextBox.Text = _selectedPatient.Sale.ToString();
-            AdressTextBox.Text = _selectedPatient.Adress;
-            FullNameTextBox.Text = _selectedPatient.FullName;
-            RemarkTextBox.Text = _selectedPatient.Remark;
-            ContraindicationsRichTextBox.Text = _selectedPatient.Contraindications;
-            _selectedPatient = _phoneNumberService.AddPhoneNumbersToOnePatient(_selectedPatient);
-            PhonesRichTextBox.Text = "";
-            ArchiveCheckBox.Checked = _selectedPatient.IsArchive;
-            foreach (PhoneNumber number in _selectedPatient.PhoneNumbers)
-                PhonesRichTextBox.Text += number.Phone+"\n";
+        #endregion
 
-        }
+        #region PersonalData Page
 
         private void EditBtn_Click(object sender, EventArgs e)
         {
@@ -254,33 +279,10 @@ namespace Stomatology.Forms
             EnablePhotoForm(false);
         }
 
-        private void EnablePersonalInfoTabElements(bool enabled)
-        {
-            ApplyBtn.Visible = enabled;
-            DiscardBtn.Visible = enabled;
-            IconBtn.Visible = enabled;
-            RegistrationDate.Enabled = enabled;
-            CardTextBox.Enabled = enabled;
-            CardTextBox.Enabled = enabled;
-            SaleTextBox.Enabled = enabled;
-            FullNameTextBox.Enabled = enabled;
-            RemarkTextBox.Enabled = enabled;
-            AdressTextBox.Enabled = enabled;
-            CategoryComboBox.Enabled = enabled;
-            ContraindicationsRichTextBox.Enabled = enabled;
-            PhonesRichTextBox.Enabled = enabled;
-            ArchivePatientCheckBox.Enabled = enabled;
-        }
-
         private void DiscardBtn_Click(object sender, EventArgs e)
         {
             EnablePersonalInfoTabElements(false);
             InitSelectedPatient();
-        }
-
-        private void IconBtn_Click(object sender, EventArgs e)
-        {
-            SelectImage(IconImageBox);
         }
 
         private void ApplyBtn_Click(object sender, EventArgs e)
@@ -316,7 +318,7 @@ namespace Stomatology.Forms
         {
             if (_imgChanged)
             {
-                string iconPath = Resources.InstallPath + "PatientIcon\\" + _selectedPatient.Id + "_"+ _fileName;//+ "."+_iconExtension
+                string iconPath = Resources.InstallPath + "PatientIcon\\" + _selectedPatient.Id + "_" + _fileName;
                 pictureBox.Image.Save(iconPath);
                 return iconPath;
             }
@@ -327,10 +329,10 @@ namespace Stomatology.Forms
         {
             List<PhoneNumber> phoneNumbers = new List<PhoneNumber>();
             foreach (string line in PhonesRichTextBox.Lines)
-                if (line!="\n")
-                    phoneNumbers.Add(new PhoneNumber(line.Split('\n')[0],_selectedPatient));
+                if (line != "\n")
+                    phoneNumbers.Add(new PhoneNumber(line.Split('\n')[0], _selectedPatient));
             _selectedPatient.PhoneNumbers = phoneNumbers;
-        }   
+        }
 
         private void SetSale()
         {
@@ -338,15 +340,55 @@ namespace Stomatology.Forms
                 _selectedPatient.Sale = sale;
             else
                 MetroMessageBox.Show(this, "Поле \"знижка\" введено не коректно! Перевірте значення.");
-            _selectedPatient.PatientCategory = (PatientCategory) CategoryComboBox.SelectedItem;
+            _selectedPatient.PatientCategory = (PatientCategory)CategoryComboBox.SelectedItem;
         }
 
-        private void CreateNewPatient(object sender, EventArgs e)
+        private void EnablePersonalInfoTabElements(bool enabled)
         {
-            EnablePersonalInfoTabElements(true);
-            _selectedPatient = new Patient();
-            InitSelectedPatient();
-            TabControl.SelectTab(2);
+            ApplyBtn.Visible = enabled;
+            DiscardBtn.Visible = enabled;
+            IconBtn.Visible = enabled;
+            RegistrationDate.Enabled = enabled;
+            CardTextBox.Enabled = enabled;
+            CardTextBox.Enabled = enabled;
+            SaleTextBox.Enabled = enabled;
+            FullNameTextBox.Enabled = enabled;
+            RemarkTextBox.Enabled = enabled;
+            AdressTextBox.Enabled = enabled;
+            CategoryComboBox.Enabled = enabled;
+            ContraindicationsRichTextBox.Enabled = enabled;
+            PhonesRichTextBox.Enabled = enabled;
+            ArchivePatientCheckBox.Enabled = enabled;
+        }
+
+        private void IconBtn_Click(object sender, EventArgs e)
+        {
+            SelectImage(IconImageBox);
+        }
+
+        #endregion
+
+        #region PhotoPage
+
+        private void EnablePhotoForm(bool enabled)
+        {
+            AddButton.Enabled = enabled;
+            EditButton.Enabled = enabled;
+            DateFrom.Enabled = enabled;
+            DateTo.Enabled = enabled;
+            PhotoGrid.Enabled = enabled;
+        }
+
+        private void FindPatientPhotos()
+        {
+            _photos = _photoService.FindAllByPatientIdAndDateRange(_selectedPatient.Id.Value, DateFrom.Value, DateTo.Value);
+            RefreshPhotoGridData();
+        }
+
+        private void RefreshPhotoGridData()
+        {
+            PhotoGrid.DataSource = _photos;
+            TabControl.SelectTab(1);
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -359,20 +401,6 @@ namespace Stomatology.Forms
         private void SelectPhotoBtn_Click(object sender, EventArgs e)
         {
             SelectImage(ImageBox);
-        }
-
-        private void SelectImage(PictureBox pictureBox)
-        {
-            _imgChanged = OpenIconDialog.ShowDialog(this) == DialogResult.OK;
-            if (_imgChanged)
-            {
-
-                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-                pictureBox.Image = Image.FromFile(OpenIconDialog.FileName);
-                _fileName = OpenIconDialog.FileName.Split('\\').Last();
-                _iconExtension = OpenIconDialog.FileName.Split('.').Last();
-
-            }
         }
 
         private void ApplyPhotoBtn_Click(object sender, EventArgs e)
@@ -413,14 +441,7 @@ namespace Stomatology.Forms
         {
             EnablePhotoEditElements(false);
 
-            PhotoButton_Click(null,null);
-        }
-
-        private void InitSelectedPhoto()
-        {
-            ImageBox.Image = Image.FromFile(_photo.PhotoPath);
-            ImageBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            ImageDescriptionTextBox.Text = _photo.Remark;
+            PhotoButton_Click(null, null);
         }
 
         private void PhotoGrid_RowEnter(object sender, EventArgs e)
@@ -429,6 +450,59 @@ namespace Stomatology.Forms
             {
                 _photo = (Photo)PhotoGrid.CurrentRow.DataBoundItem;
                 InitSelectedPhoto();
+            }
+            else
+            {
+                _photo = null;
+                ImageBox.Image = null;
+                ImageDescriptionTextBox.Text = "";
+            }
+        }
+
+        private void Default_DatePicker_CloseUp(object sender, EventArgs e)
+        {
+            CheckDateRange(DateFrom, DateTo);
+
+            FindPatientPhotos();
+        }
+
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            EnablePhotoEditElements(true);
+        }
+
+        #endregion
+
+        #region VisitPage
+
+
+
+        #endregion
+
+        private void TextBoxClean(object sender, EventArgs e)
+        {
+            MetroTextBox tb = (MetroTextBox) sender;
+            tb.Text = "";
+        }
+               
+        private void SelectImage(PictureBox pictureBox)
+        {
+            _imgChanged = OpenIconDialog.ShowDialog(this) == DialogResult.OK;
+            if (_imgChanged)
+            {
+
+                pictureBox.SizeMode = Constants.defaultPictureSizeMode;
+                pictureBox.Image = Image.FromFile(OpenIconDialog.FileName);
+                _fileName = OpenIconDialog.FileName.Split('\\').Last();
+            }
+        }
+
+        private void CheckDateRange(MetroDateTime left, MetroDateTime right)
+        {
+            if (left.Value > right.Value)
+            {
+                MetroMessageBox.Show(this, "Дата початку пошуку має бути меншою ніж дата кінця пошуку!");
+                left.Value = DateTo.Value.AddMonths(Constants.MinusMonths);
             }
         }
     }
