@@ -53,6 +53,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.ArchiveCheckBox = new MetroFramework.Controls.MetroCheckBox();
             this.CategorySort = new MetroFramework.Controls.MetroRadioButton();
@@ -75,12 +81,6 @@
             this.Grid = new MetroFramework.Controls.MetroGrid();
             this.MedicalCard = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.adressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PatientCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.saleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateOfRegistrationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contraindicationsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
             this.PhotoPage = new MetroFramework.Controls.MetroTabPage();
             this.PhotoSelectBtn = new MetroFramework.Controls.MetroButton();
@@ -89,10 +89,6 @@
             this.ImageDescriptionTextBox = new System.Windows.Forms.RichTextBox();
             this.ImageBox = new System.Windows.Forms.PictureBox();
             this.PhotoGrid = new MetroFramework.Controls.MetroGrid();
-            this.remarkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PhotoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
             this.EditButton = new MetroFramework.Controls.MetroButton();
             this.AddButton = new MetroFramework.Controls.MetroButton();
@@ -144,7 +140,46 @@
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VisitsGrid = new MetroFramework.Controls.MetroGrid();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PatientCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateOfRegistrationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contraindicationsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.remarkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhotoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Doctor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.summDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diagnosisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.terapyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VisitCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isDoneDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.visitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.patientCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.metroGrid2 = new MetroFramework.Controls.MetroGrid();
+            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             panel2 = new System.Windows.Forms.Panel();
             groupBox2 = new System.Windows.Forms.GroupBox();
             groupBox1 = new System.Windows.Forms.GroupBox();
@@ -167,12 +202,10 @@
             this.TabControl.SuspendLayout();
             this.FindPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             this.PhotoPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImageBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PhotoGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PhotoBindingSource)).BeginInit();
             this.panel3.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -180,7 +213,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.IconImageBox)).BeginInit();
             this.VisitsPage.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.VisitsGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PhotoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.visitBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientCategoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -682,6 +720,7 @@
             this.Grid.Size = new System.Drawing.Size(748, 340);
             this.Grid.TabIndex = 4;
             this.Grid.UseStyleColors = true;
+            this.Grid.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grid_CellEnter);
             this.Grid.DoubleClick += new System.EventHandler(this.Grid_DoubleClick);
             // 
             // MedicalCard
@@ -698,50 +737,6 @@
             this.FullName.HeaderText = "ПІБ";
             this.FullName.Name = "FullName";
             this.FullName.ReadOnly = true;
-            // 
-            // adressDataGridViewTextBoxColumn
-            // 
-            this.adressDataGridViewTextBoxColumn.DataPropertyName = "Adress";
-            this.adressDataGridViewTextBoxColumn.FillWeight = 90F;
-            this.adressDataGridViewTextBoxColumn.HeaderText = "Адреса";
-            this.adressDataGridViewTextBoxColumn.Name = "adressDataGridViewTextBoxColumn";
-            this.adressDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // PatientCategory
-            // 
-            this.PatientCategory.DataPropertyName = "PatientCategory";
-            this.PatientCategory.FillWeight = 60F;
-            this.PatientCategory.HeaderText = "Категорія";
-            this.PatientCategory.Name = "PatientCategory";
-            this.PatientCategory.ReadOnly = true;
-            // 
-            // saleDataGridViewTextBoxColumn
-            // 
-            this.saleDataGridViewTextBoxColumn.DataPropertyName = "Sale";
-            this.saleDataGridViewTextBoxColumn.FillWeight = 40F;
-            this.saleDataGridViewTextBoxColumn.HeaderText = "Знижка";
-            this.saleDataGridViewTextBoxColumn.Name = "saleDataGridViewTextBoxColumn";
-            this.saleDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dateOfRegistrationDataGridViewTextBoxColumn
-            // 
-            this.dateOfRegistrationDataGridViewTextBoxColumn.DataPropertyName = "DateOfRegistration";
-            this.dateOfRegistrationDataGridViewTextBoxColumn.FillWeight = 60F;
-            this.dateOfRegistrationDataGridViewTextBoxColumn.HeaderText = "Дата Реєстрації";
-            this.dateOfRegistrationDataGridViewTextBoxColumn.Name = "dateOfRegistrationDataGridViewTextBoxColumn";
-            this.dateOfRegistrationDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // contraindicationsDataGridViewTextBoxColumn
-            // 
-            this.contraindicationsDataGridViewTextBoxColumn.DataPropertyName = "Contraindications";
-            this.contraindicationsDataGridViewTextBoxColumn.FillWeight = 90F;
-            this.contraindicationsDataGridViewTextBoxColumn.HeaderText = "Протипоказання";
-            this.contraindicationsDataGridViewTextBoxColumn.Name = "contraindicationsDataGridViewTextBoxColumn";
-            this.contraindicationsDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // patientBindingSource
-            // 
-            this.patientBindingSource.DataSource = typeof(Stomatology.Models.Patient);
             // 
             // metroGrid1
             // 
@@ -924,35 +919,6 @@
             this.PhotoGrid.Size = new System.Drawing.Size(342, 414);
             this.PhotoGrid.TabIndex = 3;
             this.PhotoGrid.CurrentCellChanged += new System.EventHandler(this.PhotoGrid_RowEnter);
-            // 
-            // remarkDataGridViewTextBoxColumn
-            // 
-            this.remarkDataGridViewTextBoxColumn.DataPropertyName = "Remark";
-            this.remarkDataGridViewTextBoxColumn.FillWeight = 99.66777F;
-            this.remarkDataGridViewTextBoxColumn.HeaderText = "Примітка";
-            this.remarkDataGridViewTextBoxColumn.Name = "remarkDataGridViewTextBoxColumn";
-            this.remarkDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Patient
-            // 
-            this.Patient.DataPropertyName = "Patient";
-            this.Patient.FillWeight = 100.0414F;
-            this.Patient.HeaderText = "Пацієнт";
-            this.Patient.Name = "Patient";
-            this.Patient.ReadOnly = true;
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            this.dateDataGridViewTextBoxColumn.FillWeight = 100.2909F;
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Дата";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateDataGridViewTextBoxColumn.Width = 101;
-            // 
-            // PhotoBindingSource
-            // 
-            this.PhotoBindingSource.DataSource = typeof(Stomatology.Models.Photo);
             // 
             // panel3
             // 
@@ -1367,6 +1333,8 @@
             // 
             // VisitsPage
             // 
+            this.VisitsPage.Controls.Add(this.metroGrid2);
+            this.VisitsPage.Controls.Add(this.VisitsGrid);
             this.VisitsPage.Controls.Add(this.panel5);
             this.VisitsPage.HorizontalScrollbarBarColor = true;
             this.VisitsPage.HorizontalScrollbarHighlightOnWheel = false;
@@ -1599,9 +1567,376 @@
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
             this.dataGridViewTextBoxColumn17.Width = 212;
             // 
+            // VisitsGrid
+            // 
+            this.VisitsGrid.AllowUserToResizeRows = false;
+            this.VisitsGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.VisitsGrid.AutoGenerateColumns = false;
+            this.VisitsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.VisitsGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.VisitsGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.VisitsGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.VisitsGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VisitsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.VisitsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.VisitsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dateDataGridViewTextBoxColumn1,
+            this.Doctor,
+            this.saleDataGridViewTextBoxColumn1,
+            this.summDataGridViewTextBoxColumn,
+            this.diagnosisDataGridViewTextBoxColumn,
+            this.terapyDataGridViewTextBoxColumn,
+            this.VisitCategory,
+            this.isDoneDataGridViewCheckBoxColumn});
+            this.VisitsGrid.DataSource = this.visitBindingSource;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.VisitsGrid.DefaultCellStyle = dataGridViewCellStyle14;
+            this.VisitsGrid.EnableHeadersVisualStyles = false;
+            this.VisitsGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.VisitsGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.VisitsGrid.Location = new System.Drawing.Point(0, 76);
+            this.VisitsGrid.Name = "VisitsGrid";
+            this.VisitsGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VisitsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.VisitsGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.VisitsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.VisitsGrid.Size = new System.Drawing.Size(749, 150);
+            this.VisitsGrid.TabIndex = 4;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "VisitCategory";
+            this.dataGridViewTextBoxColumn18.HeaderText = "Категорія";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.Width = 708;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "VisitCategory";
+            this.dataGridViewTextBoxColumn19.HeaderText = "Категорія";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.Width = 708;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "Doctor";
+            this.dataGridViewTextBoxColumn20.HeaderText = "Лікар";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.Width = 354;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.DataPropertyName = "VisitCategory";
+            this.dataGridViewTextBoxColumn21.HeaderText = "Категорія";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.Width = 354;
+            // 
+            // dataGridViewTextBoxColumn22
+            // 
+            this.dataGridViewTextBoxColumn22.DataPropertyName = "Doctor";
+            this.dataGridViewTextBoxColumn22.HeaderText = "Лікар";
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            this.dataGridViewTextBoxColumn22.Width = 354;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.DataPropertyName = "VisitCategory";
+            this.dataGridViewTextBoxColumn23.HeaderText = "Категорія";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.Width = 354;
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            this.dataGridViewTextBoxColumn24.DataPropertyName = "Doctor";
+            this.dataGridViewTextBoxColumn24.HeaderText = "Лікар";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.Width = 354;
+            // 
+            // dataGridViewTextBoxColumn25
+            // 
+            this.dataGridViewTextBoxColumn25.DataPropertyName = "VisitCategory";
+            this.dataGridViewTextBoxColumn25.HeaderText = "Категорія";
+            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
+            this.dataGridViewTextBoxColumn25.Width = 354;
+            // 
+            // dataGridViewTextBoxColumn26
+            // 
+            this.dataGridViewTextBoxColumn26.DataPropertyName = "Doctor";
+            this.dataGridViewTextBoxColumn26.HeaderText = "Лікар";
+            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
+            this.dataGridViewTextBoxColumn26.Width = 354;
+            // 
+            // dataGridViewTextBoxColumn27
+            // 
+            this.dataGridViewTextBoxColumn27.DataPropertyName = "VisitCategory";
+            this.dataGridViewTextBoxColumn27.HeaderText = "Категорія";
+            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
+            this.dataGridViewTextBoxColumn27.Width = 354;
+            // 
+            // adressDataGridViewTextBoxColumn
+            // 
+            this.adressDataGridViewTextBoxColumn.DataPropertyName = "Adress";
+            this.adressDataGridViewTextBoxColumn.FillWeight = 90F;
+            this.adressDataGridViewTextBoxColumn.HeaderText = "Адреса";
+            this.adressDataGridViewTextBoxColumn.Name = "adressDataGridViewTextBoxColumn";
+            this.adressDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // PatientCategory
+            // 
+            this.PatientCategory.DataPropertyName = "PatientCategory";
+            this.PatientCategory.FillWeight = 60F;
+            this.PatientCategory.HeaderText = "Категорія";
+            this.PatientCategory.Name = "PatientCategory";
+            this.PatientCategory.ReadOnly = true;
+            // 
+            // saleDataGridViewTextBoxColumn
+            // 
+            this.saleDataGridViewTextBoxColumn.DataPropertyName = "Sale";
+            this.saleDataGridViewTextBoxColumn.FillWeight = 40F;
+            this.saleDataGridViewTextBoxColumn.HeaderText = "Знижка";
+            this.saleDataGridViewTextBoxColumn.Name = "saleDataGridViewTextBoxColumn";
+            this.saleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dateOfRegistrationDataGridViewTextBoxColumn
+            // 
+            this.dateOfRegistrationDataGridViewTextBoxColumn.DataPropertyName = "DateOfRegistration";
+            this.dateOfRegistrationDataGridViewTextBoxColumn.FillWeight = 60F;
+            this.dateOfRegistrationDataGridViewTextBoxColumn.HeaderText = "Дата Реєстрації";
+            this.dateOfRegistrationDataGridViewTextBoxColumn.Name = "dateOfRegistrationDataGridViewTextBoxColumn";
+            this.dateOfRegistrationDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // contraindicationsDataGridViewTextBoxColumn
+            // 
+            this.contraindicationsDataGridViewTextBoxColumn.DataPropertyName = "Contraindications";
+            this.contraindicationsDataGridViewTextBoxColumn.FillWeight = 90F;
+            this.contraindicationsDataGridViewTextBoxColumn.HeaderText = "Протипоказання";
+            this.contraindicationsDataGridViewTextBoxColumn.Name = "contraindicationsDataGridViewTextBoxColumn";
+            this.contraindicationsDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // patientBindingSource
+            // 
+            this.patientBindingSource.DataSource = typeof(Stomatology.Models.Patient);
+            // 
+            // remarkDataGridViewTextBoxColumn
+            // 
+            this.remarkDataGridViewTextBoxColumn.DataPropertyName = "Remark";
+            this.remarkDataGridViewTextBoxColumn.FillWeight = 99.66777F;
+            this.remarkDataGridViewTextBoxColumn.HeaderText = "Примітка";
+            this.remarkDataGridViewTextBoxColumn.Name = "remarkDataGridViewTextBoxColumn";
+            this.remarkDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Patient
+            // 
+            this.Patient.DataPropertyName = "Patient";
+            this.Patient.FillWeight = 100.0414F;
+            this.Patient.HeaderText = "Пацієнт";
+            this.Patient.Name = "Patient";
+            this.Patient.ReadOnly = true;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.FillWeight = 100.2909F;
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Дата";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dateDataGridViewTextBoxColumn.Width = 101;
+            // 
+            // PhotoBindingSource
+            // 
+            this.PhotoBindingSource.DataSource = typeof(Stomatology.Models.Photo);
+            // 
+            // dateDataGridViewTextBoxColumn1
+            // 
+            this.dateDataGridViewTextBoxColumn1.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn1.FillWeight = 60F;
+            this.dateDataGridViewTextBoxColumn1.HeaderText = "Дата";
+            this.dateDataGridViewTextBoxColumn1.Name = "dateDataGridViewTextBoxColumn1";
+            // 
+            // Doctor
+            // 
+            this.Doctor.DataPropertyName = "Doctor";
+            this.Doctor.HeaderText = "Лікар";
+            this.Doctor.Name = "Doctor";
+            // 
+            // saleDataGridViewTextBoxColumn1
+            // 
+            this.saleDataGridViewTextBoxColumn1.DataPropertyName = "Sale";
+            this.saleDataGridViewTextBoxColumn1.FillWeight = 50F;
+            this.saleDataGridViewTextBoxColumn1.HeaderText = "Знижка";
+            this.saleDataGridViewTextBoxColumn1.Name = "saleDataGridViewTextBoxColumn1";
+            // 
+            // summDataGridViewTextBoxColumn
+            // 
+            this.summDataGridViewTextBoxColumn.DataPropertyName = "Summ";
+            this.summDataGridViewTextBoxColumn.FillWeight = 50F;
+            this.summDataGridViewTextBoxColumn.HeaderText = "Сума";
+            this.summDataGridViewTextBoxColumn.Name = "summDataGridViewTextBoxColumn";
+            // 
+            // diagnosisDataGridViewTextBoxColumn
+            // 
+            this.diagnosisDataGridViewTextBoxColumn.DataPropertyName = "Diagnosis";
+            this.diagnosisDataGridViewTextBoxColumn.HeaderText = "Діагноз";
+            this.diagnosisDataGridViewTextBoxColumn.Name = "diagnosisDataGridViewTextBoxColumn";
+            // 
+            // terapyDataGridViewTextBoxColumn
+            // 
+            this.terapyDataGridViewTextBoxColumn.DataPropertyName = "Terapy";
+            this.terapyDataGridViewTextBoxColumn.HeaderText = "Лікування";
+            this.terapyDataGridViewTextBoxColumn.Name = "terapyDataGridViewTextBoxColumn";
+            // 
+            // VisitCategory
+            // 
+            this.VisitCategory.DataPropertyName = "VisitCategory";
+            this.VisitCategory.HeaderText = "Категорія";
+            this.VisitCategory.Name = "VisitCategory";
+            // 
+            // isDoneDataGridViewCheckBoxColumn
+            // 
+            this.isDoneDataGridViewCheckBoxColumn.DataPropertyName = "IsDone";
+            this.isDoneDataGridViewCheckBoxColumn.FillWeight = 57F;
+            this.isDoneDataGridViewCheckBoxColumn.HeaderText = "Виконано";
+            this.isDoneDataGridViewCheckBoxColumn.Name = "isDoneDataGridViewCheckBoxColumn";
+            // 
+            // visitBindingSource
+            // 
+            this.visitBindingSource.DataSource = typeof(Stomatology.Models.Visit);
+            // 
             // patientCategoryBindingSource
             // 
             this.patientCategoryBindingSource.DataSource = typeof(Stomatology.Models.PatientCategory);
+            // 
+            // metroGrid2
+            // 
+            this.metroGrid2.AllowUserToResizeRows = false;
+            this.metroGrid2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroGrid2.AutoGenerateColumns = false;
+            this.metroGrid2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.metroGrid2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.metroGrid2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.metroGrid2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.metroGrid2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.metroGrid2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.metroGrid2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn28,
+            this.dataGridViewTextBoxColumn29,
+            this.dataGridViewTextBoxColumn30,
+            this.dataGridViewTextBoxColumn31,
+            this.dataGridViewTextBoxColumn32,
+            this.dataGridViewTextBoxColumn33,
+            this.dataGridViewTextBoxColumn34,
+            this.dataGridViewCheckBoxColumn1});
+            this.metroGrid2.DataSource = this.visitBindingSource;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGrid2.DefaultCellStyle = dataGridViewCellStyle11;
+            this.metroGrid2.EnableHeadersVisualStyles = false;
+            this.metroGrid2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.metroGrid2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.metroGrid2.Location = new System.Drawing.Point(-1, 232);
+            this.metroGrid2.Name = "metroGrid2";
+            this.metroGrid2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid2.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.metroGrid2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.metroGrid2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.metroGrid2.Size = new System.Drawing.Size(749, 244);
+            this.metroGrid2.TabIndex = 5;
+            // 
+            // dataGridViewTextBoxColumn28
+            // 
+            this.dataGridViewTextBoxColumn28.DataPropertyName = "Date";
+            this.dataGridViewTextBoxColumn28.FillWeight = 60F;
+            this.dataGridViewTextBoxColumn28.HeaderText = "Дата";
+            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
+            // 
+            // dataGridViewTextBoxColumn29
+            // 
+            this.dataGridViewTextBoxColumn29.DataPropertyName = "Doctor";
+            this.dataGridViewTextBoxColumn29.HeaderText = "Лікар";
+            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
+            // 
+            // dataGridViewTextBoxColumn30
+            // 
+            this.dataGridViewTextBoxColumn30.DataPropertyName = "Sale";
+            this.dataGridViewTextBoxColumn30.FillWeight = 50F;
+            this.dataGridViewTextBoxColumn30.HeaderText = "Знижка";
+            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
+            // 
+            // dataGridViewTextBoxColumn31
+            // 
+            this.dataGridViewTextBoxColumn31.DataPropertyName = "Summ";
+            this.dataGridViewTextBoxColumn31.FillWeight = 50F;
+            this.dataGridViewTextBoxColumn31.HeaderText = "Сума";
+            this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
+            // 
+            // dataGridViewTextBoxColumn32
+            // 
+            this.dataGridViewTextBoxColumn32.DataPropertyName = "Diagnosis";
+            this.dataGridViewTextBoxColumn32.HeaderText = "Діагноз";
+            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
+            // 
+            // dataGridViewTextBoxColumn33
+            // 
+            this.dataGridViewTextBoxColumn33.DataPropertyName = "Terapy";
+            this.dataGridViewTextBoxColumn33.HeaderText = "Лікування";
+            this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
+            // 
+            // dataGridViewTextBoxColumn34
+            // 
+            this.dataGridViewTextBoxColumn34.DataPropertyName = "VisitCategory";
+            this.dataGridViewTextBoxColumn34.HeaderText = "Категорія";
+            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "IsDone";
+            this.dataGridViewCheckBoxColumn1.FillWeight = 57F;
+            this.dataGridViewCheckBoxColumn1.HeaderText = "Виконано";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
             // 
             // CardFile
             // 
@@ -1622,12 +1957,10 @@
             this.TabControl.ResumeLayout(false);
             this.FindPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Grid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
             this.PhotoPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ImageBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PhotoGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PhotoBindingSource)).EndInit();
             this.panel3.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -1635,7 +1968,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.IconImageBox)).EndInit();
             this.VisitsPage.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.VisitsGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PhotoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.visitBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientCategoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1735,5 +2073,34 @@
         private MetroFramework.Controls.MetroButton AddVisitBtn;
         private MetroFramework.Controls.MetroDateTime VisitDateTo;
         private MetroFramework.Controls.MetroDateTime VisitDateFrom;
+        private MetroFramework.Controls.MetroGrid VisitsGrid;
+        private System.Windows.Forms.BindingSource visitBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Doctor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn saleDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn summDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn diagnosisDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn terapyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VisitCategory;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isDoneDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
+        private MetroFramework.Controls.MetroGrid metroGrid2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
     }
 }

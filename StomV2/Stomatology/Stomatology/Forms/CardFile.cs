@@ -47,6 +47,8 @@ namespace Stomatology.Forms
 
         private readonly VisitCategoryService _visitCategoryService;
 
+        private readonly VisitService _visitService;
+
         private readonly FirmService _firmService;
 
         private readonly PhotoService _photoService;
@@ -74,6 +76,8 @@ namespace Stomatology.Forms
 
             _visitCategoryService = new VisitCategoryService(mysqlDb);
 
+            _visitService = new VisitService(mysqlDb);
+
             _categories = _patientCategoryService.FindAll();
 
             _visitCategories = _visitCategoryService.FindAll();
@@ -98,8 +102,8 @@ namespace Stomatology.Forms
        
         private void InitComponents()
         {
-            DateFrom.Value = DateTime.Today.Date.AddMonths(Constants.MinusMonths);
-            VisitDateFrom.Value = DateTime.Today.Date.AddMonths(Constants.MinusMonths);
+            DateFrom.Value = GetDefaultLeftDate();
+            VisitDateFrom.Value = DateTime.Today.Date.AddYears(-10);
 
             InitCategory(CategoryComboBox, _categories);
             InitCategory(VisitCategoriyComboBox, _visitCategories);
@@ -183,12 +187,21 @@ namespace Stomatology.Forms
         private void VisitsButton_Click(object sender, EventArgs e)
         {
             TabControl.SelectTab(4);
+            VisitsGrid.DataSource = FindVisits();
         }
 
         private void CreateNewPatient(object sender, EventArgs e)
         {
             EnablePersonalInfoTabElements(true);
             _selectedPatient = new Patient();
+            InitSelectedPatient();
+            TabControl.SelectTab(2);
+        }
+
+        private void Grid_DoubleClick(object sender, EventArgs e)
+        {
+            if (Grid.CurrentRow != null)
+                _selectedPatient = (Patient)Grid.CurrentRow.DataBoundItem;
             InitSelectedPatient();
             TabControl.SelectTab(2);
         }
@@ -261,14 +274,11 @@ namespace Stomatology.Forms
             SortPatients();
         }
 
-        private void Grid_DoubleClick(object sender, EventArgs e)
+        private void Grid_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (Grid.CurrentRow != null)
                 _selectedPatient = (Patient)Grid.CurrentRow.DataBoundItem;
-            InitSelectedPatient();
-            TabControl.SelectTab(2);
         }
-
         #endregion
 
         #region PersonalData Page
@@ -336,7 +346,7 @@ namespace Stomatology.Forms
 
         private void SetSale()
         {
-            if (float.TryParse(SaleTextBox.Text, out float sale))
+            if (float.TryParse(SaleTextBox.Text, out float sale) || sale > 100)
                 _selectedPatient.Sale = sale;
             else
                 MetroMessageBox.Show(this, "Поле \"знижка\" введено не коректно! Перевірте значення.");
@@ -475,7 +485,10 @@ namespace Stomatology.Forms
 
         #region VisitPage
 
-
+        private List<Visit> FindVisits()
+        {
+            return _visitService.FindAllByPatientAndRange(_selectedPatient, VisitDateFrom.Value, VisitDateTo.Value, (VisitCategory)VisitCategoriyComboBox.SelectedItem);
+        }
 
         #endregion
 
@@ -505,5 +518,11 @@ namespace Stomatology.Forms
                 left.Value = DateTo.Value.AddMonths(Constants.MinusMonths);
             }
         }
+
+        private DateTime GetDefaultLeftDate()
+        {
+            return DateTime.Today.Date.AddMonths(Constants.MinusMonths);
+        }
+
     }
 }

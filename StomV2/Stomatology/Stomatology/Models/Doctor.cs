@@ -24,5 +24,9 @@ namespace Stomatology.Models
             Firm = firm;
         }
 
+        public override string ToString()
+        {
+            return FullName;
+        }
     }
 }

@@ -1,47 +1,52 @@
 ﻿using NHibernate;
 using Stomatology.Models;
 using Stomatology.Repository;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Stomatology.Services
 {
-    public class VisitCategoryService : BaseService<VisitCategoryRepository>
+    public class DoctorService : BaseService<DoctorRepository>
     {
-        public VisitCategoryService(ISessionFactory session) : base(session)
+        public DoctorService(ISessionFactory session) : base(session)
         {
         }
 
-        public List<VisitCategory> FindAll()
+        public List<Doctor> FindAll()
         {
-            List<VisitCategory> categories;
+            List<Doctor> doctors;
             using (ISession mysqlSession = session.OpenSession())
             {
                 using (ITransaction transaction = mysqlSession.BeginTransaction())
                 {
-                    Repository = new VisitCategoryRepository(mysqlSession);
-                    categories = Repository.FindAll<VisitCategory>();
+                    Repository = new DoctorRepository(mysqlSession);
+                    doctors = Repository.FindAll<Doctor>();
                     transaction.Commit();
                 }
             }
-            return categories;
+            return doctors;
         }
 
-        public VisitCategory FindOne(int? id)
+        public Doctor FindOne(int? id)
         {
-            VisitCategory visitCategory = null;
+            Doctor doctor = null;
             if (id != null)
             {
                 using (ISession mysqlSession = session.OpenSession())
                 {
                     using (ITransaction transaction = mysqlSession.BeginTransaction())
                     {
-                        Repository = new VisitCategoryRepository(mysqlSession);
-                        visitCategory = Repository.FindOne<VisitCategory>((int)id);
+                        Repository = new DoctorRepository(mysqlSession);
+                        doctor = Repository.FindOne<Doctor>((int)id);
                         transaction.Commit();
                     }
                 }
             }
-            return visitCategory;
+            return doctor;
         }
+
     }
 }
