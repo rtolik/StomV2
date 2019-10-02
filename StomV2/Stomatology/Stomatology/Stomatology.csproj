@@ -89,6 +89,7 @@
     <Compile Include="Models\Bank.cs" />
     <Compile Include="Models\Cash.cs" />
     <Compile Include="Models\Doctor.cs" />
+    <Compile Include="Models\DTO\OperationDTO.cs" />
     <Compile Include="Models\Enum\MatherialType.cs" />
     <Compile Include="Models\Firm.cs" />
     <Compile Include="Models\Interfaces\IEntityble.cs" />
@@ -143,6 +144,7 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\Stomatology.Models.Operation.datasource" />
     <None Include="Properties\DataSources\Stomatology.Models.Patient.datasource" />
     <None Include="Properties\DataSources\Stomatology.Models.PatientCategory.datasource" />
     <None Include="Properties\DataSources\Stomatology.Models.Photo.datasource" />

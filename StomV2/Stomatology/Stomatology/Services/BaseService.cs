@@ -12,11 +12,11 @@ namespace Stomatology.Services
     {
         protected T Repository;
 
-        protected readonly ISessionFactory session;
+        protected readonly ISession Session;
 
-        public BaseService(ISessionFactory session)
+        public BaseService(ISession session)
         {
-            this.session = session;
+            this.Session = session;
             
         }
     }

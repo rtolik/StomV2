@@ -11,19 +11,16 @@ namespace Stomatology.Services
 {
     class FirmService : BaseService<FirmRepository>
     {
-        public FirmService(ISessionFactory session) : base(session){}
+        public FirmService(ISession session) : base(session) { }
 
         public List<PatientCategory> FindAll()
         {
             List<PatientCategory> categories;
-            using (ISession mysqlSession = session.OpenSession())
+            using (ITransaction transaction = Session.BeginTransaction())
             {
-                using (ITransaction transaction = mysqlSession.BeginTransaction())
-                {
-                    Repository = new FirmRepository(mysqlSession);
-                    categories = Repository.FindAll<PatientCategory>();
-                    transaction.Commit();
-                }
+                Repository = new FirmRepository(Session);
+                categories = Repository.FindAll<PatientCategory>();
+                transaction.Commit();
             }
             return categories;
         }
@@ -31,14 +28,11 @@ namespace Stomatology.Services
         public Firm FindOne(int firmId)
         {
             Firm firm;
-            using (ISession mysqlSession = session.OpenSession())
+            using (ITransaction transaction = Session.BeginTransaction())
             {
-                using (ITransaction transaction = mysqlSession.BeginTransaction())
-                {
-                    Repository = new FirmRepository(mysqlSession);
-                    firm = Repository.FindOne<Firm>(firmId);
-                    transaction.Commit();
-                }
+                Repository = new FirmRepository(Session);
+                firm = Repository.FindOne<Firm>(firmId);
+                transaction.Commit();
             }
 
             return firm;

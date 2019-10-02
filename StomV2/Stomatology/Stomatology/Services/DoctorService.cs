@@ -11,21 +11,18 @@ namespace Stomatology.Services
 {
     public class DoctorService : BaseService<DoctorRepository>
     {
-        public DoctorService(ISessionFactory session) : base(session)
+        public DoctorService(ISession session) : base(session)
         {
         }
 
         public List<Doctor> FindAll()
         {
             List<Doctor> doctors;
-            using (ISession mysqlSession = session.OpenSession())
+            using (ITransaction transaction = Session.BeginTransaction())
             {
-                using (ITransaction transaction = mysqlSession.BeginTransaction())
-                {
-                    Repository = new DoctorRepository(mysqlSession);
-                    doctors = Repository.FindAll<Doctor>();
-                    transaction.Commit();
-                }
+                Repository = new DoctorRepository(Session);
+                doctors = Repository.FindAll<Doctor>();
+                transaction.Commit();
             }
             return doctors;
         }
@@ -35,14 +32,11 @@ namespace Stomatology.Services
             Doctor doctor = null;
             if (id != null)
             {
-                using (ISession mysqlSession = session.OpenSession())
+                using (ITransaction transaction = Session.BeginTransaction())
                 {
-                    using (ITransaction transaction = mysqlSession.BeginTransaction())
-                    {
-                        Repository = new DoctorRepository(mysqlSession);
-                        doctor = Repository.FindOne<Doctor>((int)id);
-                        transaction.Commit();
-                    }
+                    Repository = new DoctorRepository(Session);
+                    doctor = Repository.FindOne<Doctor>((int)id);
+                    transaction.Commit();
                 }
             }
             return doctor;

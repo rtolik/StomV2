@@ -21,6 +21,8 @@ namespace Stomatology.Forms
     public partial class CardFile : MetroForm
     {
         #region Variables
+        private readonly ISession _sqlSession;
+
         private bool _imgChanged = false;
 
         private string _fileName = "";
@@ -64,19 +66,21 @@ namespace Stomatology.Forms
 
             ISessionFactory mysqlDb = ConfigureMySql();
 
-            _patientService = new PatientService(mysqlDb);
+            _sqlSession = mysqlDb.OpenSession();
+
+            _patientService = new PatientService(_sqlSession);
             
-            _patientCategoryService = new PatientCategoryService(mysqlDb);
+            _patientCategoryService = new PatientCategoryService(_sqlSession);
 
-            _phoneNumberService = new PhoneNumberService(mysqlDb);
+            _phoneNumberService = new PhoneNumberService(_sqlSession);
 
-            _firmService = new FirmService(mysqlDb);
+            _firmService = new FirmService(_sqlSession);
 
-            _photoService = new PhotoService(mysqlDb);
+            _photoService = new PhotoService(_sqlSession);
 
-            _visitCategoryService = new VisitCategoryService(mysqlDb);
+            _visitCategoryService = new VisitCategoryService(_sqlSession);
 
-            _visitService = new VisitService(mysqlDb);
+            _visitService = new VisitService(_sqlSession);
 
             _categories = _patientCategoryService.FindAll();
 
@@ -524,5 +528,9 @@ namespace Stomatology.Forms
             return DateTime.Today.Date.AddMonths(Constants.MinusMonths);
         }
 
+        private void CardFile_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _sqlSession.Close();
+        }
     }
 }

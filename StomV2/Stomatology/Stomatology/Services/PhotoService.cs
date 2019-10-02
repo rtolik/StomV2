@@ -14,69 +14,60 @@ namespace Stomatology.Services
     {
 
         private readonly PatientService _patientService;
-        public PhotoService(ISessionFactory session) : base(session)
+        public PhotoService(ISession session) : base(session)
         {
-            _patientService = new PatientService(session); 
+            _patientService = new PatientService(session);
         }
 
         public List<Photo> FindAllByPatientIdAndDateRange(int patientId, DateTime from, DateTime to)
         {
             List<Photo> photos;
-            using (ISession mysqlSession = session.OpenSession())
+            using (ITransaction transaction = Session.BeginTransaction())
             {
-                using (ITransaction transaction = mysqlSession.BeginTransaction())
-                {
-                    Repository = new PhotoRepository(mysqlSession);
-                    photos = Repository.FindAll<Photo>()
-                        .Where(photo => photo.Patient.Id == patientId)
-                        .Where(photo => photo.Date >=  from && photo.Date <= to)
-                        .ToList();
-                    transaction.Commit();
-                }
+                Repository = new PhotoRepository(Session);
+                photos = Repository.FindAll<Photo>()
+                    .Where(photo => photo.Patient.Id == patientId)
+                    .Where(photo => photo.Date >= from && photo.Date <= to)
+                    .ToList();
+                transaction.Commit();
             }
 
-            return AddPatientsToPhotos(photos);
+            return photos;
         }
 
         public void Save(Photo photo)
         {
-            using (ISession mysqlSession = session.OpenSession())
+            using (ITransaction transaction = Session.BeginTransaction())
             {
-                using (ITransaction transaction = mysqlSession.BeginTransaction())
+                try
                 {
-                    try
-                    {
-                        Repository = new PhotoRepository(mysqlSession);
-                        Repository.Save(photo);
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBox.Show(e.StackTrace);
-                        throw;
-                    }
-                    transaction.Commit();
+                    Repository = new PhotoRepository(Session);
+                    Repository.Save(photo);
                 }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.StackTrace);
+                    throw;
+                }
+                transaction.Commit();
             }
         }
 
         public void Update(Photo photo)
         {
-            using (ISession mysqlSession = session.OpenSession())
+            using (ITransaction transaction = Session.BeginTransaction())
             {
-                using (ITransaction transaction = mysqlSession.BeginTransaction())
+                try
                 {
-                    try
-                    {
-                        Repository = new PhotoRepository(mysqlSession);
-                        Repository.Update(photo);
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBox.Show(e.StackTrace);
-                        throw;
-                    }
-                    transaction.Commit();
+                    Repository = new PhotoRepository(Session);
+                    Repository.Update(photo);
                 }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.StackTrace);
+                    throw;
+                }
+                transaction.Commit();
             }
         }
 

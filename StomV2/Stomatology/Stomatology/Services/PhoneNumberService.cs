@@ -10,9 +10,9 @@ using Stomatology.Repository;
 
 namespace Stomatology.Services
 {
-    public class PhoneNumberService:BaseService<PhoneNumberRepository>
+    public class PhoneNumberService : BaseService<PhoneNumberRepository>
     {
-        public PhoneNumberService(ISessionFactory session) : base(session)
+        public PhoneNumberService(ISession session) : base(session)
         {
         }
 
@@ -30,7 +30,7 @@ namespace Stomatology.Services
 
         public Patient AddPhoneNumbersToOnePatient(Patient patient)
         {
-            List<PhoneNumber> phones = FindAll().Where(number=>number.Patient.Id==patient.Id).ToList();
+            List<PhoneNumber> phones = FindAll().Where(number => number.Patient.Id == patient.Id).ToList();
 
             patient.PhoneNumbers = phones;
 
@@ -40,14 +40,11 @@ namespace Stomatology.Services
         public List<PhoneNumber> FindAll()
         {
             List<PhoneNumber> phoneNumbers;
-            using (ISession mysqlSession = session.OpenSession())
+            using (ITransaction transaction = Session.BeginTransaction())
             {
-                using (ITransaction transaction = mysqlSession.BeginTransaction())
-                {
-                    Repository = new PhoneNumberRepository(mysqlSession);
-                    phoneNumbers = Repository.FindAll<PhoneNumber>();
-                    transaction.Commit();
-                }
+                Repository = new PhoneNumberRepository(Session);
+                phoneNumbers = Repository.FindAll<PhoneNumber>();
+                transaction.Commit();
             }
             return phoneNumbers;
         }

@@ -9,21 +9,18 @@ using Stomatology.Repository;
 
 namespace Stomatology.Services
 {
-    class PatientCategoryService:BaseService<PatientCategoryRepository>
+    class PatientCategoryService : BaseService<PatientCategoryRepository>
     {
-        public PatientCategoryService(ISessionFactory session) : base(session){}
+        public PatientCategoryService(ISession session) : base(session) { }
 
         public List<PatientCategory> FindAll()
         {
             List<PatientCategory> categories;
-            using (ISession mysqlSession = session.OpenSession())
+            using (ITransaction transaction = Session.BeginTransaction())
             {
-                using (ITransaction transaction = mysqlSession.BeginTransaction())
-                {
-                    Repository = new PatientCategoryRepository(mysqlSession);
-                    categories = Repository.FindAll<PatientCategory>();
-                    transaction.Commit();
-                }
+                Repository = new PatientCategoryRepository(Session);
+                categories = Repository.FindAll<PatientCategory>();
+                transaction.Commit();
             }
             return categories;
         }

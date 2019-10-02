@@ -11,40 +11,28 @@ namespace Stomatology.Services
 {
     internal class PatientService : BaseService<PatientRepository>
     {
-        private readonly PatientCategoryService _patientCategoryService;
-
-        public PatientService(ISessionFactory session) : base(session)
-        {
-            _patientCategoryService = new PatientCategoryService(session);
-        }
+        public PatientService(ISession session) : base(session){}
 
         public List<Patient> FindAll()
         {
             List<Patient> patients;
-            using (ISession mysqlSession = session.OpenSession())
+            using (ITransaction transaction = Session.BeginTransaction())
             {
-                using (ITransaction transaction = mysqlSession.BeginTransaction())
-                {
-                    Repository = new PatientRepository(mysqlSession);
-                    patients = Repository.FindAll<Patient>();
-                    transaction.Commit();
-                }
+                Repository = new PatientRepository(Session);
+                patients = Repository.FindAll<Patient>();
+                transaction.Commit();
             }
-
             return patients;
         }
 
         public Patient FindOne(int id)
         {
             Patient patient;
-            using (ISession mysqlSession = session.OpenSession())
+            using (ITransaction transaction = Session.BeginTransaction())
             {
-                using (ITransaction transaction = mysqlSession.BeginTransaction())
-                {
-                    Repository = new PatientRepository(mysqlSession);
-                    patient = Repository.FindOne<Patient>(id);
-                    transaction.Commit();
-                }
+                Repository = new PatientRepository(Session);
+                patient = Repository.FindOne<Patient>(id);
+                transaction.Commit();
             }
 
             return patient;
@@ -52,22 +40,19 @@ namespace Stomatology.Services
 
         public void Save(Patient patient)
         {
-            using (ISession mysqlSession = session.OpenSession())
+            using (ITransaction transaction = Session.BeginTransaction())
             {
-                using (ITransaction transaction = mysqlSession.BeginTransaction())
+                try
                 {
-                    try
-                    {
-                        Repository = new PatientRepository(mysqlSession);
-                        Repository.Save(patient);
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBox.Show(e.StackTrace);
-                        throw;
-                    }
-                    transaction.Commit();
+                    Repository = new PatientRepository(Session);
+                    Repository.Save(patient);
                 }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.StackTrace);
+                    throw;
+                }
+                transaction.Commit();
             }
         }
 
@@ -79,22 +64,19 @@ namespace Stomatology.Services
 
         public void Update(Patient patient)
         {
-            using (ISession mysqlSession = session.OpenSession())
+            using (ITransaction transaction = Session.BeginTransaction())
             {
-                using (ITransaction transaction = mysqlSession.BeginTransaction())
+                try
                 {
-                    try
-                    {
-                        Repository = new PatientRepository(mysqlSession);
-                        Repository.Update(patient);
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBox.Show(e.StackTrace);
-                        throw;
-                    }
-                    transaction.Commit();
+                    Repository = new PatientRepository(Session);
+                    Repository.Update(patient);
                 }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.StackTrace);
+                    throw;
+                }
+                transaction.Commit();
             }
         }
 
@@ -114,16 +96,15 @@ namespace Stomatology.Services
             if (fullName != "")
                 patients = patients.Where(patient => patient.FullName.Contains(fullName)).ToList();
 
-            return AddCategoriesToPatients(patients);
+            return patients;
         }
 
         public List<Patient> FindPatientsByArchiveAndFirm(bool archive, int firmId)
         {
-            return AddCategoriesToPatients(
+            return 
                 FindPatientsByArchive(archive)
                     .Where(patient => patient.Firm.Id == firmId || patient.IsPublic)
-                    .ToList()
-            );
+                    .ToList();
         }
 
         public List<Patient> FindPatientsByArchive(bool archive)
@@ -131,16 +112,6 @@ namespace Stomatology.Services
             return FindAll()
                 .Where(patient => patient.IsArchive.Equals(archive))
                 .ToList();
-        }
-
-        private List<Patient> AddCategoriesToPatients(List<Patient> patients)
-        {
-            List<PatientCategory> categories = _patientCategoryService.FindAll();
-
-            for (int i = 0; i < patients.Count; i++)
-                patients[i].PatientCategory = categories.Find(cat => cat.Id == patients[i].PatientCategory.Id);
-
-            return patients;
         }
     }
 }
